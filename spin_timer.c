@@ -26,6 +26,7 @@ static void spin_counter_set(TIMER_MODE_TYPES mode,uint time){
 		TMOD |= mode;
 		if(mode==mode2){
 			TL0=TH0=time;
+			return;
 	  	}
 		TL0=(time&0xff); //高位截断还是低位截断?
 	  	TH0=time>>8;
@@ -36,6 +37,7 @@ static void spin_counter_set(TIMER_MODE_TYPES mode,uint time){
 		TMOD |= (mode<<4);
 		if(mode==mode2){
 			TL1=TH1=time;
+			return;
 	  	}
 		TL1=(time&0xff); //高位截断还是低位截断?
 	  	TH1=time>>8;
@@ -203,4 +205,19 @@ void spin_timer_for_uart(INTER_LIST dev,uint overtime){
    spin_interupt_close(dev);
    spin_timer_start(dev);
 
+}
+//为了产生系统时基
+void spin_sysTick(void(*callback)(void)){
+	  uint primary_values;
+	  //设置中断回调
+	  local_timer_current_callback = inter_vector_function[local_timer_current_used];
+	  inter_vector_function[local_timer_current_used]=(uchar *)callback;
+
+	  spin_interupt_init();
+	  spin_interupt_enable();
+
+	  spin_timer_set(local_timer_current_used,mode2,5);
+	  spin_interupt_open(local_timer_current_used,high);
+		//开始计时
+	  spin_timer_start();
 }

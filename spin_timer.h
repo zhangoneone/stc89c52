@@ -25,4 +25,5 @@ void delay2us(void);
 void delay3us(void);
 void delay1ms(void);
 void delay1s(void);
+void spin_sysTick(void(*callback)(void));
 #endif

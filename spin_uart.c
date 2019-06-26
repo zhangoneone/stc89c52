@@ -20,7 +20,7 @@ uint spin_uart_init(){
    SCON=0xD0;//方式3,允许接收 停止位1.5位
    PCON|=0x80;//52单片机支持。使能后，串口实际波特率加倍
    spin_interupt_open(serial);	//开串口中断
-   return boaud_rate;
+   return boaud_rate*2;
 }
 
 uint spin_write_uart(const char *buff,uint n){
@@ -30,6 +30,7 @@ uint spin_write_uart(const char *buff,uint n){
 		SBUF=*buff;
 		buff++;
 	}
+	return i;
 }
 //阻塞方式
 uchar spin_read_byte(){

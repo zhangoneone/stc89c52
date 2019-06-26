@@ -286,7 +286,7 @@
             <Fuzzy>3</Fuzzy>
             <Optimize>8</Optimize>
             <WarningLevel>2</WarningLevel>
-            <SizeSpeed>0</SizeSpeed>
+            <SizeSpeed>1</SizeSpeed>
             <ObjectExtend>1</ObjectExtend>
             <ACallAJmp>0</ACallAJmp>
             <InterruptVectorAddress>0</InterruptVectorAddress>
@@ -406,6 +406,11 @@
               <FileType>1</FileType>
               <FilePath>.\spin_watchdog.c</FilePath>
             </File>
+            <File>
+              <FileName>one_os.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\one_os.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -450,6 +455,11 @@
               <FileName>spin_watchdog.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\spin_watchdog.h</FilePath>
+            </File>
+            <File>
+              <FileName>one_os.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\one_os.h</FilePath>
             </File>
           </Files>
         </Group>

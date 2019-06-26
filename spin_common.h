@@ -43,7 +43,6 @@ enum{
  disable=0,
  enable,
 };
- void  spin_set_gpio_bit_value(GPIOS gpio,uchar index,uchar value);
 typedef enum{
    spin_ok,
    allocate_timer_fail,
@@ -65,7 +64,10 @@ typedef uint mutex_t;  //负责缓冲区的读写互斥
 #define mutex_lock(mutex_name)			while(!mutex_name);	\
 										mutex_name=0	
 #define mutex_unlock(mutex_name)		mutex_name=1
-//临界区
+//临界区 注意，目前临界区只有串口需要使用，故这样设置
+//#define critical_area_enter()				spin_interupt_close(serial)
+//#define critical_area_exit()				spin_interupt_open(serial,high)
+
 #define critical_area_enter()				spin_interupt_disable()
 #define critical_area_exit()				spin_interupt_enable()
 #endif
