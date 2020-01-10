@@ -8,8 +8,9 @@
 #include"spin_uart.h"
 #include"spin_watchdog.h"
 #include"spin_pwrmgr.h"
-#include<string.h>
-#include<stdio.h>
+#include"xprintf.h"
+DATA unsigned int system_time0 = 0;	 //2个字节
+DATA unsigned int system_time1 = 0;
 //定时喂狗任务
 void task1(){
 	 spin_watchdog_clear();
@@ -22,22 +23,40 @@ void task2(){
 }
 //定时发送数据到串口
 void task3(){
-	 spin_write_uart("os running!\n",strlen("os running!\n"));
+	xputs("os running\r\n"); 
 }
 //查询是否有串口数据
-//void task4(){
-//     static uchar idata recv[15];
-//	 uchar ret = 0;
-// 	 ret = spin_read_byte();
-//	 if(ret != 0)
-//	 	spin_write_uart(&ret,strlen(ret));
-//}
-static idata Tasks task[]=   
+void task4(){
+
+}
+
+void task5(){
+     //消息队列发送测试
+  // fd = spin_cycle_queue_init();
+   //spin_cycle_queue_push(fd,0x33);
+}
+void task6(){
+     //消息队列接收测试
+  // uchar content;
+  // content = spin_cycle_queue_pop(fd);
+
+}
+void task7(){
+   //内存管理测试
+   //uchar addr;
+   //memory_pool_init();
+   //addr = spin_memory_malloc(2);
+ 
+}
+static Tasks task[]=   
 {   
-    {0,0,400,400,task1}, //喂狗		100ms
-    {1,0,2000,2000,task2}, //闪灯	500ms
-	{2,0,4000,4000,task3},//发串口，1s
+    {0,1,400,100,task1}, //喂狗		100ms
+    {1,0,2000,500,task2}, //闪灯	500ms
+	{2,0,4000,1000,task3},//发串口，1s
 //	{3,0,2000,2000,task4},//读串口，500ms
+//	{4,0,2000,2000,task5},//消息队列发送测试，500ms
+//	{5,0,2000,2000,task6},//消息队列接收测试，500ms
+//	{3,0,2000,2000,task7},//内存管理测试，500ms
 };
 
 void TaskHangup(unsigned char Task_Num)//任务挂起函数，参数就是你的任务编号
@@ -53,6 +72,7 @@ void TaskRecovery(unsigned char Task_Num)//任务恢复函数，参数就是你的任务编号
 void TaskRemarks(void) //放在定时器中断里面
 {
 	unsigned char i;
+	 system_time0++;
 	for (i=0; i<TASK_MAX; i++)          
 	{
 		if (task[i].Timer)          

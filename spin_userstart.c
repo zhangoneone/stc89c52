@@ -33,5 +33,11 @@ uchar spin_get_RS0(){
 uchar spin_get_OV(){
       return OV;
 }
+void spin_set_sp(uchar addr){
+	  SP=addr;
+}
+uchar spin_get_sp(){
+ 	return SP;
+}
 
 
