@@ -1,5 +1,5 @@
-#include"spin_userstart.h"
-
+#include"start.h"
+#include <reg52.h>	   //此文件中定义了51的一些特殊功能寄存器
 //用户决定的标志位
 void spin_set_F0(uchar value){
 	F0 = !!value;//避免填入大于1的数
