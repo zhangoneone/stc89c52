@@ -67,11 +67,9 @@ typedef bool mutex_t; //互斥量
 #define mutex_unlock(mutex_name)		mutex_name=1
 //临界区 关闭全部中断
 
-#define critical_area_enter()				(EA=0)
-#define critical_area_exit()				(EA=1)
+#define critical_area_enter()				spin_interupt_disable()
+#define critical_area_exit()				spin_interupt_enable()
 
-#define ban_schedule()						(TR0=0)
-#define allow_schedule()					(TR0=1)
 void context_push();
 void context_pop();
 

@@ -1,7 +1,6 @@
 #include "core/task.h"
 #include "core/list.h"
 #include "core/mem.h"
-
 #include <reg52.h>
 extern spin_sysTick(uint callback);
 IDATA tasklist wait_task,block_task,extinct_task;
@@ -83,7 +82,6 @@ err_t schedule(){
    TASKHANDLE IDATA task;
    err_t IDATA err=err_ok;
 #if(TIMESLICE==1)
-   critical_area_enter();
    err=task_append(wait_task,cur_task);
    if(err!=err_ok)return err; //出错了
    cur_task->status=WAIT;
@@ -92,10 +90,8 @@ err_t schedule(){
    if(err!=err_ok)return err; //出错了
    task->status=RUN;
    cur_task=task;
-   critical_area_exit();
    return err;
 #else
-   critical_area_enter();
    err=task_append(wait_task,cur_task);
    if(err!=err_ok)return err; //出错了
    cur_task->status=WAIT;
@@ -105,22 +101,16 @@ err_t schedule(){
    if(err!=err_ok)return err; //出错了
    task->status=RUN;
    cur_task=task;
-   critical_area_exit();
    return err;
 #endif		
 }
 //调度中断
-static IDATA uchar counter=0;
 void intersvr1(void) interrupt 1{
-   counter++;
-   if(counter==8){
-       counter==0;
-	   context_push();
-	   //切换到OS栈
-	   SP=OSSTACKPOINT;
-	   schedule();
-	   context_pop();
-   }
+   context_push();
+   //切换到OS栈
+   SP=OSSTACKPOINT;
+   schedule();
+   context_pop();
 }
 TASKHANDLE task_create(uchar task_id,uchar priorty,uchar stack_size,void(*task_fun)(void)){
 	TASKHANDLE IDATA t = (TASKHANDLE)ONEMALLOC(sizeof(TASK));
@@ -132,8 +122,7 @@ TASKHANDLE task_create(uchar task_id,uchar priorty,uchar stack_size,void(*task_f
 	t->task_fun=task_fun;
 	t->stack_addr=ONEMALLOC(stack_size);	//申请task栈ram
 	if(t->stack_addr==NULL)return NULL;
-	t->stack_p=(void *)t->stack_addr;
-	t->stack_p=(void *)task_fun; //调度返回时调用taskfun
+	t->stack_p=(void *)((uint)t->stack_addr-1);
 	t->status=WAIT;
 	if(task_add(wait_task,t)!=err_ok)return NULL;
 	return t;
@@ -172,6 +161,7 @@ err_t task_delete(TASKHANDLE task){
    	 return task_change(block_task,extinct_task,task);
    else return err_failed;
 }
+//清理extinct
 err_t task_clean(){
 	err_t IDATA err=err_ok;
 	tasklist p=extinct_task;
@@ -184,7 +174,6 @@ err_t task_clean(){
 	}
 	return err;
 }
-
 
 void idle_fun(){
   for(;;){
@@ -203,5 +192,5 @@ err_t oneos_init(){
 void oneos_start(){
    OSSTACKPOINT=(void *)SP;
    spin_sysTick(0);
-   while(1);
+   while(schedule());
 }
