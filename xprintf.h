@@ -30,7 +30,6 @@ typedef unsigned char (*xfunc_in_t)(void);
 extern unsigned int xfunc_in;
 char xgetc();
 int xgets (char* buff, int len);
-int xatoi (char** str, long* res);
 #endif
 
 #endif

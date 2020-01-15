@@ -1,6 +1,5 @@
 #ifndef SPINUSERSTARTH
 #define SPINUSERSTARTH
-#include <reg52.h>	   //此文件中定义了51的一些特殊功能寄存器
 #define uchar unsigned char
 #define uint unsigned int
 

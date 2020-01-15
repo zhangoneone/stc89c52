@@ -3,7 +3,7 @@
 #define local_set(gpio,value)	P##gpio=value
 #define local_get(gpio)			P##gpio
 
-void  spin_set_gpio_value(GPIOS gpio,uchar value){
+void  spin_set_gpio_value(uchar gpio,uchar value){
     switch(gpio){
    				case 0:local_set(0,value);break;
 				case 1:local_set(1,value);break;
@@ -12,7 +12,7 @@ void  spin_set_gpio_value(GPIOS gpio,uchar value){
 				default:break;
    	}
 }
-uchar spin_get_gpio_value(GPIOS gpio){
+uchar spin_get_gpio_value(uchar gpio){
 	 uchar temp = 0;
 	 switch(gpio){
    				case 0:temp = local_get(0);break;
@@ -24,7 +24,7 @@ uchar spin_get_gpio_value(GPIOS gpio){
 	return temp;
 }
   //index start from 0
-void  spin_set_gpio_bit_value(GPIOS gpio,uchar index,uchar value){
+void  spin_set_gpio_bit_value(uchar gpio,uchar index,uchar value){
 	uchar temp = 0;
 	if(!!value)
 		temp=spin_get_gpio_value(gpio) | (0x01<<index);
@@ -38,7 +38,7 @@ void  spin_set_gpio_bit_value(GPIOS gpio,uchar index,uchar value){
 				default:break;
    	}
 }
-uchar spin_get_gpio_bit_value(GPIOS gpio,uchar index){
+uchar spin_get_gpio_bit_value(uchar gpio,uchar index){
      uchar temp = 0;
 	 switch(gpio){
    				case 0:temp = local_get(0);break;

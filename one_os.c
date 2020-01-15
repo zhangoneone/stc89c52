@@ -1,6 +1,6 @@
 #include"one_os.h"
 #include"spin_common.h"
-#include"spin_userstart.h"
+#include"start.h"
 #include"spin_interupt.h"
 #include"spin_timer.h"
 #include"spin_exinterupt.h"
@@ -48,11 +48,11 @@ void task7(){
    //addr = spin_memory_malloc(2);
  
 }
-static Tasks task[]=   
+static IDATA Tasks task[]=   
 {   
     {0,1,400,100,task1}, //喂狗		100ms
-    {1,0,2000,500,task2}, //闪灯	500ms
-	{2,0,4000,1000,task3},//发串口，1s
+//   {1,0,2000,500,task2}, //闪灯	500ms
+//	{2,0,4000,1000,task3},//发串口，1s
 //	{3,0,2000,2000,task4},//读串口，500ms
 //	{4,0,2000,2000,task5},//消息队列发送测试，500ms
 //	{5,0,2000,2000,task6},//消息队列接收测试，500ms

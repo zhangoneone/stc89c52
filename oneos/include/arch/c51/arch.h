@@ -1,12 +1,18 @@
-#ifndef SPINCOMMONH
-#define SPINCOMMONH
+#ifndef ARCH_H
+#define ARCH_H
+#ifdef __cplusplus
+extern "C"{
+#endif
+#define DEBUG
 #define C51
+
 #ifdef C51
 #define DATA data
 #define IDATA idata
 #define PDATA pdata
 #define XDATA xdata
 #define CODE code
+
 #else
 #define DATA 
 #define IDATA 
@@ -14,47 +20,40 @@
 #define XDATA 
 #define CODE 
 #endif
-#define inter_num	8
+
+#ifndef NULL
 #define NULL		0x00
-#define FSOC		12 //单片机频率12MHZ
-#define true		1
-#define false		0
+#endif
+
+#define TRUE		1
+#define FALSE		0
+#ifndef ONEMALLOC(size)
+
+#define ONEMALLOC(size)	one_malloc(size)
+#endif
+#ifndef ONEFREE(addr)
+
+#define ONEFREE(addr,size)	one_free(addr,size)
+#endif
+
+#if defined(DEBUG)
+#define DEBUG_LOG(char,int)		printf("assert failed:%s,%d",char,int)	
+#define assert(expr)			if((expr)==0) DEBUG_LOG(__FILE__,__LINE__)
+#endif
+typedef enum{
+	err_ok=0,
+	err_failed=1,
+}err_t;
+
+
 typedef unsigned char  uchar;   
 typedef unsigned int   uint; 
+typedef unsigned long  ulong;
 typedef bit bool;
-#define GPIO0 0   
-#define GPIO1 1  
-#define GPIO2 2  
-#define GPIO3 3  
- /*
- P30 RXD 
- P31 TXD
- P32 out_int0
- P33 out_int1
- P34 timer0	  //外部脉冲计数
- P35 timer1	  //外部脉冲计数
- */
-#define out_int0	0
-#define timer0		1
-#define out_int1	2
-#define timer1		3	
-#define serial		4	
-#define timer2		5
-#define out_int2	6
-#define out_int3	7
-
-#define low 	0
-#define high 	1
-
-#define low_vol 	0
-#define down_eage 	1
-
-#define disable 0
-#define enable  1
-
-#define spin_ok 0
-
-
+typedef unsigned int size_t;
+#define offset(TYPE,MEMBER)	((size_t)&(((TYPE *)0)->MEMBER))
+//给定结构类型，成员名称，成员地址，求结构的起始地址
+#define contain_of(TYPE,MEMBER,MEMBER_PTR) ((TYPE *)(MEMBER_PTR-offset(TYPE,MEMBER)))
 typedef uchar sem_t;//计数型信号量
 #define sem_init(sem_name,value)		sem_name = value
 #define sem_wait(sem_name)				while(!sem_name);	\
@@ -70,4 +69,11 @@ typedef bool mutex_t; //互斥量
 
 #define critical_area_enter()				spin_interupt_disable()
 #define critical_area_exit()				spin_interupt_enable()
+
+void context_push();
+void context_pop();
+
+#ifdef __cplusplus
+}
+#endif
 #endif

@@ -1,6 +1,6 @@
 #include<reg52.h>
 #include"spin_common.h"
-#include"spin_userstart.h"
+#include"start.h"
 #include"spin_interupt.h"
 #include"spin_timer.h"
 #include"spin_exinterupt.h"
@@ -18,19 +18,17 @@ void hardware_init(){
    spin_interupt_init();
    spin_interupt_enable();
    spin_uart_init();
-   spin_watchdog_enable();
-   spin_watchdog_overtime(32,FSOC); //返回溢出时间ms 现在大约是1000
+   //spin_watchdog_enable();
+   //spin_watchdog_overtime(32,FSOC); //返回溢出时间ms 现在大约是1000
    spin_exint0_start(down_eage);
    spin_exint1_start(low_vol);
    //串口测试
    xdev_in(u_getc);
    xdev_out(u_putc);
-   spin_sysTick(TaskRemarks);//产生时基，开始系统,时基250us
 }
 void main(void){
    hardware_init();
-   while(1){
-   		TaskProcess();
-   }
+   oneos_init();
+   oneos_start();
 }
 
