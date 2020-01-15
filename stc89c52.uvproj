@@ -411,16 +411,6 @@
               <FileType>1</FileType>
               <FilePath>.\one_os.c</FilePath>
             </File>
-            <File>
-              <FileName>spin_cycle_queue.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\spin_cycle_queue.c</FilePath>
-            </File>
-            <File>
-              <FileName>spin_memory_manage.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\spin_memory_manage.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -470,16 +460,6 @@
               <FileName>one_os.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\one_os.h</FilePath>
-            </File>
-            <File>
-              <FileName>spin_cycle_queue.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\spin_cycle_queue.h</FilePath>
-            </File>
-            <File>
-              <FileName>spin_memory_manage.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\spin_memory_manage.h</FilePath>
             </File>
           </Files>
         </Group>

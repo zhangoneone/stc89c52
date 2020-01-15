@@ -1,4 +1,3 @@
-#include<reg52.h>
 #include"spin_pwrmgr.h"
 void idle_mode(){
    PCON |= 0x01;

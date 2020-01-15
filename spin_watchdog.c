@@ -1,12 +1,12 @@
 #include"spin_watchdog.h"
-#include<reg52.h>
+
 void spin_watchdog_enable(){
 	WDT_CONTR |=0x20;
 }
 void spin_watchdog_disable(){
 	WDT_CONTR &=0xDF;
 }
-void spin_watchdog_idlework(){
+void spin_watchdog_idlework(bool torf){
 	WDT_CONTR |=0x08;
 }
 //重新计数

@@ -1,8 +1,8 @@
 #include"spin_cycle_queue.h"
-code uchar SPIN_QUEUE_SIZE =20;
-static cycle_queue_t xdata local_cycle_queue[1];
-static bool xdata queue_index;
-static uchar xdata local_queue_content[1][20];//SPIN_QUEUE_SIZE
+static const uchar SPIN_QUEUE_SIZE	= 20;
+static cycle_queue_t pdata local_cycle_queue[2];
+static bool pdata queue_index;
+static uchar pdata local_queue_content[2][20];//SPIN_QUEUE_SIZE
 
 static bool cycle_queue_full(cycle_queue_t *cycle_queue){
 	   if(cycle_queue->cur_rd - cycle_queue->cur_wrt==1)

@@ -1,13 +1,26 @@
 #include"spin_interupt.h"
-#include"spin_gpio.h"
-uint DATA inter_vector_function[inter_num]={NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL};	//交给用户初始化
-DATA mutex_t it0,it1,it2,it3,it4,it5,it6,it7;
-//code uchar* inter_src_list[inter_num]={0xA8,0xA9,0xAA,0xAB,0xAC,0xAD,0xC2,0xC6};
-//code uchar* inter_prority[inter_num]={0xB8,0xB9,0xBA,0xBB,0xBC,0xBD,0xC3,0xC7};
- //设置信号量，把用户中断回调注册为task，当遇到了信号量，task执行
+#include<stdlib.h>
+#include<string.h>
+uint* inter_vector_function[inter_num]={NULL,NULL,NULL,NULL,NULL};	//交给用户初始化
+static uchar* inter_src_list[inter_num];
+static uchar* inter_prority[inter_num];
+
+//static void *callback_data;
 void spin_interupt_init(){
-  it0=it1=it2=it3=it4=it5=it6=it7=0;
+	//中断源开关地址
+	inter_src_list[out_int0]=0xA8;
+	inter_src_list[timer0]=0xA9;
+	inter_src_list[out_int1]=0xAA;
+	inter_src_list[timer1]=0xAB;
+	inter_src_list[serial]=0xAC;
+	//中断优先级设置地址
+	inter_prority[out_int0]=0xB8;
+	inter_prority[timer0]=0xB9;
+	inter_prority[out_int1]=0xBA;
+	inter_prority[timer1]=0xBB;
+	inter_prority[serial]=0xBC;
 }
+
 void spin_interupt_enable(){
 	   EA=1;
 }
@@ -15,70 +28,53 @@ void spin_interupt_disable(){
 	   EA=0;
 }
 void spin_interupt_open(INTER_LIST num,INTER_PRORITY prority){
-     if(out_int2 ==num){
-		EX2=1;
-		PX2=prority;
-		}
-	 else if(out_int3 == num) {
-	 	EX3=1;
-		PX3=prority;
-		}
-	 else {
 		IE |= 0x01<<num;
-		IP |= prority<<num;
-		}
+	   //*inter_prority[num] = prority;
+	   //*inter_src_list[num] = enable;//按位寻址，可以写入1bit
 }
 void spin_interupt_close(INTER_LIST num){
-	if(out_int2 ==num)
-		EX2=0;
-	 else if(out_int3 == num)
-	 	EX3=0;
-	 else
-	 	IE &= (~(0x01<<num));
+		IE &= (~(0x01<<num));
+	   //*inter_src_list[num] = disable;//按位寻址，可以写入1bit
 }
+void spin_interupt_set_params(INTER_LIST num,uchar params){
+
+}
+
 void intersvr0() interrupt 0{
-	   spin_set_gpio_bit_value(GPIO2,0,0);
 	   if(inter_vector_function[0]!=NULL)
-	   		mutex_unlock(it0);
+	   		((interupt_callback)inter_vector_function[0])();
 }
-static DATA uchar counter = 0; //每次timer0溢出是250us，4次才是1ms
+
 void intersvr1(void) interrupt 1{
-		counter++;
-		if(counter==4){
-			counter = 0;
-			if(inter_vector_function[1]!=NULL){
-	   			mutex_unlock(it1);
-				spin_set_gpio_bit_value(GPIO2,1,0);
-				((interupt_callback)inter_vector_function[1])(); //执行任务调度
-			}
-		}
+		if(inter_vector_function[1]!=NULL)
+	   		((interupt_callback)inter_vector_function[1])();
 }
 
 void intersvr2(void) interrupt 2{
-		spin_set_gpio_bit_value(GPIO2,2,0);
 		if(inter_vector_function[2]!=NULL)
-	  		 mutex_unlock(it2);
+	  		 ((interupt_callback)inter_vector_function[2])();
 }
 void intersvr3(void) interrupt 3{
-		spin_set_gpio_bit_value(GPIO2,3,0);
 		if(inter_vector_function[3]!=NULL)
-	   		mutex_unlock(it3);
+	   		((interupt_callback)inter_vector_function[3])();
 }
-//tim2中断
-void intersvr5(void) interrupt 5{
-	spin_set_gpio_bit_value(GPIO2,5,0);
-	if(inter_vector_function[5]!=NULL)
-	   		mutex_unlock(it5);
-}
-//ext2中断
-void intersvr6(void) interrupt 6{
-	spin_set_gpio_bit_value(GPIO2,6,0);
-	if(inter_vector_function[6]!=NULL)
-	   		mutex_unlock(it6);
-}
-//ext3中断
-void intersvr7(void) interrupt 7{
-	spin_set_gpio_bit_value(GPIO2,7,0);
-	if(inter_vector_function[7]!=NULL)
-	   		mutex_unlock(it7);
+extern sem_t uart_recv;
+extern sem_t uart_send;		//发送信号量
+extern uchar recv_buff[10];//接收buff
+extern uchar recv_buff_ptr;
+static uchar local_data=0;
+void intersvr4(void) interrupt 4{
+		if(RI==1){ //接收中断
+			local_data = SBUF;
+			recv_buff[recv_buff_ptr++] = local_data;
+			RI=0;
+			if(inter_vector_function[4]!=NULL)
+	   		((interupt_callback)inter_vector_function[4])();
+			sem_post(uart_recv);
+		}
+		if(TI==1){//发送中断
+			TI=0;
+			sem_post(uart_send);
+			//todo
+		}	
 }
