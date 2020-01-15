@@ -421,6 +421,11 @@
               <FileType>1</FileType>
               <FilePath>.\spin_memory_manage.c</FilePath>
             </File>
+            <File>
+              <FileName>xprintf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\xprintf.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -480,6 +485,11 @@
               <FileName>spin_memory_manage.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\spin_memory_manage.h</FilePath>
+            </File>
+            <File>
+              <FileName>xprintf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\xprintf.h</FilePath>
             </File>
           </Files>
         </Group>

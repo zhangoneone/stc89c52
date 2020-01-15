@@ -316,7 +316,7 @@
       <GroupNumber>1</GroupNumber>
       <FileNumber>2</FileNumber>
       <FileType>1</FileType>
-      <tvExp>1</tvExp>
+      <tvExp>0</tvExp>
       <Focus>0</Focus>
       <ColumnNumber>3431315</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -397,8 +397,8 @@
       <Focus>0</Focus>
       <ColumnNumber>28</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1</TopLine>
-      <CurrentLine>1</CurrentLine>
+      <TopLine>23</TopLine>
+      <CurrentLine>23</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\spin_main.c</PathWithFileName>
       <FilenameWithoutPath>spin_main.c</FilenameWithoutPath>
@@ -468,7 +468,7 @@
       <ColumnNumber>11</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>1</TopLine>
-      <CurrentLine>21</CurrentLine>
+      <CurrentLine>1</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\one_os.c</PathWithFileName>
       <FilenameWithoutPath>one_os.c</FilenameWithoutPath>
@@ -500,6 +500,20 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\spin_memory_manage.c</PathWithFileName>
       <FilenameWithoutPath>spin_memory_manage.c</FilenameWithoutPath>
+    </File>
+    <File>
+      <GroupNumber>2</GroupNumber>
+      <FileNumber>0</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <ColumnNumber>0</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>0</TopLine>
+      <CurrentLine>0</CurrentLine>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\xprintf.c</PathWithFileName>
+      <FilenameWithoutPath>xprintf.c</FilenameWithoutPath>
     </File>
   </Group>
 
@@ -661,6 +675,20 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\spin_memory_manage.h</PathWithFileName>
       <FilenameWithoutPath>spin_memory_manage.h</FilenameWithoutPath>
+    </File>
+    <File>
+      <GroupNumber>3</GroupNumber>
+      <FileNumber>0</FileNumber>
+      <FileType>5</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <ColumnNumber>0</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>0</TopLine>
+      <CurrentLine>0</CurrentLine>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\xprintf.h</PathWithFileName>
+      <FilenameWithoutPath>xprintf.h</FilenameWithoutPath>
     </File>
   </Group>
 
@@ -2005,19 +2033,19 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>6</ActiveTab>
+      <ActiveTab>1</ActiveTab>
       <Documents>
         <Doc>
           <Name>.\one_os.c</Name>
           <ColumnNumber>11</ColumnNumber>
           <TopLine>1</TopLine>
-          <CurrentLine>21</CurrentLine>
+          <CurrentLine>1</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\spin_main.c</Name>
           <ColumnNumber>28</ColumnNumber>
-          <TopLine>1</TopLine>
-          <CurrentLine>1</CurrentLine>
+          <TopLine>23</TopLine>
+          <CurrentLine>23</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\spin_timer.c</Name>
