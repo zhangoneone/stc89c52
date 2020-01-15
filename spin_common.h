@@ -1,6 +1,20 @@
 #ifndef SPINCOMMONH
-#define  SPINCOMMONH
-#define inter_num	5
+#define SPINCOMMONH
+#define C51
+#ifdef C51
+#define DATA data
+#define IDATA idata
+#define PDATA pdata
+#define XDATA xdata
+#define CODE code
+#else
+#define DATA 
+#define IDATA 
+#define PDATA 
+#define XDATA 
+#define CODE 
+#endif
+#define inter_num	8
 #define NULL		0x00
 #define FSOC		12 //单片机频率12MHZ
 #define true		1
@@ -28,8 +42,11 @@ typedef enum{
  out_int1,
  timer1,
  serial,
+ timer2,
+ out_int2,
+ out_int3,
 }INTER_LIST;
-
+typedef INTER_LIST devices;
 typedef enum{
  low=0,
  high,
@@ -49,24 +66,18 @@ typedef enum{
    allocate_counter_fail,
 }SPIN_STATUS;
 
-typedef struct buff_t{
-	char buff[10];	//接收缓冲区
-	uchar len;
-}buff_t;
-typedef uint sem_t;		//计数型信号量，负责缓冲区的full or empty
+typedef uchar sem_t;//计数型信号量
 #define sem_init(sem_name,value)		sem_name = value
 #define sem_wait(sem_name)				while(!sem_name);	\
 										sem_name-=1	
 #define sem_post(sem_name)				sem_name+=1
 
-typedef uint mutex_t;  //负责缓冲区的读写互斥
-#define mutex_init(mutex_name)			mutex_name = 1
+typedef bool mutex_t; //互斥量
+#define mutex_init(mutex_name,value)	mutex_name = value
 #define mutex_lock(mutex_name)			while(!mutex_name);	\
 										mutex_name=0	
 #define mutex_unlock(mutex_name)		mutex_name=1
-//临界区 注意，目前临界区只有串口需要使用，故这样设置
-//#define critical_area_enter()				spin_interupt_close(serial)
-//#define critical_area_exit()				spin_interupt_open(serial,high)
+//临界区 关闭全部中断
 
 #define critical_area_enter()				spin_interupt_disable()
 #define critical_area_exit()				spin_interupt_enable()
