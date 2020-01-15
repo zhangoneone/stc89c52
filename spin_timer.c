@@ -1,5 +1,4 @@
 #include"spin_timer.h"
-#include"spin_interupt.h"
 #include <reg52.h>	   //此文件中定义了51的一些特殊功能寄存器
 #include<intrins.h>
 //char local_timer_current_used = timer0;	 // 记录计时用的设备 ,-1代表未绑定设备,默认绑定
@@ -9,7 +8,7 @@
 //定时器0分成2个8位定时器使用，TL0提供时基，TH0提供定时。定时器1专门给串口作为波特率发生器，定时器2作为高级定时器
 //系统时间，ms为单位
 //0 低电平触发 1 下降沿触发
-static void spin_counter_set(uchar dev,uchar mode,uint time){
+static void spin_counter_set(devices dev,TIMER_MODE_TYPES mode,uint time){
 	  if(dev==timer0){
 	  	TMOD &= 0xF0;
 		TMOD |= 0x04;
@@ -35,14 +34,14 @@ static void spin_counter_set(uchar dev,uchar mode,uint time){
 }
 
 
-void spin_timer_start(uchar dev){
+void spin_timer_start(devices dev){
 	  spin_interupt_enable();
 	  spin_interupt_open(dev,high);
 	  if(dev==timer0)TR0=1;
 	  if(dev==timer1)TR1=1;
 }
 
-void spin_timer_stop(uchar dev){
+void spin_timer_stop(devices dev){
 	  if(dev==timer0)TR0=0;
 	  if(dev==timer1)TR1=0;
 	  spin_interupt_close(dev);
@@ -55,7 +54,7 @@ uint primary_value(uint overflow_time_us){
 
 //定时器0只能设为模式3
 //定时器1只能设为模式2 已经被串口占用了
-void spin_timer_set(uchar dev,uchar mode,uint time){
+void spin_timer_set(devices dev,TIMER_MODE_TYPES mode,uint time){
 	  if(dev==timer0){
 		TMOD &= 0xF0;		//设置定时器模式
 		TMOD |= mode;		//设置定时器模式
@@ -80,13 +79,14 @@ void spin_timer_set(uchar dev,uchar mode,uint time){
 	  }
 }
 
-void spin_counter_time(uchar dev,uint time){ //作为计数器使用，脉冲来自外部引脚	,参数是次数
+SPIN_STATUS spin_counter_time(devices dev,uint time){ //作为计数器使用，脉冲来自外部引脚	,参数是次数
 	  uint primary_values;
 	  //设置初值
 	  primary_values = primary_value(time);
 	  spin_counter_set(dev,mode1,primary_values);
 		//开始计次
 	  spin_timer_start(dev);//通用
+	  return spin_ok;
 }
 static void spin_systick_set(uint time){
 	spin_timer_set(timer0,mode3,time);	

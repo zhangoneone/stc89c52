@@ -21,11 +21,13 @@
 #define false		0
 typedef unsigned char  uchar;   
 typedef unsigned int   uint; 
-typedef bit bool;
-#define GPIO0 0   
-#define GPIO1 1  
-#define GPIO2 2  
-#define GPIO3 3  
+typedef bit bool;   
+typedef enum{
+ GPIO0=0,
+ GPIO1,
+ GPIO2,
+ GPIO3,
+}GPIOS;
  /*
  P30 RXD 
  P31 TXD
@@ -34,26 +36,35 @@ typedef bit bool;
  P34 timer0	  //外部脉冲计数
  P35 timer1	  //外部脉冲计数
  */
-#define out_int0	0
-#define timer0		1
-#define out_int1	2
-#define timer1		3	
-#define serial		4	
-#define timer2		5
-#define out_int2	6
-#define out_int3	7
+typedef enum{
+ out_int0=0, 
+ timer0,
+ out_int1,
+ timer1,
+ serial,
+ timer2,
+ out_int2,
+ out_int3,
+}INTER_LIST;
+typedef INTER_LIST devices;
+typedef enum{
+ low=0,
+ high,
+}INTER_PRORITY;
 
-#define low 	0
-#define high 	1
-
-#define low_vol 	0
-#define down_eage 	1
-
-#define disable 0
-#define enable  1
-
-#define spin_ok 0
-
+typedef enum{
+   low_vol=0,
+   down_eage,
+}TRIGER_TYPES;
+enum{
+ disable=0,
+ enable,
+};
+typedef enum{
+   spin_ok,
+   allocate_timer_fail,
+   allocate_counter_fail,
+}SPIN_STATUS;
 
 typedef uchar sem_t;//计数型信号量
 #define sem_init(sem_name,value)		sem_name = value

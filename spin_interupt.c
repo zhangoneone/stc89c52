@@ -1,7 +1,6 @@
 #include"spin_interupt.h"
 #include"spin_gpio.h"
-#include <reg52.h>	   //此文件中定义了51的一些特殊功能寄存器
-//uint DATA inter_vector_function[inter_num]={NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL};	//交给用户初始化
+uint DATA inter_vector_function[inter_num]={NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL};	//交给用户初始化
 DATA mutex_t it0,it1,it2,it3,it4,it5,it6,it7;
 //code uchar* inter_src_list[inter_num]={0xA8,0xA9,0xAA,0xAB,0xAC,0xAD,0xC2,0xC6};
 //code uchar* inter_prority[inter_num]={0xB8,0xB9,0xBA,0xBB,0xBC,0xBD,0xC3,0xC7};
@@ -9,27 +8,33 @@ DATA mutex_t it0,it1,it2,it3,it4,it5,it6,it7;
 void spin_interupt_init(){
   it0=it1=it2=it3=it4=it5=it6=it7=0;
 }
-void spin_interupt_open(uchar inter_index,uchar prority){
-     if(out_int2 ==inter_index){
+void spin_interupt_enable(){
+	   EA=1;
+}
+void spin_interupt_disable(){
+	   EA=0;
+}
+void spin_interupt_open(INTER_LIST num,INTER_PRORITY prority){
+     if(out_int2 ==num){
 		EX2=1;
 		PX2=prority;
 		}
-	 else if(out_int3 == inter_index) {
+	 else if(out_int3 == num) {
 	 	EX3=1;
 		PX3=prority;
 		}
 	 else {
-		IE |= 0x01<<inter_index;
-		IP |= prority<<inter_index;
+		IE |= 0x01<<num;
+		IP |= prority<<num;
 		}
 }
-void spin_interupt_close(uchar inter_index){
-	if(out_int2 ==inter_index)
+void spin_interupt_close(INTER_LIST num){
+	if(out_int2 ==num)
 		EX2=0;
-	 else if(out_int3 == inter_index)
+	 else if(out_int3 == num)
 	 	EX3=0;
 	 else
-	 	IE &= (~(0x01<<inter_index));
+	 	IE &= (~(0x01<<num));
 }
 void intersvr0() interrupt 0{
 	   spin_set_gpio_bit_value(GPIO2,0,0);
@@ -37,17 +42,17 @@ void intersvr0() interrupt 0{
 	   		mutex_unlock(it0);
 }
 static DATA uchar counter = 0; //每次timer0溢出是250us，4次才是1ms
-//void intersvr1(void) interrupt 1{
-//		counter++;
-//		if(counter==4){
-//			counter = 0;
-//			if(inter_vector_function[1]!=NULL){
-//	   			mutex_unlock(it1);
-//				spin_set_gpio_bit_value(GPIO2,1,0);
-//				((interupt_callback)inter_vector_function[1])(); //执行任务调度
-//			}
-//		}
-//}
+void intersvr1(void) interrupt 1{
+		counter++;
+		if(counter==4){
+			counter = 0;
+			if(inter_vector_function[1]!=NULL){
+	   			mutex_unlock(it1);
+				spin_set_gpio_bit_value(GPIO2,1,0);
+				((interupt_callback)inter_vector_function[1])(); //执行任务调度
+			}
+		}
+}
 
 void intersvr2(void) interrupt 2{
 		spin_set_gpio_bit_value(GPIO2,2,0);
