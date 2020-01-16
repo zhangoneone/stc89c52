@@ -39,7 +39,7 @@ extern const struct process *procinit[];
 void
 procinit_init(void)
 {
-  int i;
+  int xdata i;
   
   for(i = 0; procinit[i] != NULL; ++i) {
     process_start((struct process *)procinit[i], NULL);

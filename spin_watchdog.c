@@ -16,8 +16,8 @@ void spin_watchdog_clear(){
 
 
 uint spin_watchdog_overtime(uchar pre_scale,uchar mhz){
-	 uchar pre_scale_value=0;
-	 uint overtime=0; 
+	 uchar idata pre_scale_value=0;
+	 uint idata overtime=0; 
      WDT_CONTR &=0xf8;
 	 switch(pre_scale){
 	  case 2:pre_scale_value = 0;break;

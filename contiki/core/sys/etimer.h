@@ -73,7 +73,7 @@
  *
  * \hideinitializer
  */
-struct etimer {
+xdata struct etimer {
   struct timer timer;
   struct etimer *next;
   struct process *p;
@@ -95,7 +95,7 @@ struct etimer {
  *             process that called the etimer_set() function.
  *
  */
-CCIF void etimer_set(struct etimer *et, clock_time_t interval);
+CCIF void etimer_set(struct etimer xdata * xdata et, clock_time_t xdata interval);
 
 /**
  * \brief      Reset an event timer with the same interval as was
@@ -112,7 +112,7 @@ CCIF void etimer_set(struct etimer *et, clock_time_t interval);
  *
  * \sa etimer_restart()
  */
-CCIF void etimer_reset(struct etimer *et);
+CCIF void etimer_reset(struct etimer xdata * xdata et);
 
 /**
  * \brief      Reset an event timer with a new interval.
@@ -125,7 +125,7 @@ CCIF void etimer_reset(struct etimer *et);
  *
  * \sa etimer_reset()
  */
-void etimer_reset_with_new_interval(struct etimer *et, clock_time_t interval);
+void etimer_reset_with_new_interval(struct etimer xdata * xdata et, clock_time_t xdata interval);
 
 /**
  * \brief      Restart an event timer from the current point in time
@@ -142,7 +142,7 @@ void etimer_reset_with_new_interval(struct etimer *et, clock_time_t interval);
  *
  * \sa etimer_reset()
  */
-void etimer_restart(struct etimer *et);
+void etimer_restart(struct etimer  xdata * xdata et);
 
 /**
  * \brief      Adjust the expiration time for an event timer
@@ -164,7 +164,7 @@ void etimer_restart(struct etimer *et);
  * \sa etimer_set()
  * \sa etimer_reset()
  */
-void etimer_adjust(struct etimer *et, int td);
+void etimer_adjust(struct etimer xdata * xdata et, int xdata td);
 
 /**
  * \brief      Get the expiration time for the event timer.
@@ -173,7 +173,7 @@ void etimer_adjust(struct etimer *et, int td);
  *
  *             This function returns the expiration time for an event timer.
  */
-clock_time_t etimer_expiration_time(struct etimer *et);
+clock_time_t etimer_expiration_time(struct etimer xdata * xdata et);
 
 /**
  * \brief      Get the start time for the event timer.
@@ -183,7 +183,7 @@ clock_time_t etimer_expiration_time(struct etimer *et);
  *             This function returns the start time (when the timer
  *             was last set) for an event timer.
  */
-clock_time_t etimer_start_time(struct etimer *et);
+clock_time_t etimer_start_time(struct etimer xdata * xdata et);
 
 /**
  * \brief      Check if an event timer has expired.
@@ -193,7 +193,7 @@ clock_time_t etimer_start_time(struct etimer *et);
  *             This function tests if an event timer has expired and
  *             returns true or false depending on its status.
  */
-CCIF int etimer_expired(struct etimer *et);
+CCIF int etimer_expired(struct etimer xdata * xdata et);
 
 /**
  * \brief      Stop a pending event timer.
@@ -205,7 +205,7 @@ CCIF int etimer_expired(struct etimer *et);
  *             emit any event when it expires.
  *
  */
-void etimer_stop(struct etimer *et);
+void etimer_stop(struct etimer xdata * xdata et);
 
 /** @} */
 

@@ -42,9 +42,9 @@
 
 /*---------------------------------------------------------------------------*/
 void
-autostart_start(struct process * const processes[])
+autostart_start(struct process xdata * const xdata processes[])
 {
-  int i;
+  int xdata i;
   
   for(i = 0; processes[i] != NULL; ++i) {
     process_start(processes[i], NULL);
@@ -53,9 +53,9 @@ autostart_start(struct process * const processes[])
 }
 /*---------------------------------------------------------------------------*/
 void
-autostart_exit(struct process * const processes[])
+autostart_exit(struct process xdata * const xdata processes[])
 {
-  int i;
+  int xdata i;
   
   for(i = 0; processes[i] != NULL; ++i) {
     process_exit(processes[i]);

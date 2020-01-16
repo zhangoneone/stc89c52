@@ -43,14 +43,15 @@
 #include "sys/energest.h"
 #include<reg52.h>
 #include "spin_gpio.h"
-static volatile CC_AT_DATA  clock_time_t count = 0; /* Uptime in ticks */
-static volatile CC_AT_DATA  clock_time_t seconds = 0; /* Uptime in secs */
+#include "spin_timer.h"
+static volatile  clock_time_t xdata count = 0; /* Uptime in ticks */
+static volatile  clock_time_t xdata seconds = 0; /* Uptime in secs */
 /*---------------------------------------------------------------------------*/
 /**
  * Each iteration is ~1.0xy usec, so this function delays for roughly len usec
  */
 void
-clock_delay_usec(uint16_t len)
+clock_delay_usec(uint16_t xdata len)
 {
   DISABLE_INTERRUPTS();
   while(len--) {
@@ -63,7 +64,7 @@ clock_delay_usec(uint16_t len)
  * Wait for a multiple of ~8 ms (a tick)
  */
 void
-clock_wait(clock_time_t i)
+clock_wait(clock_time_t  xdata i)
 {
   clock_time_t xdata start;
 
@@ -97,24 +98,16 @@ clock_seconds(void)
 void
 clock_init(void)
 {
-    TMOD &= 0xf0;
-	TMOD |= 0x01;		//设置定时器模式 16位计数模式 7.8ms中断1次
-	TL0=0xEC;
-	TH0=0xE3;
-	TR0=1;
-	ET0=1;//使能定时器0
-	EA=1;
+   spin_sysTick();
 }
-void
-clock_isr(void) interrupt 1				 //定时器0产生系统时基 每秒中断128次 7.8ms中断1次
+static xdata int counter=0;
+void intersvr1(void) interrupt 1				 //定时器0产生系统时基 每秒中断128次 7.8ms中断1次
 {
+  counter++;
+  if(counter<32)return;
+  counter=0;
   spin_set_gpio_bit_value(GPIO2,1,0);
   DISABLE_INTERRUPTS();
-    /*重装初始值*/
-  TL0=0xEC;
-  TH0=0xE3;
-  TF0 = 0;
-  TR0=1;//使能定时器0
   ++count;
   /* Make sure the CLOCK_CONF_SECOND is a power of two, to ensure
      that the modulo operation below becomes a logical and and not

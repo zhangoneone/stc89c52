@@ -42,11 +42,11 @@
 
 #include "sys/process.h"
 
-#define AUTOSTART_PROCESSES(P) struct process xdata * const autostart_processes[] = {P, NULL}
+#define AUTOSTART_PROCESSES(P) struct process xdata *  const autostart_processes[] = {P, NULL}
 
 CLIF extern struct process xdata * const autostart_processes[];
 
-void autostart_start(struct process xdata * const processes[]);
-void autostart_exit(struct process xdata * const processes[]);
+void autostart_start(struct process xdata * const xdata processes[]);
+void autostart_exit(struct process xdata * const xdata processes[]);
 
 #endif /* AUTOSTART_H_ */

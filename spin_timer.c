@@ -95,9 +95,7 @@ void uart_boaud(uint overtime){
    spin_timer_set(timer1,mode2,256-overtime);//自动装填模式
 }
 //为了产生系统时基
-void spin_sysTick(uint callback){
-	  //设置中断回调
-	  inter_vector_function[timer0]=(uint)callback;
+void spin_sysTick(){
 	  spin_systick_set(5);//每250us中断1次
 		//开始计时
 	  spin_timer_start(timer0);

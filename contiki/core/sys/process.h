@@ -271,9 +271,9 @@ typedef unsigned char process_num_events_t;
  * \hideinitializer
  */
 #define PROCESS_THREAD(name, ev, dataa) 				\
-static PT_THREAD(process_thread_##name(struct pt *process_pt,	\
-				       process_event_t  ev,	\
-				       process_data_t  dataa))
+static PT_THREAD(process_thread_##name(struct pt xdata *process_pt,	\
+				       process_event_t xdata ev,	\
+				       process_data_t xdata dataa))
 
 /**
  * Declare the name of a process.
@@ -283,7 +283,7 @@ static PT_THREAD(process_thread_##name(struct pt *process_pt,	\
  *
  * \hideinitializer
  */
-#define PROCESS_NAME(name) extern struct process name
+#define PROCESS_NAME(name) extern struct process xdata name
 
 /**
  * Declare a process.
@@ -298,9 +298,9 @@ static PT_THREAD(process_thread_##name(struct pt *process_pt,	\
  *
  * \hideinitializer
  */
-#define PROCESS(name, strname)				\
+#define PROCESS(name)				\
   PROCESS_THREAD(name, ev, dataa);			\
-  struct process name = { NULL,		        \
+   struct process xdata name = { NULL,		        \
                           process_thread_##name }
 /** @} */
 
@@ -331,7 +331,7 @@ xdata struct process {
  * process
  *
  */
-void process_start(struct process xdata *p, process_data_t xdata dataa);
+void process_start(struct process xdata * xdata p, process_data_t xdata dataa);
 
 /**
  * Post an asynchronous event.
@@ -354,7 +354,7 @@ void process_start(struct process xdata *p, process_data_t xdata dataa);
  * \retval PROCESS_ERR_FULL The event queue was full and the event could
  * not be posted.
  */
-CCIF int process_post(struct process xdata *p, process_event_t xdata ev, process_data_t xdata dataa);
+CCIF int process_post(struct process xdata * xdata p, process_event_t xdata ev, process_data_t xdata dataa);
 
 /**
  * Post a synchronous event to a process.
@@ -366,7 +366,7 @@ CCIF int process_post(struct process xdata *p, process_event_t xdata ev, process
  * \param data A pointer to additional data that is posted together
  * with the event.
  */
-CCIF void process_post_synch(struct process xdata *p,
+CCIF void process_post_synch(struct process xdata * xdata p,
 			     process_event_t xdata ev, process_data_t xdata dataa);
 
 /**
@@ -379,7 +379,7 @@ CCIF void process_post_synch(struct process xdata *p,
  *
  * \sa PROCESS_CURRENT()
  */
-CCIF void process_exit(struct process xdata *p);
+CCIF void process_exit(struct process xdata * xdata p);
 
 
 /**
@@ -392,7 +392,7 @@ CCIF void process_exit(struct process xdata *p);
  * \hideinitializer
  */
 #define PROCESS_CURRENT() process_current
-CCIF extern struct process  *process_current;
+CCIF extern struct process xdata * xdata process_current;
 
 /**
  * Switch context to another process
@@ -416,7 +416,7 @@ CCIF extern struct process  *process_current;
  * \sa PROCESS_CURRENT()
  */
 #define PROCESS_CONTEXT_BEGIN(p) {\
-struct process *tmp_current = PROCESS_CURRENT();\
+struct process xdata * xdata tmp_current = PROCESS_CURRENT();\
 process_current = p
 
 /**
@@ -459,7 +459,7 @@ CCIF process_event_t process_alloc_event(void);
  *
  * \param p A pointer to the process' process structure.
  */
-CCIF void process_poll(struct process xdata *p);
+CCIF void process_poll(struct process xdata * xdata p);
 
 /** @} */
 
@@ -501,7 +501,7 @@ int process_run(void);
  * \retval Non-zero if the process is running.
  * \retval Zero if the process is not running.
  */
-CCIF int process_is_running(struct process xdata *p);
+CCIF int process_is_running(struct process xdata * xdata p);
 
 /**
  *  Number of events waiting to be processed.
@@ -513,7 +513,7 @@ int process_nevents(void);
 
 /** @} */
 
-CCIF extern struct process *process_list;
+CCIF extern struct process xdata * xdata process_list;
 
 #define PROCESS_LIST() process_list
 

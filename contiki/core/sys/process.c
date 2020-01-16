@@ -50,8 +50,8 @@
 /*
  * Pointer to the currently running process structure.
  */
-struct process xdata *process_list = NULL;
-struct process xdata *process_current = NULL;
+struct process xdata * xdata process_list = NULL;
+struct process xdata * xdata process_current = NULL;
  
 static process_event_t xdata lastevent;
 
@@ -77,7 +77,7 @@ static volatile unsigned char xdata poll_requested;
 #define PROCESS_STATE_RUNNING     1
 #define PROCESS_STATE_CALLED      2
 
-static void call_process(struct process *p, process_event_t ev, process_data_t dataa);
+static void call_process(struct process xdata * xdata p, process_event_t xdata  ev, process_data_t xdata dataa);
 
 
 /*---------------------------------------------------------------------------*/
@@ -88,9 +88,9 @@ process_alloc_event(void)
 }
 /*---------------------------------------------------------------------------*/
 void
-process_start(struct process xdata *p, process_data_t xdata dataa)
+process_start(struct process xdata * xdata p, process_data_t xdata dataa)
 {
-  struct process *q;
+  struct process xdata * xdata q;
 
   /* First make sure that we don't try to start a process that is
      already running. */
@@ -113,10 +113,10 @@ process_start(struct process xdata *p, process_data_t xdata dataa)
 }
 /*---------------------------------------------------------------------------*/
 static void
-exit_process(struct process xdata *p, struct process xdata *fromprocess)
+exit_process(struct process xdata * xdata p, struct process xdata * xdata fromprocess)
 {
-  register struct process *q;
-  xdata struct process *old_current = process_current;
+  struct process xdata * xdata q;
+  struct process xdata * xdata old_current = process_current;
 
  // printf("process: exit_process '%s'\n", PROCESS_NAME_STRING(p));
 
@@ -164,7 +164,7 @@ exit_process(struct process xdata *p, struct process xdata *fromprocess)
 }
 /*---------------------------------------------------------------------------*/
 static void
-call_process(struct process xdata *p, process_event_t xdata ev, process_data_t xdata dataa)
+call_process(struct process xdata * xdata p, process_event_t xdata ev, process_data_t xdata dataa)
 {
   xdata int ret;
 
@@ -191,7 +191,7 @@ call_process(struct process xdata *p, process_event_t xdata ev, process_data_t x
 }
 /*---------------------------------------------------------------------------*/
 void
-process_exit(struct process xdata *p)
+process_exit(struct process xdata * xdata p)
 {
   exit_process(p, PROCESS_CURRENT());
 }
@@ -216,7 +216,7 @@ process_init(void)
 static void
 do_poll(void)
 {
-  struct process *p;
+  struct process xdata * xdata p;
 
   poll_requested = 0;
   /* Call the processes that needs to be polled. */
@@ -239,8 +239,8 @@ do_event(void)
 {
   process_event_t xdata ev;
   process_data_t xdata dataa;
-  struct process xdata *receiver;
-  struct process xdata *p;
+  struct process xdata * xdata receiver;
+  struct process xdata * xdata p;
   
   /*
    * If there are any events in the queue, take the first one and walk
@@ -311,9 +311,9 @@ process_nevents(void)
 }
 /*---------------------------------------------------------------------------*/
 int
-process_post(struct process xdata *p, process_event_t xdata ev, process_data_t xdata dataa)
+process_post(struct process xdata * xdata p, process_event_t xdata ev, process_data_t xdata dataa)
 {
-  process_num_events_t snum;
+  process_num_events_t xdata snum;
 
   if(PROCESS_CURRENT() == NULL) {
   //  printf("process_post: NULL process posts event %d to process '%s', nevents %d\n",
@@ -351,16 +351,16 @@ process_post(struct process xdata *p, process_event_t xdata ev, process_data_t x
 }
 /*---------------------------------------------------------------------------*/
 void
-process_post_synch(struct process xdata *p, process_event_t xdata ev, process_data_t xdata dataa)
+process_post_synch(struct process xdata * xdata p, process_event_t xdata ev, process_data_t xdata dataa)
 {
-  struct process xdata *caller = process_current;
+  struct process xdata * xdata caller = process_current;
 
   call_process(p, ev, dataa);
   process_current = caller;
 }
 /*---------------------------------------------------------------------------*/
 void
-process_poll(struct process xdata *p)
+process_poll(struct process xdata * xdata p)
 {
   if(p != NULL) {
     if(p->state == PROCESS_STATE_RUNNING ||
@@ -372,7 +372,7 @@ process_poll(struct process xdata *p)
 }
 /*---------------------------------------------------------------------------*/
 int
-process_is_running(struct process xdata *p)
+process_is_running(struct process xdata * xdata p)
 {
   return p->state != PROCESS_STATE_NONE;
 }

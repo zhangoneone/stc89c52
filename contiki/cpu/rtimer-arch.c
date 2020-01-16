@@ -91,7 +91,7 @@ rtimer_arch_schedule(rtimer_clock_t t)
 }
 /*---------------------------------------------------------------------------*/
 /* avoid referencing bits, we don't call code which use them */
-rtimer_isr(void) interrupt 1
+rtimer_isr(void) interrupt 3
 {
 //  T1IE = 0; /* Ignore Timer 1 Interrupts */
 //  ENERGEST_ON(ENERGEST_TYPE_IRQ);
