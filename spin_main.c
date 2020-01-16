@@ -27,10 +27,10 @@ void hardware_init(){
    xdev_out(u_putc);
    spin_sysTick(TaskRemarks);//产生时基，开始系统,时基250us
 }
-void main(void){
-   hardware_init();
-   while(1){
-   		TaskProcess();
-   }
-}
+//void main(void){
+//   hardware_init();
+//   while(1){
+//   		TaskProcess();
+//   }
+//}
 

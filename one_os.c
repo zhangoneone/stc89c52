@@ -9,8 +9,8 @@
 #include"spin_watchdog.h"
 #include"spin_pwrmgr.h"
 #include"xprintf.h"
-DATA unsigned int system_time0 = 0;	 //2个字节
-DATA unsigned int system_time1 = 0;
+XDATA unsigned int system_time0 = 0;	 //2个字节
+XDATA unsigned int system_time1 = 0;
 //定时喂狗任务
 void task1(){
 	 spin_watchdog_clear();
@@ -48,7 +48,7 @@ void task7(){
    //addr = spin_memory_malloc(2);
  
 }
-static Tasks task[]=   
+static XDATA Tasks task[]=   
 {   
     {0,1,400,100,task1}, //喂狗		100ms
     {1,0,2000,500,task2}, //闪灯	500ms
