@@ -99,7 +99,7 @@ void spin_sysTick(){
 	  spin_systick_set(5);//每250us中断1次
 		//开始计时
 	  spin_timer_start(timer0);
-	  spin_timer_start(timer1);
+	  //spin_timer_start(timer1);
 }
 
 void delay2us(void)   //误差 0us

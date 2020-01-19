@@ -25,7 +25,7 @@
     <ToolsetNumber>0x0</ToolsetNumber>
     <ToolsetName>MCS-51</ToolsetName>
     <TargetOption>
-      <CLK51>45000000</CLK51>
+      <CLK51>12000000</CLK51>
       <OPTTT>
         <gFlags>1</gFlags>
         <BeepAtEnd>1</BeepAtEnd>
@@ -105,7 +105,7 @@
         <tRbox>1</tRbox>
         <sRunDeb>0</sRunDeb>
         <sLrtime>0</sLrtime>
-        <nTsel>9</nTsel>
+        <nTsel>-1</nTsel>
         <sDll></sDll>
         <sDllPa></sDllPa>
         <sDlgDll></sDlgDll>
@@ -129,9 +129,9 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>41</LineNumber>
+          <LineNumber>44</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>-16772503</Address>
+          <Address>-16773221</Address>
           <ByteObject>0</ByteObject>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
@@ -144,49 +144,26 @@
         <Bp>
           <Number>1</Number>
           <Type>0</Type>
-          <LineNumber>46</LineNumber>
+          <LineNumber>176</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>-16772441</Address>
+          <Address>-16772958</Address>
           <ByteObject>0</ByteObject>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>CONTIKI-MAIN.C</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>2</Number>
-          <Type>0</Type>
-          <LineNumber>107</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>-16773099</Address>
-          <ByteObject>0</ByteObject>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>CLOCK.C</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>3</Number>
-          <Type>0</Type>
-          <LineNumber>55</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>-16770499</Address>
-          <ByteObject>0</ByteObject>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>CONTIKI-MAIN.C</Filename>
+          <Filename>PROCESS.C</Filename>
           <ExecCommand></ExecCommand>
           <Expression></Expression>
         </Bp>
       </Breakpoint>
+      <WatchWindow1>
+        <Ww>
+          <count>0</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>process_list</ItemText>
+        </Ww>
+      </WatchWindow1>
       <DebugFlag>
         <trace>0</trace>
         <periodic>0</periodic>
@@ -231,8 +208,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>19</TopLine>
+      <CurrentLine>22</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\spin_userstart.c</PathWithFileName>
       <FilenameWithoutPath>spin_userstart.c</FilenameWithoutPath>
@@ -259,8 +236,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>30</TopLine>
+      <CurrentLine>36</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\spin_gpio.c</PathWithFileName>
       <FilenameWithoutPath>spin_gpio.c</FilenameWithoutPath>
@@ -273,8 +250,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1</TopLine>
-      <CurrentLine>1</CurrentLine>
+      <TopLine>65</TopLine>
+      <CurrentLine>65</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\spin_interupt.c</PathWithFileName>
       <FilenameWithoutPath>spin_interupt.c</FilenameWithoutPath>
@@ -287,8 +264,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>8</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\spin_pwrmgr.c</PathWithFileName>
       <FilenameWithoutPath>spin_pwrmgr.c</FilenameWithoutPath>
@@ -299,10 +276,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>5</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>55</TopLine>
-      <CurrentLine>63</CurrentLine>
+      <TopLine>89</TopLine>
+      <CurrentLine>102</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\spin_timer.c</PathWithFileName>
       <FilenameWithoutPath>spin_timer.c</FilenameWithoutPath>
@@ -315,8 +292,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>68</TopLine>
+      <CurrentLine>77</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\spin_uart.c</PathWithFileName>
       <FilenameWithoutPath>spin_uart.c</FilenameWithoutPath>
@@ -329,11 +306,25 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>5</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\spin_watchdog.c</PathWithFileName>
       <FilenameWithoutPath>spin_watchdog.c</FilenameWithoutPath>
+    </File>
+    <File>
+      <GroupNumber>1</GroupNumber>
+      <FileNumber>9</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <ColumnNumber>0</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>16</TopLine>
+      <CurrentLine>19</CurrentLine>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\xprintf.c</PathWithFileName>
+      <FilenameWithoutPath>xprintf.c</FilenameWithoutPath>
     </File>
   </Group>
 
@@ -344,31 +335,17 @@
     <cbSel>0</cbSel>
     <File>
       <GroupNumber>2</GroupNumber>
-      <FileNumber>9</FileNumber>
-      <FileType>1</FileType>
-      <tvExp>0</tvExp>
-      <Focus>0</Focus>
-      <ColumnNumber>53</ColumnNumber>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>82</TopLine>
-      <CurrentLine>91</CurrentLine>
-      <bDave2>0</bDave2>
-      <PathWithFileName>.\contiki\cpu\clock.c</PathWithFileName>
-      <FilenameWithoutPath>clock.c</FilenameWithoutPath>
-    </File>
-    <File>
-      <GroupNumber>2</GroupNumber>
       <FileNumber>10</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>125</TopLine>
+      <CurrentLine>128</CurrentLine>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\contiki\cpu\rtimer-arch.c</PathWithFileName>
-      <FilenameWithoutPath>rtimer-arch.c</FilenameWithoutPath>
+      <PathWithFileName>.\contiki\cpu\clock.c</PathWithFileName>
+      <FilenameWithoutPath>clock.c</FilenameWithoutPath>
     </File>
   </Group>
 
@@ -385,8 +362,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>46</TopLine>
-      <CurrentLine>53</CurrentLine>
+      <TopLine>171</TopLine>
+      <CurrentLine>174</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\contiki\core\sys\etimer.c</PathWithFileName>
       <FilenameWithoutPath>etimer.c</FilenameWithoutPath>
@@ -397,10 +374,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>16</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>109</TopLine>
-      <CurrentLine>113</CurrentLine>
+      <TopLine>173</TopLine>
+      <CurrentLine>182</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\contiki\core\sys\process.c</PathWithFileName>
       <FilenameWithoutPath>process.c</FilenameWithoutPath>
@@ -413,8 +390,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>102</TopLine>
+      <CurrentLine>107</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\contiki\core\sys\timer.c</PathWithFileName>
       <FilenameWithoutPath>timer.c</FilenameWithoutPath>
@@ -434,8 +411,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>53</TopLine>
-      <CurrentLine>55</CurrentLine>
+      <TopLine>74</TopLine>
+      <CurrentLine>77</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\contiki\platform\contiki-main.c</PathWithFileName>
       <FilenameWithoutPath>contiki-main.c</FilenameWithoutPath>
@@ -443,9 +420,9 @@
   </Group>
 
   <AlienFiles>
-    <PathWithFilename>G:\360MoveData\Users\青\Documents\GitHub\stc89c52\CONTIKI\CPU\8051DEF.H</PathWithFilename>
-    <TopLine>88</TopLine>
-    <CurrentLine>94</CurrentLine>
+    <PathWithFilename>G:\360MoveData\Users\青\Documents\GitHub\stc89c52\CONTIKI\CORE\SYS\PT.H</PathWithFilename>
+    <TopLine>303</TopLine>
+    <CurrentLine>309</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -469,9 +446,35 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>G:\360MoveData\Users\青\Documents\GitHub\stc89c52\CONTIKI\CORE\SYS\CLOCK.H</PathWithFilename>
-    <TopLine>65</TopLine>
-    <CurrentLine>72</CurrentLine>
+    <PathWithFilename>G:\360MoveData\Users\青\Documents\GitHub\stc89c52\CONTIKI\CORE\SYS\PROCESS.H</PathWithFilename>
+    <TopLine>55</TopLine>
+    <CurrentLine>60</CurrentLine>
+    <Constant>0</Constant>
+    <WindowPosition>
+      <length>0</length>
+      <flags>0</flags>
+      <showCmd>0</showCmd>
+      <MinPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>0</Top>
+        <Left>0</Left>
+        <Right>0</Right>
+        <Bottom>0</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+  </AlienFiles>
+
+  <AlienFiles>
+    <PathWithFilename>G:\360MoveData\Users\青\Documents\GitHub\stc89c52\XPRINTF.H</PathWithFilename>
+    <TopLine>17</TopLine>
+    <CurrentLine>20</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -590,13 +593,13 @@
         <DockLocation>3</DockLocation>
         <Pinned>0</Pinned>
         <DockedRect_top>50</DockedRect_top>
-        <DockedRect_left>0</DockedRect_left>
+        <DockedRect_left>1</DockedRect_left>
         <DockedRect_bottom>76</DockedRect_bottom>
-        <DockedRect_right>626</DockedRect_right>
-        <FloatingRect_top>0</FloatingRect_top>
-        <FloatingRect_left>0</FloatingRect_left>
-        <FloatingRect_bottom>0</FloatingRect_bottom>
-        <FloatingRect_right>0</FloatingRect_right>
+        <DockedRect_right>627</DockedRect_right>
+        <FloatingRect_top>23</FloatingRect_top>
+        <FloatingRect_left>23</FloatingRect_left>
+        <FloatingRect_bottom>76</FloatingRect_bottom>
+        <FloatingRect_right>646</FloatingRect_right>
         <ContainerPercent>100</ContainerPercent>
         <ActiveTab>0</ActiveTab>
         <Visible>1</Visible>
@@ -1073,7 +1076,7 @@
         <FloatingRect_bottom>600</FloatingRect_bottom>
         <FloatingRect_right>250</FloatingRect_right>
         <ContainerPercent>100</ContainerPercent>
-        <ActiveTab>0</ActiveTab>
+        <ActiveTab>1</ActiveTab>
         <Visible>1</Visible>
         <Dynamic>0</Dynamic>
       </Window>
@@ -1173,7 +1176,7 @@
         <FloatingRect_bottom>600</FloatingRect_bottom>
         <FloatingRect_right>250</FloatingRect_right>
         <ContainerPercent>100</ContainerPercent>
-        <ActiveTab>1</ActiveTab>
+        <ActiveTab>0</ActiveTab>
         <Visible>1</Visible>
         <Dynamic>0</Dynamic>
       </Window>
@@ -1716,7 +1719,7 @@
         <Pinned>0</Pinned>
         <DockedRect_top>76</DockedRect_top>
         <DockedRect_left>214</DockedRect_left>
-        <DockedRect_bottom>286</DockedRect_bottom>
+        <DockedRect_bottom>287</DockedRect_bottom>
         <DockedRect_right>1536</DockedRect_right>
         <FloatingRect_top>0</FloatingRect_top>
         <FloatingRect_left>0</FloatingRect_left>
@@ -1741,7 +1744,7 @@
         <Pinned>0</Pinned>
         <DockedRect_top>76</DockedRect_top>
         <DockedRect_left>214</DockedRect_left>
-        <DockedRect_bottom>286</DockedRect_bottom>
+        <DockedRect_bottom>287</DockedRect_bottom>
         <DockedRect_right>1536</DockedRect_right>
         <FloatingRect_top>0</FloatingRect_top>
         <FloatingRect_left>0</FloatingRect_left>
@@ -1766,7 +1769,7 @@
         <Pinned>0</Pinned>
         <DockedRect_top>76</DockedRect_top>
         <DockedRect_left>214</DockedRect_left>
-        <DockedRect_bottom>286</DockedRect_bottom>
+        <DockedRect_bottom>287</DockedRect_bottom>
         <DockedRect_right>1536</DockedRect_right>
         <FloatingRect_top>0</FloatingRect_top>
         <FloatingRect_left>0</FloatingRect_left>
@@ -1791,7 +1794,7 @@
         <Pinned>0</Pinned>
         <DockedRect_top>76</DockedRect_top>
         <DockedRect_left>214</DockedRect_left>
-        <DockedRect_bottom>286</DockedRect_bottom>
+        <DockedRect_bottom>287</DockedRect_bottom>
         <DockedRect_right>1536</DockedRect_right>
         <FloatingRect_top>0</FloatingRect_top>
         <FloatingRect_left>0</FloatingRect_left>
@@ -1816,7 +1819,7 @@
         <Pinned>0</Pinned>
         <DockedRect_top>76</DockedRect_top>
         <DockedRect_left>214</DockedRect_left>
-        <DockedRect_bottom>286</DockedRect_bottom>
+        <DockedRect_bottom>287</DockedRect_bottom>
         <DockedRect_right>1536</DockedRect_right>
         <FloatingRect_top>0</FloatingRect_top>
         <FloatingRect_left>0</FloatingRect_left>
@@ -1835,55 +1838,73 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>0</ActiveTab>
+      <ActiveTab>5</ActiveTab>
       <Documents>
         <Doc>
-          <Name>.\contiki\cpu\clock.c</Name>
-          <ColumnNumber>53</ColumnNumber>
-          <TopLine>82</TopLine>
-          <CurrentLine>91</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\CONTIKI\CORE\SYS/CLOCK.H</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>65</TopLine>
-          <CurrentLine>72</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\contiki\core\sys\etimer.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>46</TopLine>
-          <CurrentLine>53</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\contiki\core\sys\process.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>109</TopLine>
-          <CurrentLine>113</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>CONTIKI\CPU\8051DEF.H</Name>
-          <ColumnNumber>22</ColumnNumber>
-          <TopLine>88</TopLine>
-          <CurrentLine>94</CurrentLine>
+          <Name>XPRINTF.H</Name>
+          <ColumnNumber>10</ColumnNumber>
+          <TopLine>17</TopLine>
+          <CurrentLine>20</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\contiki\platform\contiki-main.c</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>53</TopLine>
-          <CurrentLine>55</CurrentLine>
+          <TopLine>74</TopLine>
+          <CurrentLine>77</CurrentLine>
         </Doc>
         <Doc>
-          <Name>.\spin_timer.c</Name>
+          <Name>.\contiki\core\sys\etimer.c</Name>
           <ColumnNumber>0</ColumnNumber>
+          <TopLine>171</TopLine>
+          <CurrentLine>174</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\contiki\cpu\clock.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>125</TopLine>
+          <CurrentLine>128</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\contiki\core\sys\timer.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>102</TopLine>
+          <CurrentLine>107</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\contiki\core\sys\process.c</Name>
+          <ColumnNumber>16</ColumnNumber>
+          <TopLine>173</TopLine>
+          <CurrentLine>182</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\spin_uart.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>68</TopLine>
+          <CurrentLine>77</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\spin_userstart.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>19</TopLine>
+          <CurrentLine>22</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\CONTIKI\CORE\SYS/PROCESS.H</Name>
+          <ColumnNumber>13</ColumnNumber>
           <TopLine>55</TopLine>
-          <CurrentLine>63</CurrentLine>
+          <CurrentLine>60</CurrentLine>
         </Doc>
         <Doc>
-          <Name>.\spin_interupt.c</Name>
+          <Name>.\CONTIKI\CORE\SYS/PT.H</Name>
+          <ColumnNumber>8</ColumnNumber>
+          <TopLine>303</TopLine>
+          <CurrentLine>309</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\spin_gpio.c</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>1</TopLine>
-          <CurrentLine>1</CurrentLine>
+          <TopLine>30</TopLine>
+          <CurrentLine>36</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

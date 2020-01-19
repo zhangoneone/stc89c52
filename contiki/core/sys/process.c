@@ -175,6 +175,7 @@ call_process(struct process *p, process_event_t ev, process_data_t dataa)
     process_current = p;
     p->state = PROCESS_STATE_CALLED;
     ret = p->thread(&p->pt, ev, dataa);
+	p=process_current;
     if(ret == PT_EXITED ||
        ret == PT_ENDED ||
        ev == PROCESS_EVENT_EXIT) {
@@ -278,7 +279,7 @@ do_event(void)
       if(ev == PROCESS_EVENT_INIT) {
 	receiver->state = PROCESS_STATE_RUNNING;
       }
-	   receiver->state = PROCESS_STATE_RUNNING;
+	   //receiver->state = PROCESS_STATE_RUNNING;
       /* Make sure that the process actually is running. */
       call_process(receiver, ev, dataa);
     }

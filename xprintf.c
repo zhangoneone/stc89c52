@@ -16,8 +16,8 @@
 #if _USE_XFUNC_OUT
 //#include <stdarg.h>
 //volatile void (*xfunc_out)(unsigned char);	/* Pointer to the output stream */
-DATA unsigned int xfunc_out;
-static DATA char *outptr;
+unsigned int xfunc_out;
+static char *outptr;
 
 /*----------------------------------------------*/
 /* Put a character                              */
@@ -56,7 +56,7 @@ void xputs (					/* Put a string to the default device */
 
 #if _USE_XFUNC_IN
 //unsigned char (*xfunc_in)(void);	/* Pointer to the input stream */
-DATA unsigned int xfunc_in;
+ unsigned int xfunc_in;
 /*----------------------------------------------*/
 /* Get a character from the input,if empty then block */
 /*----------------------------------------------*/
@@ -84,7 +84,7 @@ int xgets (		/* 0:End of stream, 1:A line arrived */
 		c = ((xfunc_in_t)xfunc_in)();				/* Get a char from the incoming stream */
 		if (!c) return 0;			/* End of stream? */
 		if (c == '\r') break;		/* End of line? */
-		if ((c == '\b'||c == 0x7f) && i) {		/* Back space? 电脑输入的backspace键值是0x7f*/
+		if ((c == '\b'||c == 0x7f) && i) {		/* Back space? μ???ê?è?μ?backspace?ü?μê?0x7f*/
 			i--;
 #if _LINE_ECHO
 			xputc(c);

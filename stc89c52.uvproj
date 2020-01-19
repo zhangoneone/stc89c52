@@ -136,7 +136,7 @@
             <RestoreToolbox>1</RestoreToolbox>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>9</TargetSelection>
+          <TargetSelection>-1</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -284,9 +284,9 @@
             <uAregs>0</uAregs>
             <UseInterruptVector>1</UseInterruptVector>
             <Fuzzy>3</Fuzzy>
-            <Optimize>8</Optimize>
+            <Optimize>9</Optimize>
             <WarningLevel>2</WarningLevel>
-            <SizeSpeed>1</SizeSpeed>
+            <SizeSpeed>0</SizeSpeed>
             <ObjectExtend>1</ObjectExtend>
             <ACallAJmp>0</ACallAJmp>
             <InterruptVectorAddress>0</InterruptVectorAddress>
@@ -386,6 +386,11 @@
               <FileType>1</FileType>
               <FilePath>.\spin_watchdog.c</FilePath>
             </File>
+            <File>
+              <FileName>xprintf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\xprintf.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -447,11 +452,6 @@
               <FileName>clock.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\contiki\cpu\clock.c</FilePath>
-            </File>
-            <File>
-              <FileName>rtimer-arch.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\contiki\cpu\rtimer-arch.c</FilePath>
             </File>
           </Files>
         </Group>

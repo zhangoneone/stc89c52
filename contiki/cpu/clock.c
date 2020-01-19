@@ -74,14 +74,22 @@ clock_wait(clock_time_t  i)
 /*---------------------------------------------------------------------------*/
 CCIF clock_time_t
 clock_time(void)
-{
-  return count;
+{  
+  clock_time_t c;
+  DISABLE_INTERRUPTS();
+  c=count;
+  ENABLE_INTERRUPTS();
+  return c;
 }
 /*---------------------------------------------------------------------------*/
-CCIF unsigned long
+CCIF clock_time_t
 clock_seconds(void)
 {
-  return seconds;
+  clock_time_t s;
+  DISABLE_INTERRUPTS();
+  s=seconds;
+  ENABLE_INTERRUPTS();
+  return s;
 }
 /*---------------------------------------------------------------------------*/
 /*

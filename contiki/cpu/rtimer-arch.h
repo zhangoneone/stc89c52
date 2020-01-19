@@ -54,6 +54,6 @@
 
 #define rtimer_arch_now() (T1CNTL + (T1CNTH << 8))
 
-void rtimer_isr(void) __interrupt(T1_VECTOR);
+//void rtimer_isr(void) interrupt 3;
 
 #endif /* RTIMER_ARCH_H_ */
