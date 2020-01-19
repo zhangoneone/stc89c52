@@ -83,16 +83,16 @@
  *
  * \hideinitializer
  */
-xdata struct timer {
+struct timer {
   clock_time_t start;
   clock_time_t interval;
 };
 
-CCIF void timer_set(struct timer xdata * xdata t, clock_time_t xdata interval);
-void timer_reset(struct timer xdata * xdata t);
-void timer_restart(struct timer xdata * xdata t);
-CCIF int timer_expired(struct timer xdata * xdata t);
-clock_time_t timer_remaining(struct timer xdata * xdata t);
+CCIF void timer_set(struct timer *t, clock_time_t interval);
+void timer_reset(struct timer *t);
+void timer_restart(struct timer *t);
+CCIF int timer_expired(struct timer *t);
+clock_time_t timer_remaining(struct timer *t);
 
 
 #endif /* TIMER_H_ */

@@ -17,37 +17,33 @@ void hardware_init(){
    spin_set_work_register_group(0);
    spin_interupt_init();
    spin_interupt_enable();
-   spin_uart_init();
+   //spin_uart_init();
    //spin_watchdog_enable();
    //spin_watchdog_overtime(32,FSOC); //返回溢出时间ms 现在大约是1000
-   spin_exint0_start(down_eage);
-   spin_exint1_start(low_vol);
+   //spin_exint0_start(down_eage);
+   //spin_exint1_start(low_vol);
    //串口测试
    //xdev_in(u_getc);
    //xdev_out(u_putc);
 }
-PROCESS(led);//定义led翻转任务
-AUTOSTART_PROCESSES(&led);//注册task
+PROCESS(led,"led");//定义led翻转任务
 PROCESS_THREAD(led, ev, dataa)
 {
-	static struct etimer xdata et;
+	static struct etimer et;
     PROCESS_BEGIN();
 	//延时1s的时钟
 	etimer_set(&et,CLOCK_SECOND*1);
 	while(1)
 	{
-		spin_set_gpio_bit_value(GPIO2,0,0);
 		//等待1s
 		PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));	
 	    //点亮led
-		spin_set_gpio_bit_value(GPIO2,0,1);
+		spin_set_gpio_bit_value(GPIO2,0,0);
 		//等待1s
-		etimer_set(&et,CLOCK_SECOND*1);
 		etimer_restart(&et);
     	PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
 		//关闭led
-		spin_set_gpio_bit_value(GPIO2,0,0);
-		etimer_set(&et,CLOCK_SECOND*1);
+		spin_set_gpio_bit_value(GPIO2,0,1);
 		etimer_restart(&et);
 	}
    PROCESS_END();
@@ -60,7 +56,7 @@ main(void)
   process_init();
  /* start services */
   process_start(&etimer_process, NULL);
-  autostart_start(autostart_processes);
+  process_start(&led, NULL);
   for(;;)process_run();
   return 0;
 }

@@ -91,7 +91,7 @@ typedef unsigned short uip_stats_t;
 //typedef int32_t s32_t;
 //typedef unsigned int uip_stats_t;
 /* Time type. */
-typedef unsigned int clock_time_t;
+typedef unsigned long clock_time_t;
 #define MAX_TICKS (~((clock_time_t)0) / 2)
 /* Defines tick counts for a second. */
 #define CLOCK_CONF_SECOND   128

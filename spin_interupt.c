@@ -1,7 +1,7 @@
 #include"spin_interupt.h"
 #include"spin_gpio.h"
-uint xdata inter_vector_function[inter_num]={NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL};	//交给用户初始化
-DATA mutex_t it0,it1,it2,it3,it4,it5,it6,it7;
+uint inter_vector_function[inter_num]={NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL};	//交给用户初始化
+mutex_t it0,it1,it2,it3,it4,it5,it6,it7;
 //code uchar* inter_src_list[inter_num]={0xA8,0xA9,0xAA,0xAB,0xAC,0xAD,0xC2,0xC6};
 //code uchar* inter_prority[inter_num]={0xB8,0xB9,0xBA,0xBB,0xBC,0xBD,0xC3,0xC7};
  //设置信号量，把用户中断回调注册为task，当遇到了信号量，task执行

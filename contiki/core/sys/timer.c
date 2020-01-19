@@ -61,7 +61,7 @@
  *
  */
 void
-timer_set(struct timer xdata * xdata t, clock_time_t xdata interval)
+timer_set(struct timer *t, clock_time_t interval)
 {
   t->interval = interval;
   t->start = clock_time();
@@ -82,7 +82,7 @@ timer_set(struct timer xdata * xdata t, clock_time_t xdata interval)
  * \sa timer_restart()
  */
 void
-timer_reset(struct timer xdata * xdata t)
+timer_reset(struct timer *t)
 {
   t->start += t->interval;
 }
@@ -102,7 +102,7 @@ timer_reset(struct timer xdata * xdata t)
  * \sa timer_reset()
  */
 void
-timer_restart(struct timer xdata * xdata t)
+timer_restart(struct timer *t)
 {
   t->start = clock_time();
 }
@@ -119,11 +119,11 @@ timer_restart(struct timer xdata * xdata t)
  *
  */
 int
-timer_expired(struct timer xdata * xdata t)
+timer_expired(struct timer *t)
 {
   /* Note: Can not return diff >= t->interval so we add 1 to diff and return
      t->interval < diff - required to avoid an internal error in mspgcc. */
-  clock_time_t xdata diff = (clock_time() - t->start) + 1;
+  clock_time_t diff = (clock_time() - t->start) + 1;
   return t->interval < diff;
 
 }
@@ -139,7 +139,7 @@ timer_expired(struct timer xdata * xdata t)
  *
  */
 clock_time_t
-timer_remaining(struct timer xdata * xdata t)
+timer_remaining(struct timer *t)
 {
   return t->start + t->interval - clock_time();
 }

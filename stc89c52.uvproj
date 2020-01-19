@@ -168,7 +168,7 @@
         </Utilities>
         <Target51>
           <Target51Misc>
-            <MemoryModel>0</MemoryModel>
+            <MemoryModel>2</MemoryModel>
             <RTOS>0</RTOS>
             <RomSize>2</RomSize>
             <DataHold>0</DataHold>
@@ -238,7 +238,7 @@
               <Ocr1>
                 <Type>0</Type>
                 <StartAddress>0x0</StartAddress>
-                <Size>0x0</Size>
+                <Size>0x400</Size>
               </Ocr1>
               <Ocr2>
                 <Type>0</Type>
@@ -327,7 +327,7 @@
             <CSection></CSection>
             <UserSection></UserSection>
             <CodeBaseAddress></CodeBaseAddress>
-            <XDataBaseAddress></XDataBaseAddress>
+            <XDataBaseAddress>0X0000-0X03FF</XDataBaseAddress>
             <PDataBaseAddress></PDataBaseAddress>
             <BitBaseAddress></BitBaseAddress>
             <DataBaseAddress></DataBaseAddress>
@@ -344,28 +344,13 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>startcode</GroupName>
+          <GroupName>bsp</GroupName>
           <Files>
-            <File>
-              <FileName>STARTUP.A51</FileName>
-              <FileType>2</FileType>
-              <FilePath>.\STARTUP.A51</FilePath>
-            </File>
             <File>
               <FileName>spin_userstart.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\spin_userstart.c</FilePath>
             </File>
-            <File>
-              <FileName>spin_userstart.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\spin_userstart.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>usercode</GroupName>
-          <Files>
             <File>
               <FileName>spin_exinterupt.c</FileName>
               <FileType>1</FileType>
@@ -380,11 +365,6 @@
               <FileName>spin_interupt.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\spin_interupt.c</FilePath>
-            </File>
-            <File>
-              <FileName>spin_main.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\spin_main.c</FilePath>
             </File>
             <File>
               <FileName>spin_pwrmgr.c</FileName>
@@ -406,90 +386,206 @@
               <FileType>1</FileType>
               <FilePath>.\spin_watchdog.c</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>cpu</GroupName>
+          <GroupOption>
+            <CommonProperty>
+              <UseCPPCompiler>0</UseCPPCompiler>
+              <RVCTCodeConst>0</RVCTCodeConst>
+              <RVCTZI>0</RVCTZI>
+              <RVCTOtherData>0</RVCTOtherData>
+              <ModuleSelection>0</ModuleSelection>
+              <IncludeInBuild>2</IncludeInBuild>
+              <AlwaysBuild>2</AlwaysBuild>
+              <GenerateAssemblyFile>2</GenerateAssemblyFile>
+              <AssembleAssemblyFile>2</AssembleAssemblyFile>
+              <PublicsOnly>2</PublicsOnly>
+              <StopOnExitCode>11</StopOnExitCode>
+              <CustomArgument></CustomArgument>
+              <IncludeLibraryModules></IncludeLibraryModules>
+              <BankNo>65535</BankNo>
+            </CommonProperty>
+            <Group51>
+              <C51>
+                <RegisterColoring>2</RegisterColoring>
+                <VariablesInOrder>2</VariablesInOrder>
+                <IntegerPromotion>2</IntegerPromotion>
+                <uAregs>2</uAregs>
+                <UseInterruptVector>2</UseInterruptVector>
+                <Fuzzy>8</Fuzzy>
+                <Optimize>10</Optimize>
+                <WarningLevel>3</WarningLevel>
+                <SizeSpeed>2</SizeSpeed>
+                <ObjectExtend>2</ObjectExtend>
+                <ACallAJmp>2</ACallAJmp>
+                <InterruptVectorAddress>0</InterruptVectorAddress>
+                <VariousControls>
+                  <MiscControls></MiscControls>
+                  <Define></Define>
+                  <Undefine></Undefine>
+                  <IncludePath>.\contiki\cpu;..\stc89c52;.\contiki\core\sys;.\contiki\core;.\contiki\platform</IncludePath>
+                </VariousControls>
+              </C51>
+              <Ax51>
+                <UseMpl>2</UseMpl>
+                <UseStandard>2</UseStandard>
+                <UseCase>2</UseCase>
+                <UseMod51>2</UseMod51>
+                <VariousControls>
+                  <MiscControls></MiscControls>
+                  <Define></Define>
+                  <Undefine></Undefine>
+                  <IncludePath></IncludePath>
+                </VariousControls>
+              </Ax51>
+            </Group51>
+          </GroupOption>
+          <Files>
             <File>
-              <FileName>one_os.c</FileName>
+              <FileName>clock.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\one_os.c</FilePath>
+              <FilePath>.\contiki\cpu\clock.c</FilePath>
             </File>
             <File>
-              <FileName>spin_cycle_queue.c</FileName>
+              <FileName>rtimer-arch.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\spin_cycle_queue.c</FilePath>
-            </File>
-            <File>
-              <FileName>spin_memory_manage.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\spin_memory_manage.c</FilePath>
-            </File>
-            <File>
-              <FileName>xprintf.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\xprintf.c</FilePath>
+              <FilePath>.\contiki\cpu\rtimer-arch.c</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>userinclu</GroupName>
+          <GroupName>core</GroupName>
+          <GroupOption>
+            <CommonProperty>
+              <UseCPPCompiler>0</UseCPPCompiler>
+              <RVCTCodeConst>0</RVCTCodeConst>
+              <RVCTZI>0</RVCTZI>
+              <RVCTOtherData>0</RVCTOtherData>
+              <ModuleSelection>0</ModuleSelection>
+              <IncludeInBuild>2</IncludeInBuild>
+              <AlwaysBuild>2</AlwaysBuild>
+              <GenerateAssemblyFile>2</GenerateAssemblyFile>
+              <AssembleAssemblyFile>2</AssembleAssemblyFile>
+              <PublicsOnly>2</PublicsOnly>
+              <StopOnExitCode>11</StopOnExitCode>
+              <CustomArgument></CustomArgument>
+              <IncludeLibraryModules></IncludeLibraryModules>
+              <BankNo>65535</BankNo>
+            </CommonProperty>
+            <Group51>
+              <C51>
+                <RegisterColoring>2</RegisterColoring>
+                <VariablesInOrder>2</VariablesInOrder>
+                <IntegerPromotion>2</IntegerPromotion>
+                <uAregs>2</uAregs>
+                <UseInterruptVector>2</UseInterruptVector>
+                <Fuzzy>8</Fuzzy>
+                <Optimize>10</Optimize>
+                <WarningLevel>3</WarningLevel>
+                <SizeSpeed>2</SizeSpeed>
+                <ObjectExtend>2</ObjectExtend>
+                <ACallAJmp>2</ACallAJmp>
+                <InterruptVectorAddress>0</InterruptVectorAddress>
+                <VariousControls>
+                  <MiscControls></MiscControls>
+                  <Define></Define>
+                  <Undefine></Undefine>
+                  <IncludePath>.\contiki\cpu;.\contiki\core\sys;.\contiki\core;.\contiki\platform</IncludePath>
+                </VariousControls>
+              </C51>
+              <Ax51>
+                <UseMpl>2</UseMpl>
+                <UseStandard>2</UseStandard>
+                <UseCase>2</UseCase>
+                <UseMod51>2</UseMod51>
+                <VariousControls>
+                  <MiscControls></MiscControls>
+                  <Define></Define>
+                  <Undefine></Undefine>
+                  <IncludePath></IncludePath>
+                </VariousControls>
+              </Ax51>
+            </Group51>
+          </GroupOption>
           <Files>
             <File>
-              <FileName>spin_common.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\spin_common.h</FilePath>
+              <FileName>etimer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\contiki\core\sys\etimer.c</FilePath>
             </File>
             <File>
-              <FileName>spin_exinterupt.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\spin_exinterupt.h</FilePath>
+              <FileName>process.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\contiki\core\sys\process.c</FilePath>
             </File>
             <File>
-              <FileName>spin_gpio.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\spin_gpio.h</FilePath>
+              <FileName>timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\contiki\core\sys\timer.c</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>platform</GroupName>
+          <GroupOption>
+            <CommonProperty>
+              <UseCPPCompiler>0</UseCPPCompiler>
+              <RVCTCodeConst>0</RVCTCodeConst>
+              <RVCTZI>0</RVCTZI>
+              <RVCTOtherData>0</RVCTOtherData>
+              <ModuleSelection>0</ModuleSelection>
+              <IncludeInBuild>2</IncludeInBuild>
+              <AlwaysBuild>2</AlwaysBuild>
+              <GenerateAssemblyFile>2</GenerateAssemblyFile>
+              <AssembleAssemblyFile>2</AssembleAssemblyFile>
+              <PublicsOnly>2</PublicsOnly>
+              <StopOnExitCode>11</StopOnExitCode>
+              <CustomArgument></CustomArgument>
+              <IncludeLibraryModules></IncludeLibraryModules>
+              <BankNo>65535</BankNo>
+            </CommonProperty>
+            <Group51>
+              <C51>
+                <RegisterColoring>2</RegisterColoring>
+                <VariablesInOrder>2</VariablesInOrder>
+                <IntegerPromotion>2</IntegerPromotion>
+                <uAregs>2</uAregs>
+                <UseInterruptVector>2</UseInterruptVector>
+                <Fuzzy>8</Fuzzy>
+                <Optimize>10</Optimize>
+                <WarningLevel>3</WarningLevel>
+                <SizeSpeed>2</SizeSpeed>
+                <ObjectExtend>2</ObjectExtend>
+                <ACallAJmp>2</ACallAJmp>
+                <InterruptVectorAddress>0</InterruptVectorAddress>
+                <VariousControls>
+                  <MiscControls></MiscControls>
+                  <Define></Define>
+                  <Undefine></Undefine>
+                  <IncludePath>.\contiki\core;.\contiki\core\sys;.\contiki\cpu;.\contiki\platform</IncludePath>
+                </VariousControls>
+              </C51>
+              <Ax51>
+                <UseMpl>2</UseMpl>
+                <UseStandard>2</UseStandard>
+                <UseCase>2</UseCase>
+                <UseMod51>2</UseMod51>
+                <VariousControls>
+                  <MiscControls></MiscControls>
+                  <Define></Define>
+                  <Undefine></Undefine>
+                  <IncludePath></IncludePath>
+                </VariousControls>
+              </Ax51>
+            </Group51>
+          </GroupOption>
+          <Files>
             <File>
-              <FileName>spin_interupt.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\spin_interupt.h</FilePath>
-            </File>
-            <File>
-              <FileName>spin_pwrmgr.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\spin_pwrmgr.h</FilePath>
-            </File>
-            <File>
-              <FileName>spin_timer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\spin_timer.h</FilePath>
-            </File>
-            <File>
-              <FileName>spin_uart.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\spin_uart.h</FilePath>
-            </File>
-            <File>
-              <FileName>spin_watchdog.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\spin_watchdog.h</FilePath>
-            </File>
-            <File>
-              <FileName>one_os.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\one_os.h</FilePath>
-            </File>
-            <File>
-              <FileName>spin_cycle_queue.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\spin_cycle_queue.h</FilePath>
-            </File>
-            <File>
-              <FileName>spin_memory_manage.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\spin_memory_manage.h</FilePath>
-            </File>
-            <File>
-              <FileName>xprintf.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\xprintf.h</FilePath>
+              <FileName>contiki-main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\contiki\platform\contiki-main.c</FilePath>
             </File>
           </Files>
         </Group>

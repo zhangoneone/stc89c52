@@ -115,14 +115,14 @@ CCIF unsigned long clock_seconds(void);
  * \param sec   The value to set.
  *
  */
-void clock_set_seconds(unsigned long xdata sec);
+void clock_set_seconds(unsigned long  sec);
 
 /**
  * Wait for a given number of ticks.
  * \param t   How many ticks.
  *
  */
-void clock_wait(clock_time_t xdata t);
+void clock_wait(clock_time_t  t);
 
 /**
  * Delay a given number of microseconds.
@@ -130,7 +130,7 @@ void clock_wait(clock_time_t xdata t);
  *
  * \note Interrupts could increase the delay by a variable amount.
  */
-void clock_delay_usec(uint16_t xdata dt);
+void clock_delay_usec(uint16_t  dt);
 
 /**
  * Deprecated platform-specific routines.

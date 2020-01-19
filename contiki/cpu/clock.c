@@ -44,14 +44,14 @@
 #include<reg52.h>
 #include "spin_gpio.h"
 #include "spin_timer.h"
-static volatile  clock_time_t xdata count = 0; /* Uptime in ticks */
-static volatile  clock_time_t xdata seconds = 0; /* Uptime in secs */
+static volatile  clock_time_t count = 0; /* Uptime in ticks */
+static volatile  clock_time_t seconds = 0; /* Uptime in secs */
 /*---------------------------------------------------------------------------*/
 /**
  * Each iteration is ~1.0xy usec, so this function delays for roughly len usec
  */
 void
-clock_delay_usec(uint16_t xdata len)
+clock_delay_usec(uint16_t len)
 {
   DISABLE_INTERRUPTS();
   while(len--) {
@@ -64,9 +64,9 @@ clock_delay_usec(uint16_t xdata len)
  * Wait for a multiple of ~8 ms (a tick)
  */
 void
-clock_wait(clock_time_t  xdata i)
+clock_wait(clock_time_t  i)
 {
-  clock_time_t xdata start;
+  clock_time_t start;
 
   start = clock_time();
   while(clock_time() - start < (clock_time_t)i);
@@ -100,30 +100,21 @@ clock_init(void)
 {
    spin_sysTick();
 }
-static xdata int counter=0;
+static int counter=0;
 void intersvr1(void) interrupt 1				 //定时器0产生系统时基 每秒中断128次 7.8ms中断1次
 {
   counter++;
   if(counter<32)return;
   counter=0;
-  spin_set_gpio_bit_value(GPIO2,1,0);
   DISABLE_INTERRUPTS();
   ++count;
-  /* Make sure the CLOCK_CONF_SECOND is a power of two, to ensure
-     that the modulo operation below becomes a logical and and not
-     an expensive divide. Algorithm from Wikipedia:
-     http://en.wikipedia.org/wiki/Power_of_two */
-#if (CLOCK_CONF_SECOND & (CLOCK_CONF_SECOND - 1)) != 0
-#error CLOCK_CONF_SECOND must be a power of two (i.e., 1, 2, 4, 8, 16, 32, 64, ...).
-#error Change CLOCK_CONF_SECOND in contiki-conf.h.
-#endif
   if(count % CLOCK_CONF_SECOND == 0) {
     ++seconds;
   }
 
   if(etimer_pending()
       && (etimer_next_expiration_time() - count - 1) > MAX_TICKS) {
-    etimer_request_poll();
+    etimer_request_poll();	 //etimer到期，设置poll标志
   }
   ENABLE_INTERRUPTS();
 }

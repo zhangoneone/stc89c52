@@ -44,9 +44,9 @@
 
 #define AUTOSTART_PROCESSES(P) struct process xdata *  const autostart_processes[] = {P, NULL}
 
-CLIF extern struct process xdata * const autostart_processes[];
+CLIF extern struct process  * const autostart_processes[];
 
-void autostart_start(struct process xdata * const xdata processes[]);
-void autostart_exit(struct process xdata * const xdata processes[]);
+void autostart_start(struct process  * const  processes[]);
+void autostart_exit(struct process  * const  processes[]);
 
 #endif /* AUTOSTART_H_ */

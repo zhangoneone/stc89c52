@@ -271,9 +271,9 @@ typedef unsigned char process_num_events_t;
  * \hideinitializer
  */
 #define PROCESS_THREAD(name, ev, dataa) 				\
-static PT_THREAD(process_thread_##name(struct pt xdata *process_pt,	\
-				       process_event_t xdata ev,	\
-				       process_data_t xdata dataa))
+static PT_THREAD(process_thread_##name(struct pt *process_pt,	\
+				       process_event_t ev,	\
+				       process_data_t dataa))
 
 /**
  * Declare the name of a process.
@@ -283,7 +283,7 @@ static PT_THREAD(process_thread_##name(struct pt xdata *process_pt,	\
  *
  * \hideinitializer
  */
-#define PROCESS_NAME(name) extern struct process xdata name
+#define PROCESS_NAME(name) extern struct process name
 
 /**
  * Declare a process.
@@ -298,13 +298,21 @@ static PT_THREAD(process_thread_##name(struct pt xdata *process_pt,	\
  *
  * \hideinitializer
  */
-#define PROCESS(name)				\
+#if PROCESS_CONF_NO_PROCESS_NAMES
+#define PROCESS(name, strname)				\
   PROCESS_THREAD(name, ev, dataa);			\
-   struct process xdata name = { NULL,		        \
+  struct process name = { NULL,		        \
                           process_thread_##name }
+#else
+#define PROCESS(name, strname)				\
+  PROCESS_THREAD(name, ev, dataa);			\
+  struct process name = { NULL, strname,		\
+                          process_thread_##name }
+#endif
+
 /** @} */
 
-xdata struct process {
+struct process {
   struct process *next;
 #if PROCESS_CONF_NO_PROCESS_NAMES
 #define PROCESS_NAME_STRING(process) ""
@@ -312,7 +320,7 @@ xdata struct process {
   const char *name;
 #define PROCESS_NAME_STRING(process) (process)->name
 #endif
-  PT_THREAD((* thread)(struct pt *, process_event_t, process_data_t)) reentrant;
+  PT_THREAD((* thread)(struct pt *, process_event_t, process_data_t))reentrant;
   struct pt pt;
   unsigned char state, needspoll;
 };
@@ -331,7 +339,7 @@ xdata struct process {
  * process
  *
  */
-void process_start(struct process xdata * xdata p, process_data_t xdata dataa);
+CCIF void process_start(struct process *p, process_data_t dataa);
 
 /**
  * Post an asynchronous event.
@@ -354,7 +362,7 @@ void process_start(struct process xdata * xdata p, process_data_t xdata dataa);
  * \retval PROCESS_ERR_FULL The event queue was full and the event could
  * not be posted.
  */
-CCIF int process_post(struct process xdata * xdata p, process_event_t xdata ev, process_data_t xdata dataa);
+CCIF int process_post(struct process *p, process_event_t ev, process_data_t dataa);
 
 /**
  * Post a synchronous event to a process.
@@ -366,8 +374,8 @@ CCIF int process_post(struct process xdata * xdata p, process_event_t xdata ev, 
  * \param data A pointer to additional data that is posted together
  * with the event.
  */
-CCIF void process_post_synch(struct process xdata * xdata p,
-			     process_event_t xdata ev, process_data_t xdata dataa);
+CCIF void process_post_synch(struct process *p,
+			     process_event_t ev, process_data_t dataa);
 
 /**
  * \brief      Cause a process to exit
@@ -379,7 +387,7 @@ CCIF void process_post_synch(struct process xdata * xdata p,
  *
  * \sa PROCESS_CURRENT()
  */
-CCIF void process_exit(struct process xdata * xdata p);
+CCIF void process_exit(struct process *p);
 
 
 /**
@@ -392,7 +400,7 @@ CCIF void process_exit(struct process xdata * xdata p);
  * \hideinitializer
  */
 #define PROCESS_CURRENT() process_current
-CCIF extern struct process xdata * xdata process_current;
+CCIF extern struct process *process_current;
 
 /**
  * Switch context to another process
@@ -416,7 +424,7 @@ CCIF extern struct process xdata * xdata process_current;
  * \sa PROCESS_CURRENT()
  */
 #define PROCESS_CONTEXT_BEGIN(p) {\
-struct process xdata * xdata tmp_current = PROCESS_CURRENT();\
+struct process *tmp_current = PROCESS_CURRENT();\
 process_current = p
 
 /**
@@ -459,7 +467,7 @@ CCIF process_event_t process_alloc_event(void);
  *
  * \param p A pointer to the process' process structure.
  */
-CCIF void process_poll(struct process xdata * xdata p);
+CCIF void process_poll(struct process *p);
 
 /** @} */
 
@@ -501,7 +509,7 @@ int process_run(void);
  * \retval Non-zero if the process is running.
  * \retval Zero if the process is not running.
  */
-CCIF int process_is_running(struct process xdata * xdata p);
+CCIF int process_is_running(struct process *p);
 
 /**
  *  Number of events waiting to be processed.
@@ -513,7 +521,7 @@ int process_nevents(void);
 
 /** @} */
 
-CCIF extern struct process xdata * xdata process_list;
+CCIF extern struct process *process_list;
 
 #define PROCESS_LIST() process_list
 

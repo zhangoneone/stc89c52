@@ -60,7 +60,7 @@ static char initialized;
 
 /*---------------------------------------------------------------------------*/
 PROCESS(ctimer_process, "Ctimer process");
-PROCESS_THREAD(ctimer_process, ev, data)
+PROCESS_THREAD(ctimer_process, ev, dataa)
 {
   struct ctimer *c;
   PROCESS_BEGIN();
@@ -73,7 +73,7 @@ PROCESS_THREAD(ctimer_process, ev, data)
   while(1) {
     PROCESS_YIELD_UNTIL(ev == PROCESS_EVENT_TIMER);
     for(c = list_head(ctimer_list); c != NULL; c = c->next) {
-      if(&c->etimer == data) {
+      if(&c->etimer == dataa) {
 	list_remove(ctimer_list, c);
 	PROCESS_CONTEXT_BEGIN(c->p);
 	if(c->f != NULL) {

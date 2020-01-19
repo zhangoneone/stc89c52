@@ -55,24 +55,7 @@
 void
 rtimer_arch_init(void)
 {
-//  /*
-//   * - Free running mode
-//   * - Prescale by 32:
-//   *   Tick Speed has been prescaled to 500 kHz already in clock_init()
-//   *   We further prescale by 32 resulting in 15625 Hz for this timer.
-//   */
-//  T1CTL = (T1CTL_DIV1 | T1CTL_MODE0);
-//
-//  T1STAT = 0;
-//
-//  /* Timer 1, Channel 1. Compare Mode (0x04), Interrupt mask on (0x40) */
-//  T1CCTL1 = T1CCTL_MODE | T1CCTL_IM;
-//
-//  /* Interrupt Mask Flags: No interrupt on overflow */
-//  OVFIM = 0;
-//
-//  /* Acknowledge Timer 1 Interrupts */
-//  T1IE = 1;
+
 }
 /*---------------------------------------------------------------------------*/
 void

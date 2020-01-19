@@ -49,17 +49,17 @@
 #include "sys/etimer.h"
 #include "sys/process.h"
 
-static struct etimer xdata * xdata timerlist;
-static clock_time_t xdata next_expiration;
+static struct etimer *timerlist;
+static clock_time_t next_expiration;
 
-PROCESS(etimer_process);
+PROCESS(etimer_process, "Event timer");
 /*---------------------------------------------------------------------------*/
 static void
 update_time(void)
 {
-  clock_time_t xdata tdist;
-  clock_time_t xdata now;
-  struct etimer xdata * xdata t;
+  clock_time_t tdist;
+  clock_time_t now;
+  struct etimer *t;
 
   if (timerlist == NULL) {
     next_expiration = 0;
@@ -79,7 +79,7 @@ update_time(void)
 /*---------------------------------------------------------------------------*/
 PROCESS_THREAD(etimer_process, ev, dataa)
 {
-  struct etimer xdata * xdata t,xdata * xdata u;
+  struct etimer *t, *u;
 	
   PROCESS_BEGIN();
 
@@ -148,9 +148,9 @@ etimer_request_poll(void)
 }
 /*---------------------------------------------------------------------------*/
 static void
-add_timer(struct etimer xdata * xdata timer)
+add_timer(struct etimer *timer)
 {
-  struct etimer xdata * xdata t;
+  struct etimer *t;
 
   etimer_request_poll();
 
@@ -174,14 +174,14 @@ add_timer(struct etimer xdata * xdata timer)
 }
 /*---------------------------------------------------------------------------*/
 void
-etimer_set(struct etimer xdata * xdata et, clock_time_t xdata interval)
+etimer_set(struct etimer *et, clock_time_t interval)
 {
   timer_set(&et->timer, interval);
   add_timer(et);
 }
 /*---------------------------------------------------------------------------*/
 void
-etimer_reset_with_new_interval(struct etimer xdata * xdata et, clock_time_t xdata interval)
+etimer_reset_with_new_interval(struct etimer *et, clock_time_t interval)
 {
   timer_reset(&et->timer);
   et->timer.interval = interval;
@@ -189,40 +189,40 @@ etimer_reset_with_new_interval(struct etimer xdata * xdata et, clock_time_t xdat
 }
 /*---------------------------------------------------------------------------*/
 void
-etimer_reset(struct etimer xdata * xdata et)
+etimer_reset(struct etimer *et)
 {
   timer_reset(&et->timer);
   add_timer(et);
 }
 /*---------------------------------------------------------------------------*/
 void
-etimer_restart(struct etimer xdata * xdata et)
+etimer_restart(struct etimer *et)
 {
   timer_restart(&et->timer);
   add_timer(et);
 }
 /*---------------------------------------------------------------------------*/
 void
-etimer_adjust(struct etimer xdata * xdata et, int xdata timediff)
+etimer_adjust(struct etimer *et, int timediff)
 {
   et->timer.start += timediff;
   update_time();
 }
 /*---------------------------------------------------------------------------*/
 int
-etimer_expired(struct etimer xdata * xdata et)
+etimer_expired(struct etimer *et)
 {
   return et->p == PROCESS_NONE;
 }
 /*---------------------------------------------------------------------------*/
 clock_time_t
-etimer_expiration_time(struct etimer xdata * xdata et)
+etimer_expiration_time(struct etimer *et)
 {
   return et->timer.start + et->timer.interval;
 }
 /*---------------------------------------------------------------------------*/
 clock_time_t
-etimer_start_time(struct etimer xdata * xdata et)
+etimer_start_time(struct etimer *et)
 {
   return et->timer.start;
 }
@@ -240,9 +240,9 @@ etimer_next_expiration_time(void)
 }
 /*---------------------------------------------------------------------------*/
 void
-etimer_stop(struct etimer xdata * xdata et)
+etimer_stop(struct etimer *et)
 {
-  struct etimer xdata * xdata t;
+  struct etimer *t;
 
   /* First check if et is the first event timer on the list. */
   if(et == timerlist) {
