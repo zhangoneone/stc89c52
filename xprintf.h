@@ -16,8 +16,8 @@
 #define xdev_out(func) xfunc_out = (func)
 typedef void (*xfunc_out_t)(unsigned char);
 extern unsigned int xfunc_out;
-void xputc (char c);
-void xputs (const char* str);
+void xputc(char c);
+void xputs(const char* str);
 void put_dump (const void* buff, unsigned long addr, int len, int width);
 #define DW_CHAR		sizeof(char)
 #define DW_SHORT	sizeof(short)

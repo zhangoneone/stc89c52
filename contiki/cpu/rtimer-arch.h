@@ -47,13 +47,10 @@
 #include "contiki-conf.h"
 
 /*
- * 32 MHz clock, prescaled down to 500 kHz for all 4 timers in clock_init().
- * Further prescaled factor 32 for T1, thus T1 is 15625 Hz
+√ø√Î÷–∂œ4k¥Œ
  */
-#define RTIMER_ARCH_SECOND (15625U)
+#define RTIMER_ARCH_SECOND (4000U)
 
-#define rtimer_arch_now() (T1CNTL + (T1CNTH << 8))
-
-//void rtimer_isr(void) interrupt 3;
+#define rtimer_arch_now() (TH0)
 
 #endif /* RTIMER_ARCH_H_ */

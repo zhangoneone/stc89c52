@@ -56,8 +56,8 @@
 #include "contiki-conf.h"
 
 #ifndef RTIMER_CLOCK_DIFF
-typedef unsigned short rtimer_clock_t;
-#define RTIMER_CLOCK_DIFF(a,b)     ((signed short)((a)-(b)))
+typedef unsigned char rtimer_clock_t;
+#define RTIMER_CLOCK_DIFF(a,b)     ((signed char)((a)-(b)))
 #endif /* RTIMER_CLOCK_DIFF */
 
 #define RTIMER_CLOCK_LT(a, b)      (RTIMER_CLOCK_DIFF((a),(b)) < 0)
@@ -74,7 +74,7 @@ typedef unsigned short rtimer_clock_t;
 void rtimer_init(void);
 
 struct rtimer;
-typedef void (* rtimer_callback_t)(struct rtimer *t, void *ptr);
+typedef void (* rtimer_callback_t)(struct rtimer *t, void *ptr)reentrant;
 
 /**
  * \brief      Representation of a real-time task
@@ -160,7 +160,7 @@ void rtimer_arch_schedule(rtimer_clock_t t);
 #ifdef RTIMER_CONF_GUARD_TIME
 #define RTIMER_GUARD_TIME RTIMER_CONF_GUARD_TIME
 #else /* RTIMER_CONF_GUARD_TIME */
-#define RTIMER_GUARD_TIME (RTIMER_ARCH_SECOND >> 14)
+#define RTIMER_GUARD_TIME (RTIMER_ARCH_SECOND >> 8)	//if 4000 then 15
 #endif /* RTIMER_CONF_GUARD_TIME */
 
 #endif /* RTIMER_H_ */

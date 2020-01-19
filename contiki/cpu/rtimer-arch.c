@@ -50,41 +50,23 @@
 #include "sys/rtimer.h"
 #include "sfr-bits.h"
 #include "sys/energest.h"
-
+#include "spin_timer.h"
 /*---------------------------------------------------------------------------*/
 void
 rtimer_arch_init(void)
 {
-
+  spin_timer_start(timer1);
 }
 /*---------------------------------------------------------------------------*/
 void
 rtimer_arch_schedule(rtimer_clock_t t)
 {
-//  /* Switch to capture mode before writing T1CC1x and
-//   * set the compare mode values so we can get an interrupt after t */
-//  RT_MODE_CAPTURE();
-//  T1CC1L = (unsigned char)t;
-//  T1CC1H = (unsigned char)(t >> 8);
-//  RT_MODE_COMPARE();
-//
-//  /* Turn on compare mode interrupt */
-//  T1STAT = 0;
-//  T1CCTL1 |= T1CCTL_IM;
+	//TH0作为计数器，占据timer1的中断向量
+	TH0=256-t;//t个间隔后产生timer1中断
+	spin_timer_start(timer1);//打开中断
 }
-/*---------------------------------------------------------------------------*/
-/* avoid referencing bits, we don't call code which use them */
 void rtimer_isr(void) interrupt 3
 {
-//  T1IE = 0; /* Ignore Timer 1 Interrupts */
-//  ENERGEST_ON(ENERGEST_TYPE_IRQ);
-//
-//  /* No more interrupts from Channel 1 till next rtimer_arch_schedule() call */
-//  T1STAT &= ~T1STAT_CH1IF;
-//  T1CCTL1 &= ~T1CCTL_IM;
-//
-//  rtimer_run_next();
-//
-//  ENERGEST_OFF(ENERGEST_TYPE_IRQ);
-//  T1IE = 1; /* Acknowledge Timer 1 Interrupts */
+	spin_timer_stop(timer1);//关闭中断
+    rtimer_run_next();
 }

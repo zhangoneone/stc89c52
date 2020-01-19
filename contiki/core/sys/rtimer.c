@@ -46,14 +46,6 @@
 #include "sys/rtimer.h"
 #include "contiki.h"
 
-#define DEBUG 0
-#if DEBUG
-#include <stdio.h>
-#define PRINTF(...) printf(__VA_ARGS__)
-#else
-#define PRINTF(...)
-#endif
-
 static struct rtimer *next_rtimer;
 
 /*---------------------------------------------------------------------------*/
@@ -70,7 +62,7 @@ rtimer_set(struct rtimer *rtimer, rtimer_clock_t time,
 {
   int first = 0;
 
-  PRINTF("rtimer_set time %d\n", time);
+  //PRINTF("rtimer_set time %d\n", time);
 
   if(next_rtimer == NULL) {
     first = 1;

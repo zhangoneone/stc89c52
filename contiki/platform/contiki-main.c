@@ -18,8 +18,8 @@ void hardware_init(){
    spin_interupt_init();
    spin_interupt_enable();
    spin_uart_init();
-   //spin_watchdog_enable();
-   //spin_watchdog_overtime(32,FSOC); //返回溢出时间ms 现在大约是1000
+   spin_watchdog_enable();
+   spin_watchdog_overtime(128,FSOC); //返回溢出时间ms 现在大约是4000
    spin_exint0_start(down_eage);
    spin_exint1_start(low_vol);
    //串口测试
@@ -32,7 +32,7 @@ PROCESS_THREAD(led, ev, dataa)
 	static struct etimer et;
     PROCESS_BEGIN();
 	//延时1s的时钟
-	etimer_set(&et,CLOCK_SECOND*1);
+	etimer_set(&et,CLOCK_SECOND/4);
 	while(1)
 	{
 		//等待1s
@@ -48,8 +48,30 @@ PROCESS_THREAD(led, ev, dataa)
 	}
    PROCESS_END();
 }
-PROCESS(info,"info");//
-PROCESS_THREAD(info, ev, dataa)
+PROCESS(led1,"led1");//定义led翻转任务
+PROCESS_THREAD(led1, ev, dataa)
+{
+	static struct etimer et;
+    PROCESS_BEGIN();
+	//延时1s的时钟
+	etimer_set(&et,CLOCK_SECOND/4);
+	while(1)
+	{
+		//等待1s
+		PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));	
+	    //点亮led
+		spin_set_gpio_bit_value(GPIO2,1,0);
+		//等待1s
+		etimer_restart(&et);
+    	PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
+		//关闭led
+		spin_set_gpio_bit_value(GPIO2,1,1);
+		etimer_restart(&et);
+	}
+   PROCESS_END();
+}
+PROCESS(led2,"led2");//定义led翻转任务
+PROCESS_THREAD(led2, ev, dataa)
 {
 	static struct etimer et;
     PROCESS_BEGIN();
@@ -59,7 +81,73 @@ PROCESS_THREAD(info, ev, dataa)
 	{
 		//等待1s
 		PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));	
-	    //xputs("test");
+	    //点亮led
+		spin_set_gpio_bit_value(GPIO2,2,0);
+		//等待1s
+		etimer_restart(&et);
+    	PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
+		//关闭led
+		spin_set_gpio_bit_value(GPIO2,2,1);
+		etimer_restart(&et);
+	}
+   PROCESS_END();
+}
+PROCESS(led3,"led3");//定义led翻转任务
+PROCESS_THREAD(led3, ev, dataa)
+{
+	static struct etimer et;
+    PROCESS_BEGIN();
+	//延时1s的时钟
+	etimer_set(&et,CLOCK_SECOND/2);
+	while(1)
+	{
+		//等待1s
+		PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));	
+	    //点亮led
+		spin_set_gpio_bit_value(GPIO2,3,0);
+		//等待1s
+		etimer_restart(&et);
+    	PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
+		//关闭led
+		spin_set_gpio_bit_value(GPIO2,3,1);
+		etimer_restart(&et);
+	}
+   PROCESS_END();
+}
+PROCESS(led4,"led4");//定义led翻转任务
+PROCESS_THREAD(led4, ev, dataa)
+{
+	static struct etimer et;
+    PROCESS_BEGIN();
+	//延时1s的时钟
+	etimer_set(&et,CLOCK_SECOND/2);
+	while(1)
+	{
+		//等待1s
+		PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));	
+	    //点亮led
+		spin_set_gpio_bit_value(GPIO2,4,0);
+		//等待1s
+		etimer_restart(&et);
+    	PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
+		//关闭led
+		spin_set_gpio_bit_value(GPIO2,4,1);
+		etimer_restart(&et);
+	}
+   PROCESS_END();
+}
+PROCESS(dog,"dog");//定义led翻转任务
+PROCESS_THREAD(dog, ev, dataa)
+{
+	static struct etimer et;
+    PROCESS_BEGIN();
+	//延时1s的时钟
+	etimer_set(&et,CLOCK_SECOND*2);
+	while(1)
+	{
+		//等待1s
+		PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));	
+	    spin_watchdog_clear();//喂狗
 		etimer_restart(&et);
 	}
    PROCESS_END();
@@ -69,11 +157,16 @@ main(void)
 {
   hardware_init();
   clock_init();
+  rtimer_init();
   process_init();
  /* start services */
   process_start(&etimer_process, NULL);
+  process_start(&dog, NULL);
   process_start(&led, NULL);
-  process_start(&info, NULL);
+  process_start(&led1, NULL);
+  process_start(&led2, NULL);
+  process_start(&led3, NULL);
+  process_start(&led4, NULL);
   for(;;)process_run();
   return 0;
 }
