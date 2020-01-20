@@ -91,18 +91,7 @@ clock_seconds(void)
   ENABLE_INTERRUPTS();
   return s;
 }
-/*---------------------------------------------------------------------------*/
-/*
- * There is some ambiguity between TI cc2530 software examples and information
- * in the datasheet.
- *
- * TI examples appear to be writing to SLEEPCMD, initialising hardware in a
- * fashion semi-similar to cc2430
- *
- * However, the datasheet claims that those bits in SLEEPCMD are reserved
- *
- * The code here goes by the datasheet (ignore TI examples) and seems to work.
- */
+
 void
 clock_init(void)
 {

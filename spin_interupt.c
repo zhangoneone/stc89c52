@@ -55,7 +55,7 @@ void spin_interupt_close(INTER_LIST num){
 //}
 
 void intersvr2(void) interrupt 2{
-		spin_set_gpio_bit_value(GPIO2,2,0);
+//		spin_set_gpio_bit_value(GPIO2,2,0);
 		if(inter_vector_function[2]!=NULL)
 	  		 mutex_unlock(it2);
 }
@@ -66,19 +66,19 @@ void intersvr2(void) interrupt 2{
 //}
 //tim2ÖÐ¶Ï
 void intersvr5(void) interrupt 5{
-	spin_set_gpio_bit_value(GPIO2,5,0);
+//	spin_set_gpio_bit_value(GPIO2,5,0);
 	if(inter_vector_function[5]!=NULL)
 	   		mutex_unlock(it5);
 }
 //ext2ÖÐ¶Ï
 void intersvr6(void) interrupt 6{
-	spin_set_gpio_bit_value(GPIO2,6,0);
+//	spin_set_gpio_bit_value(GPIO2,6,0);
 	if(inter_vector_function[6]!=NULL)
 	   		mutex_unlock(it6);
 }
 //ext3ÖÐ¶Ï
 void intersvr7(void) interrupt 7{
-	spin_set_gpio_bit_value(GPIO2,7,0);
+//	spin_set_gpio_bit_value(GPIO2,7,0);
 	if(inter_vector_function[7]!=NULL)
 	   		mutex_unlock(it7);
 }

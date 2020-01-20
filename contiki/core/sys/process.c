@@ -171,7 +171,6 @@ call_process(struct process *p, process_event_t ev, process_data_t dataa)
   
   if((p->state & PROCESS_STATE_RUNNING) &&
      p->thread != NULL) {
-//    PRINTF("process: calling process '%s' with event %d\n", PROCESS_NAME_STRING(p), ev);
     process_current = p;
     p->state = PROCESS_STATE_CALLED;
     ret = p->thread(&p->pt, ev, dataa);

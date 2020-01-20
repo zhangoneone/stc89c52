@@ -160,7 +160,7 @@ int ctimer_expired(struct ctimer *c);
  *             should be called from the system boot up code.
  */
 void ctimer_init(void);
-
+PROCESS_NAME(ctimer_process);
 #endif /* CTIMER_H_ */
 /** @} */
 /** @} */

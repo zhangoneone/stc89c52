@@ -222,8 +222,8 @@
               </RXB>
               <Ocm1>
                 <Type>0</Type>
-                <StartAddress>0x0</StartAddress>
-                <Size>0x0</Size>
+                <StartAddress>0x2000</StartAddress>
+                <Size>0xd400</Size>
               </Ocm1>
               <Ocm2>
                 <Type>0</Type>
@@ -286,7 +286,7 @@
             <Fuzzy>3</Fuzzy>
             <Optimize>9</Optimize>
             <WarningLevel>2</WarningLevel>
-            <SizeSpeed>0</SizeSpeed>
+            <SizeSpeed>1</SizeSpeed>
             <ObjectExtend>1</ObjectExtend>
             <ACallAJmp>0</ACallAJmp>
             <InterruptVectorAddress>0</InterruptVectorAddress>
@@ -326,7 +326,7 @@
             <UserClasses></UserClasses>
             <CSection></CSection>
             <UserSection></UserSection>
-            <CodeBaseAddress></CodeBaseAddress>
+            <CodeBaseAddress>0X2000-0XF3FF</CodeBaseAddress>
             <XDataBaseAddress>0X0000-0X03FF</XDataBaseAddress>
             <PDataBaseAddress></PDataBaseAddress>
             <BitBaseAddress></BitBaseAddress>
@@ -453,6 +453,11 @@
               <FileType>1</FileType>
               <FilePath>.\contiki\cpu\clock.c</FilePath>
             </File>
+            <File>
+              <FileName>rtimer-arch.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\contiki\cpu\rtimer-arch.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -525,6 +530,26 @@
               <FileType>1</FileType>
               <FilePath>.\contiki\core\sys\timer.c</FilePath>
             </File>
+            <File>
+              <FileName>stimer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\contiki\core\sys\stimer.c</FilePath>
+            </File>
+            <File>
+              <FileName>ctimer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\contiki\core\sys\ctimer.c</FilePath>
+            </File>
+            <File>
+              <FileName>rtimer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\contiki\core\sys\rtimer.c</FilePath>
+            </File>
+            <File>
+              <FileName>list.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\contiki\core\lib\list.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -564,7 +589,7 @@
                   <MiscControls></MiscControls>
                   <Define></Define>
                   <Undefine></Undefine>
-                  <IncludePath>.\contiki\core;.\contiki\core\sys;.\contiki\cpu;.\contiki\platform</IncludePath>
+                  <IncludePath>.\contiki\core;.\contiki\core\sys;.\contiki\cpu;.\contiki\platform;.\contiki\core\lib</IncludePath>
                 </VariousControls>
               </C51>
               <Ax51>
@@ -586,6 +611,11 @@
               <FileName>contiki-main.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\contiki\platform\contiki-main.c</FilePath>
+            </File>
+            <File>
+              <FileName>spin_1602.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\spin_1602.c</FilePath>
             </File>
           </Files>
         </Group>
