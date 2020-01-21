@@ -163,6 +163,10 @@ exit_process(struct process *p, struct process *fromprocess)
   process_current = old_current;
 }
 /*---------------------------------------------------------------------------*/
+/*由于在51上面，调用p->thread(&p->pt, ev, dataa);会导致p和dataa均改变
+目前没有找到好的解决办法，因此为了传入正确的dataa，只能定义全局变量，保存dataa
+*/
+process_data_t global_dataa=0;
 static void
 call_process(struct process *p, process_event_t ev, process_data_t dataa)
 {
@@ -173,6 +177,7 @@ call_process(struct process *p, process_event_t ev, process_data_t dataa)
      p->thread != NULL) {
     process_current = p;
     p->state = PROCESS_STATE_CALLED;
+	global_dataa=dataa;//global_dataa永远指向即将被调用的process
     ret = p->thread(&p->pt, ev, dataa);
 	p=process_current;
     if(ret == PT_EXITED ||
@@ -278,7 +283,7 @@ do_event(void)
       if(ev == PROCESS_EVENT_INIT) {
 	receiver->state = PROCESS_STATE_RUNNING;
       }
-	   //receiver->state = PROCESS_STATE_RUNNING;
+
       /* Make sure that the process actually is running. */
       call_process(receiver, ev, dataa);
     }

@@ -13,6 +13,8 @@
 #include"spin_pwrmgr.h"
 #include"xprintf.h"
 #include"spin_1602.h"
+#include"spin_at24c02.h"
+#include"spin_pwm.h"
 void hardware_init(){
    //硬件初始化设置
    spin_set_work_register_group(0);
@@ -26,6 +28,7 @@ void hardware_init(){
    //串口测试
    xdev_in(u_getc);
    xdev_out(u_putc);
+   InitLCD();
 }
 PROCESS(led,"led");//定义led翻转任务
 PROCESS_THREAD(led, ev, dataa)
@@ -39,12 +42,12 @@ PROCESS_THREAD(led, ev, dataa)
 		//等待1s
 		PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));	
 	    //点亮led
-		spin_set_gpio_bit_value(GPIO2,0,0);
+		spin_set_gpio_bit_value(GPIO2,2,0);
 		//等待1s
 		etimer_restart(&et);
     	PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
 		//关闭led
-		spin_set_gpio_bit_value(GPIO2,0,1);
+		spin_set_gpio_bit_value(GPIO2,2,1);
 		etimer_restart(&et);
 	}
    PROCESS_END();
@@ -65,7 +68,7 @@ PROCESS_THREAD(dog, ev, dataa)
 	}
    PROCESS_END();
 }
-
+process_event_t lcd_update;
 int
 main(void)
 {
@@ -74,11 +77,14 @@ main(void)
   rtimer_init();
   ctimer_init();
   process_init();
+  lcd_update = process_alloc_event();	//初始化事件
  /* start services */
   process_start(&etimer_process, NULL);
   process_start(&dog, NULL);
   process_start(&led, NULL);
   process_start(&lcd, NULL);
+  process_start(&pwm_led,NULL);
+  process_start(&at24c02,NULL);
   for(;;)process_run();
   return 0;
 }

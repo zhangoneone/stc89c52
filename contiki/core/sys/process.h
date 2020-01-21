@@ -57,7 +57,7 @@
 #include "sys/cc.h"
 
 typedef unsigned char  process_event_t;
-typedef void *        process_data_t;
+typedef void*        process_data_t;
 typedef unsigned char process_num_events_t;
 
 /**

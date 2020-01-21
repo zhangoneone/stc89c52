@@ -43,7 +43,7 @@ void wcode(uchar t)
   e=1;            //使能
   P0=t;           //写入命令 
   delay1ms();      //等待写入,如果时间太短，会导致液晶无法显示  大约延时2ms
-  delay1ms();
+ // delay1ms();
   e=0;            //数据的锁定
 }
 //**************************************************************************************************
@@ -57,7 +57,7 @@ void wdata(uchar t)
   e=1;           //使能
   P0=t;          //写入数据
   delay1ms();     //等待写入,如果时间太短，会导致液晶无法显示	  大约延时2ms
-  delay1ms();
+ // delay1ms();
   e=0;           //数据的锁定
 }
 //**************************************************************************************************
@@ -94,19 +94,16 @@ void InitLCD(){
    wcode(0x38);   //功能设定:设置16x2显示，5x7显示,8位数据接口  38   	
 }  
 PROCESS(lcd,"lcd");//
-process_event_t lcd_update;
+extern process_data_t global_dataa;
 PROCESS_THREAD(lcd, ev, dataa)
 {
     PROCESS_BEGIN();
-	lcd_update = process_alloc_event();	//初始化事件
-	//延时1s的时钟
-	InitLCD();
 	while(1)
 	{
 		//等待事件到来
-		PROCESS_WAIT_EVENT_UNTIL(ev==process_post);	
-		put_line1(dataa);
-		//put_line2(dis2);
+		PROCESS_WAIT_EVENT_UNTIL(ev==lcd_update);	
+		put_line1((uchar*)global_dataa);
+		put_line2(dis2);
 		ev=0; //清除事件
 	}
    PROCESS_END();

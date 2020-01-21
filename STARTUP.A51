@@ -27,7 +27,7 @@ $NOMOD51
 ; <o> IDATALEN: IDATA memory size <0x0-0x100>
 ;     <i> Note: The absolute start-address of IDATA memory is always 0
 ;     <i>       The IDATA space overlaps physically the DATA and BIT areas.
-IDATALEN        EQU     80H
+IDATALEN        EQU     100H
 ;
 ; <o> XDATASTART: XDATA memory start address <0x0-0xFFFF> 
 ;     <i> The absolute start address of XDATA memory
@@ -35,7 +35,7 @@ XDATASTART      EQU     0
 ;
 ; <o> XDATALEN: XDATA memory size <0x0-0xFFFF> 
 ;     <i> The length of XDATA memory in bytes.
-XDATALEN        EQU     0      
+XDATALEN        EQU     1000H      
 ;
 ; <o> PDATASTART: PDATA memory start address <0x0-0xFFFF> 
 ;     <i> The absolute start address of PDATA memory
@@ -68,7 +68,7 @@ IBPSTACKTOP     EQU     0xFF +1     ; default 0FFH+1
 XBPSTACK        EQU     0       ; set to 1 if large reentrant is used.
 ;  <o> XBPSTACKTOP: End address of LARGE model stack <0x0-0xFFFF>
 ;     <i> Set the top of the stack to the highest location.
-XBPSTACKTOP     EQU     0xFFFF +1   ; default 0FFFFH+1 
+XBPSTACKTOP     EQU     0x1000 +1   ; default 0FFFFH+1 
 ; </h>
 ;
 ; <h> Stack Space for reentrant functions in the COMPACT model.    
