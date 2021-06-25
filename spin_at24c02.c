@@ -57,7 +57,7 @@ PROCESS_THREAD(at24c02, ev, dataa)
 		index++;
 		if(index==slen)break;
 	}
-	process_post(&lcd, lcd_update, (void*)recv);
+	process_post(&lcd, lcd_update2, (void*)recv);
 	etimer_set(&et,CLOCK_SECOND*65535);
 	while(1){
 	   PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));

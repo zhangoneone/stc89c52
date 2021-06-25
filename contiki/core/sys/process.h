@@ -57,7 +57,7 @@
 #include "sys/cc.h"
 
 typedef unsigned char  process_event_t;
-typedef void*        process_data_t;
+typedef void *        process_data_t;
 typedef unsigned char process_num_events_t;
 
 /**
@@ -273,7 +273,7 @@ typedef unsigned char process_num_events_t;
 #define PROCESS_THREAD(name, ev, dataa) 				\
 static PT_THREAD(process_thread_##name(struct pt *process_pt,	\
 				       process_event_t ev,	\
-				       process_data_t dataa))
+				       process_data_t dataa)/*reentrant*/)
 
 /**
  * Declare the name of a process.
@@ -321,8 +321,8 @@ struct process {
 #define PROCESS_NAME_STRING(process) (process)->name
 #endif
   PT_THREAD((* thread)(struct pt *, process_event_t, process_data_t))reentrant;
-  struct pt pt;
-  unsigned char state, needspoll;
+  struct pt pt;	 //保存了行数
+  unsigned char state, needspoll;  //task状态和轮询请求
 };
 
 /**

@@ -2,6 +2,7 @@
 
 #define local_set(gpio,value)	P##gpio=value
 #define local_get(gpio)			P##gpio
+//#define local_set_bit(gpio,index,value)	P##gpio##_##index=!!value
 
 void  spin_set_gpio_value(GPIOS gpio,uchar value){
     switch(gpio){
@@ -38,6 +39,7 @@ void  spin_set_gpio_bit_value(GPIOS gpio,uchar index,uchar value){
 				default:break;
    	}
 }
+
 uchar spin_get_gpio_bit_value(GPIOS gpio,uchar index){
      uchar temp = 0;
 	 switch(gpio){

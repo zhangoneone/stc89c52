@@ -125,3 +125,19 @@ void delay1s(void)   //Îó²î 0us
             for(a=16;a>0;a--);
     _nop_();  //if Keil,require use intrins.h
 }
+
+void delayus(unsigned char us){
+	unsigned char i = 0;
+	if(us==1)return;
+	if(us==2)return;
+	for(;i<us-2;i++)
+		_nop_();
+	return;
+}
+
+void delayms(unsigned char ms){
+	unsigned char i =0;
+	 for(;i<ms;i++)
+	 	delay1ms();
+	return;
+}

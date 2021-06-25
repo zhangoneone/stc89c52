@@ -84,8 +84,8 @@
  * \hideinitializer
  */
 struct timer {
-  clock_time_t start;
-  clock_time_t interval;
+  clock_time_t start;  //计时开始时间
+  clock_time_t interval;   //要计时的数量
 };
 
 CCIF void timer_set(struct timer *t, clock_time_t interval);

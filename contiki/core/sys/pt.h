@@ -76,6 +76,7 @@ struct pt {
  *
  * \hideinitializer
  */
+ //初始化行数
 #define PT_INIT(pt)   LC_INIT((pt)->lc)
 
 /** @} */
@@ -96,6 +97,7 @@ struct pt {
  *
  * \hideinitializer
  */
+ //定义一个协程
 #define PT_THREAD(name_args) char name_args
 
 /**
@@ -111,6 +113,7 @@ struct pt {
  *
  * \hideinitializer
  */
+ //协程开始时的准备任务，设置PT_YIELD_FLAG标志，设置从指定的lc行继续执行(配合lC_SET使用)
 #define PT_BEGIN(pt) { char PT_YIELD_FLAG = 1; if (PT_YIELD_FLAG) {;} LC_RESUME((pt)->lc)
 
 /**
@@ -123,6 +126,7 @@ struct pt {
  *
  * \hideinitializer
  */
+ //协程结束时的清扫工作
 #define PT_END(pt) LC_END((pt)->lc); PT_YIELD_FLAG = 0; \
                    PT_INIT(pt); return PT_ENDED; }
 
@@ -144,6 +148,7 @@ struct pt {
  *
  * \hideinitializer
  */
+ //使用这个，task执行到这儿时，条件不满足才会放弃cpu，否则不会放弃cpu
 #define PT_WAIT_UNTIL(pt, condition)	        \
   do {						\
     LC_SET((pt)->lc);				\
@@ -163,6 +168,7 @@ struct pt {
  *
  * \hideinitializer
  */
+ //当cond成立时，将会放弃cpu,和PT_WAIT_UNTIL相反
 #define PT_WAIT_WHILE(pt, cond)  PT_WAIT_UNTIL((pt), !(cond))
 
 /** @} */
@@ -286,6 +292,7 @@ struct pt {
  *
  * \hideinitializer
  */
+ //无条件放弃本次cpu，下次获得cpu时，将会从本句的下一句开始执行
 #define PT_YIELD(pt)				\
   do {						\
     PT_YIELD_FLAG = 0;				\
@@ -306,6 +313,7 @@ struct pt {
  *
  * \hideinitializer
  */
+ //使用这个，会让task执行到这儿时，必然无条件放弃一次cpu，等到下次条件满足时才会获取cpu
 #define PT_YIELD_UNTIL(pt, cond)		\
   do {						\
     PT_YIELD_FLAG = 0;				\

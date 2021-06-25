@@ -104,7 +104,7 @@ process_start(struct process *p, process_data_t dataa)
   p->next = process_list;
   process_list = p;
   p->state = PROCESS_STATE_RUNNING;
-  PT_INIT(&p->pt);
+  PT_INIT(&p->pt);	  //设置初始行数是0
 
   //PRINTF("process: starting '%s'\n", PROCESS_NAME_STRING(p));
 
@@ -166,26 +166,24 @@ exit_process(struct process *p, struct process *fromprocess)
 /*由于在51上面，调用p->thread(&p->pt, ev, dataa);会导致p和dataa均改变
 目前没有找到好的解决办法，因此为了传入正确的dataa，只能定义全局变量，保存dataa
 */
-process_data_t global_dataa=0;
+volatile process_data_t global_dataa=0;
 static void
 call_process(struct process *p, process_event_t ev, process_data_t dataa)
 {
   int ret;
-
-  
   if((p->state & PROCESS_STATE_RUNNING) &&
-     p->thread != NULL) {
-    process_current = p;
-    p->state = PROCESS_STATE_CALLED;
+     p->thread != NULL) { //参数检查
+    process_current = p; //修改当前运行的task
+    p->state = PROCESS_STATE_CALLED; //修改当前task为阻塞状态，防止同一个task多次重入，一种锁机制
 	global_dataa=dataa;//global_dataa永远指向即将被调用的process
-    ret = p->thread(&p->pt, ev, dataa);
+    ret = p->thread(&p->pt, ev, dataa);	//传入了行数 事件 事件附带数据
 	p=process_current;
     if(ret == PT_EXITED ||
        ret == PT_ENDED ||
-       ev == PROCESS_EVENT_EXIT) {
+       ev == PROCESS_EVENT_EXIT) {//出错则退出该task
       exit_process(p, p);
     } else {
-      p->state = PROCESS_STATE_RUNNING;
+      p->state = PROCESS_STATE_RUNNING;	//修改当前task为可以运行状态，相当于释放锁
     }
   }
 }
@@ -224,7 +222,7 @@ do_poll(void)
     if(p->needspoll) {
       p->state = PROCESS_STATE_RUNNING;
       p->needspoll = 0;
-      call_process(p, PROCESS_EVENT_POLL, NULL);
+      call_process(p, PROCESS_EVENT_POLL, NULL);  //遍历有poll请求的task，传入poll事件
     }
   }
 }
@@ -301,7 +299,8 @@ process_run(void)
   /* Process one event from the queue */
   do_event();
 
-  return nevents + poll_requested;
+  return nevents + poll_requested;	   //nevents是剩余的event计数。poll_requested标志是否有poll请求
+  //故本函数返回非0值代表系统尚有任务需处理。返回0则代表空闲，可以进入低功耗模式
 }
 /*---------------------------------------------------------------------------*/
 int
@@ -315,13 +314,13 @@ process_post(struct process *p, process_event_t ev, process_data_t dataa)
 {
   process_num_events_t snum;
 
-  if(PROCESS_CURRENT() == NULL) {
+  if(PROCESS_CURRENT() == NULL) {		//当前没有task运行
     
   } else {
     
   }
   
-  if(nevents == PROCESS_CONF_NUMEVENTS) {
+  if(nevents == PROCESS_CONF_NUMEVENTS) {	//事件队列满了
     return PROCESS_ERR_FULL;
   }
   
@@ -329,7 +328,7 @@ process_post(struct process *p, process_event_t ev, process_data_t dataa)
   events[snum].ev = ev;
   events[snum].dataa = dataa;
   events[snum].p = p;
-  ++nevents;
+  ++nevents;						  //入队完成
 
 #if PROCESS_CONF_STATS
   if(nevents > process_maxevents) {
@@ -343,10 +342,10 @@ process_post(struct process *p, process_event_t ev, process_data_t dataa)
 void
 process_post_synch(struct process *p, process_event_t ev, process_data_t dataa)
 {
-  struct process *caller = process_current;
+  struct process *caller = process_current;	//保存当前task
 
-  call_process(p, ev, dataa);
-  process_current = caller;
+  call_process(p, ev, dataa);	
+  process_current = caller;	   //恢复当前task
 }
 /*---------------------------------------------------------------------------*/
 void

@@ -7,4 +7,5 @@ void put_line1(uchar line1[]);
 void put_line2(uchar line2[]);
 void InitLCD();
 PROCESS_NAME(lcd);
-extern process_event_t lcd_update;
+extern process_event_t lcd_update1;
+extern process_event_t lcd_update2;

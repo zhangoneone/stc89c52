@@ -74,9 +74,9 @@
  * \hideinitializer
  */
  struct etimer {
-  struct timer timer;
-  struct etimer *next;
-  struct process *p;
+  struct timer timer;	  //基本timer
+  struct etimer *next;	 //链接域
+  struct process *p;	//etimer绑定的process
 };
 
 /**

@@ -20,7 +20,7 @@ PROCESS_THREAD(pwm_led, ev, dataa)
 	static struct etimer et;
     PROCESS_BEGIN();
 	//延时1/16 s的时钟
-	etimer_set(&et,CLOCK_SECOND/8);
+	etimer_set(&et,CLOCK_SECOND/6);
 	while(1)
 	{
 		//等待1/16s
@@ -29,7 +29,7 @@ PROCESS_THREAD(pwm_led, ev, dataa)
 			revert_value--;
 		else
 			revert_value++;
-		if(revert_value==top/2)dir=1;//方向改为减
+		if(revert_value==top/3)dir=1;//方向改为减
 		else if(revert_value==0)dir=0;//方向改为增
 		else dir=dir;//方向不变
 		etimer_restart(&et);

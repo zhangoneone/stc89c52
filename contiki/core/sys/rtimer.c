@@ -55,14 +55,13 @@ rtimer_init(void)
   rtimer_arch_init();
 }
 /*---------------------------------------------------------------------------*/
+//time单位是us，表示time us后触发中断。time范围应该在0~255之间。在中断里面将会执行rtimer_run_next
 int
 rtimer_set(struct rtimer *rtimer, rtimer_clock_t time,
 	   rtimer_clock_t duration,
 	   rtimer_callback_t func, void *ptr)
 {
   int first = 0;
-
-  //PRINTF("rtimer_set time %d\n", time);
 
   if(next_rtimer == NULL) {
     first = 1;
@@ -74,7 +73,7 @@ rtimer_set(struct rtimer *rtimer, rtimer_clock_t time,
   rtimer->time = time;
   next_rtimer = rtimer;
 
-  if(first == 1) {
+  if(first == 1) {	  //第一次设置，要调度一次，以后都在其他函数调度
     rtimer_arch_schedule(time);
   }
   return RTIMER_OK;
@@ -89,9 +88,9 @@ rtimer_run_next(void)
   }
   t = next_rtimer;
   next_rtimer = NULL;
-  t->func(t, t->ptr);
+  t->func(t, t->ptr);	//在设置的rtimer的回调函数里，用户要设置rtimer_set，确定下一个rtimer。否则rtimer会停止
   if(next_rtimer != NULL) {
-    rtimer_arch_schedule(next_rtimer->time);
+    rtimer_arch_schedule(next_rtimer->time); //这里其实是有点重复了
   }
   return;
 }

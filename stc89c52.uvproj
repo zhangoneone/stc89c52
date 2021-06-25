@@ -617,6 +617,31 @@
               <FileType>1</FileType>
               <FilePath>.\spin_1602.c</FilePath>
             </File>
+            <File>
+              <FileName>i2c.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\i2c.c</FilePath>
+            </File>
+            <File>
+              <FileName>spin_at24c02.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\spin_at24c02.c</FilePath>
+            </File>
+            <File>
+              <FileName>spin_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\spin_pwm.c</FilePath>
+            </File>
+            <File>
+              <FileName>spin_18b20.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\spin_18b20.c</FilePath>
+            </File>
+            <File>
+              <FileName>spin_ds1302.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\spin_ds1302.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

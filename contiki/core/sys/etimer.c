@@ -86,9 +86,9 @@ PROCESS_THREAD(etimer_process, ev, dataa)
   timerlist = NULL;
   
   while(1) {
-    PROCESS_YIELD();
+    PROCESS_YIELD(); //第一次调用时必然从这里放弃cpu
 
-    if(ev == PROCESS_EVENT_EXITED) {
+    if(ev == PROCESS_EVENT_EXITED) { //有process退出了，获得了该广播消息，删去和该process绑定的etimer
       struct process *p = dataa;
 
       while(timerlist != NULL && timerlist->p == p) {
@@ -105,17 +105,17 @@ PROCESS_THREAD(etimer_process, ev, dataa)
 	}
       }
       continue;
-    } else if(ev != PROCESS_EVENT_POLL) {
+    } else if(ev != PROCESS_EVENT_POLL) {  //不是poll事件，跳回去，放弃cpu
       continue;
     }
 
   again:
-    
+       //执行到这里说明有etimer的poll事件
     u = NULL;
     
     for(t = timerlist; t != NULL; t = t->next) {
-      if(timer_expired(&t->timer)) {
-	if(process_post(t->p, PROCESS_EVENT_TIMER, t) == PROCESS_ERR_OK) {
+      if(timer_expired(&t->timer)) { //有etimer到期
+	if(process_post(t->p, PROCESS_EVENT_TIMER, t) == PROCESS_ERR_OK) { //post一个timer到期事件
 	  
 	  /* Reset the process ID of the event timer, to signal that the
 	     etimer has expired. This is later checked in the
@@ -127,10 +127,10 @@ PROCESS_THREAD(etimer_process, ev, dataa)
 	    timerlist = t->next;
 	  }
 	  t->next = NULL;
-	  update_time();
-	  goto again;
+	  update_time();	//更新next_expiration变量
+	  goto again;		//直到所有的etimer都未到期才会结束
 	} else {
-	  etimer_request_poll();
+	  etimer_request_poll();   //post etimer到期事件失败，重新设置一个poll请求，等待下次poll
 	}
       }
       u = t;
@@ -142,9 +142,9 @@ PROCESS_THREAD(etimer_process, ev, dataa)
 }
 /*---------------------------------------------------------------------------*/
 void
-etimer_request_poll(void)
+etimer_request_poll(void)	 //调用它意味着有etimer到期
 {
-  process_poll(&etimer_process);
+  process_poll(&etimer_process);	   //设置标志位，contiki将会poll etimer的process
 }
 /*---------------------------------------------------------------------------*/
 static void

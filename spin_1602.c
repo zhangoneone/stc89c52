@@ -9,6 +9,7 @@
 #include"spin_timer.h"
 #include"etimer.h"
 #include"process.h"
+#include"spin_gpio.h"
 #include<reg52.h>
 #include<stdio.h>
 sbit rs=P2^6;    //命令/数据选择
@@ -16,8 +17,8 @@ sbit rw=P2^5;    //读写口
 sbit  e=P2^7;    //锁存控制
 /*DB0~DB7连到了P00~P07*/
 sbit BusyFlag=P0^7;//查忙标志位
-uchar  dis1[16]={' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',};//LCD第一行显示当前时间，格式    00:00:00  ,四五 七八 
-uchar  dis2[16]={' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',};//LCD第2行显示The T is:xxx.x 0xeb,'C'	9 10 11 13 
+//uchar  dis1[16]={' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',};//LCD第一行显示当前时间，格式    00:00:00  ,四五 七八 
+//uchar  dis2[16]={' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',};//LCD第2行显示The T is:xxx.x 0xeb,'C'	9 10 11 13 
 
 //**************************************************************************************************
 //查忙
@@ -42,8 +43,7 @@ void wcode(uchar t)
   rw=0;           // 写状态
   e=1;            //使能
   P0=t;           //写入命令 
-  delay1ms();      //等待写入,如果时间太短，会导致液晶无法显示  大约延时2ms
- // delay1ms();
+  delayms(1);      //等待写入,如果时间太短，会导致液晶无法显示  大约延时2ms
   e=0;            //数据的锁定
 }
 //**************************************************************************************************
@@ -56,8 +56,7 @@ void wdata(uchar t)
   rw=0;          // 写状态
   e=1;           //使能
   P0=t;          //写入数据
-  delay1ms();     //等待写入,如果时间太短，会导致液晶无法显示	  大约延时2ms
- // delay1ms();
+  delayms(1);     //等待写入,如果时间太短，会导致液晶无法显示	  大约延时2ms
   e=0;           //数据的锁定
 }
 //**************************************************************************************************
@@ -94,17 +93,22 @@ void InitLCD(){
    wcode(0x38);   //功能设定:设置16x2显示，5x7显示,8位数据接口  38   	
 }  
 PROCESS(lcd,"lcd");//
-extern process_data_t global_dataa;
+extern volatile process_data_t global_dataa;
 PROCESS_THREAD(lcd, ev, dataa)
 {
     PROCESS_BEGIN();
+	InitLCD();
 	while(1)
 	{
 		//等待事件到来
-		PROCESS_WAIT_EVENT_UNTIL(ev==lcd_update);	
-		put_line1((uchar*)global_dataa);
-		put_line2(dis2);
-		ev=0; //清除事件
+		PROCESS_WAIT_EVENT();
+		if(ev==lcd_update1){
+		  put_line1(global_dataa);
+		}
+		if(ev==lcd_update2){
+		  put_line2(global_dataa);
+		}	
+		ev=0; //清除事件，不清除事件会导致重复执行
 	}
    PROCESS_END();
 }

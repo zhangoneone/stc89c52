@@ -204,8 +204,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>6</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\spin_gpio.c</PathWithFileName>
       <FilenameWithoutPath>spin_gpio.c</FilenameWithoutPath>
@@ -244,10 +244,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>21</ColumnNumber>
+      <ColumnNumber>4</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>85</TopLine>
-      <CurrentLine>85</CurrentLine>
+      <TopLine>121</TopLine>
+      <CurrentLine>136</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\spin_timer.c</PathWithFileName>
       <FilenameWithoutPath>spin_timer.c</FilenameWithoutPath>
@@ -447,10 +447,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>8</ColumnNumber>
+      <ColumnNumber>1</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>46</TopLine>
-      <CurrentLine>59</CurrentLine>
+      <TopLine>92</TopLine>
+      <CurrentLine>114</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\contiki\platform\contiki-main.c</PathWithFileName>
       <FilenameWithoutPath>contiki-main.c</FilenameWithoutPath>
@@ -461,15 +461,111 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>1</ColumnNumber>
+      <ColumnNumber>9</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>93</TopLine>
-      <CurrentLine>111</CurrentLine>
+      <TopLine>39</TopLine>
+      <CurrentLine>46</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\spin_1602.c</PathWithFileName>
       <FilenameWithoutPath>spin_1602.c</FilenameWithoutPath>
     </File>
+    <File>
+      <GroupNumber>4</GroupNumber>
+      <FileNumber>0</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <ColumnNumber>0</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>311</TopLine>
+      <CurrentLine>311</CurrentLine>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\i2c.c</PathWithFileName>
+      <FilenameWithoutPath>i2c.c</FilenameWithoutPath>
+    </File>
+    <File>
+      <GroupNumber>4</GroupNumber>
+      <FileNumber>0</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <ColumnNumber>29</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>45</TopLine>
+      <CurrentLine>45</CurrentLine>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\spin_at24c02.c</PathWithFileName>
+      <FilenameWithoutPath>spin_at24c02.c</FilenameWithoutPath>
+    </File>
+    <File>
+      <GroupNumber>4</GroupNumber>
+      <FileNumber>0</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <ColumnNumber>0</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>16</TopLine>
+      <CurrentLine>25</CurrentLine>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\spin_pwm.c</PathWithFileName>
+      <FilenameWithoutPath>spin_pwm.c</FilenameWithoutPath>
+    </File>
+    <File>
+      <GroupNumber>4</GroupNumber>
+      <FileNumber>0</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <ColumnNumber>15</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>16</TopLine>
+      <CurrentLine>23</CurrentLine>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\spin_18b20.c</PathWithFileName>
+      <FilenameWithoutPath>spin_18b20.c</FilenameWithoutPath>
+    </File>
+    <File>
+      <GroupNumber>4</GroupNumber>
+      <FileNumber>0</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <ColumnNumber>9</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>214</TopLine>
+      <CurrentLine>214</CurrentLine>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\spin_ds1302.c</PathWithFileName>
+      <FilenameWithoutPath>spin_ds1302.c</FilenameWithoutPath>
+    </File>
   </Group>
+
+  <AlienFiles>
+    <PathWithFilename>G:\360MoveData\Users\青\Documents\GitHub\stc89c52\SPIN_TIMER.H</PathWithFilename>
+    <TopLine>1</TopLine>
+    <CurrentLine>12</CurrentLine>
+    <Constant>0</Constant>
+    <WindowPosition>
+      <length>0</length>
+      <flags>0</flags>
+      <showCmd>0</showCmd>
+      <MinPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>0</Top>
+        <Left>0</Left>
+        <Right>0</Right>
+        <Bottom>0</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+  </AlienFiles>
 
   <WinLayout>
     <sActiveDebugView>Default</sActiveDebugView>
@@ -1816,9 +1912,63 @@
       <Documents>
         <Doc>
           <Name>.\contiki\platform\contiki-main.c</Name>
-          <ColumnNumber>8</ColumnNumber>
-          <TopLine>46</TopLine>
-          <CurrentLine>59</CurrentLine>
+          <ColumnNumber>1</ColumnNumber>
+          <TopLine>92</TopLine>
+          <CurrentLine>114</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\spin_pwm.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>16</TopLine>
+          <CurrentLine>25</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\spin_1602.c</Name>
+          <ColumnNumber>9</ColumnNumber>
+          <TopLine>39</TopLine>
+          <CurrentLine>46</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\i2c.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>311</TopLine>
+          <CurrentLine>311</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\spin_at24c02.c</Name>
+          <ColumnNumber>29</ColumnNumber>
+          <TopLine>45</TopLine>
+          <CurrentLine>45</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>SPIN_TIMER.H</Name>
+          <ColumnNumber>86</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>12</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\spin_ds1302.c</Name>
+          <ColumnNumber>9</ColumnNumber>
+          <TopLine>214</TopLine>
+          <CurrentLine>214</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\spin_timer.c</Name>
+          <ColumnNumber>4</ColumnNumber>
+          <TopLine>121</TopLine>
+          <CurrentLine>136</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\spin_gpio.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>6</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\spin_18b20.c</Name>
+          <ColumnNumber>15</ColumnNumber>
+          <TopLine>16</TopLine>
+          <CurrentLine>23</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

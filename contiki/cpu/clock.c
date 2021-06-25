@@ -99,7 +99,7 @@ clock_init(void)
 }
 static int counter=0;
 volatile char pwm_counter=0;//pwm计数值
-const char top=10;//pwm频率是400HZ
+const char top=20;//pwm频率是200HZ
 extern void pwm_start();
 void intersvr1(void) interrupt 1				 //定时器0产生系统时基 每秒中断128次 7.8ms中断1次
 {
