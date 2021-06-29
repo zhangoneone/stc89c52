@@ -3,16 +3,14 @@
 #include"spin_interupt.h"
 #include<stdio.h>
 #include<string.h>
-sem_t uart_send;
-sem_t uart_recv;
-uchar recv_buff[10];//接收buff
-uchar recv_buff_ptr=0;
+volatile sem_t uart_send; //发送完成信号量
+volatile buff_t idata recv_buff; //接收buff
+
 static const uint boaud_rate=2400;
 static const uint over_time_us=13;//每over_time_us，定时器1溢出1次
 
 uint spin_uart_init(){
 	sem_init(uart_send,1);
-	sem_init(uart_recv,0);
 	spin_timer_for_uart(timer1,over_time_us);
 
    //SCON=0xF0;//方式3，多机通讯，允许接收
@@ -22,48 +20,47 @@ uint spin_uart_init(){
    spin_interupt_open(serial);	//开串口中断
    return boaud_rate*2;
 }
-
-uint spin_write_uart(const char *buff,uint n){
-	uint i = 0;
+static uchar spin_write_byte(uchar c){
+	sem_wait(uart_send);    //等待发送完成
+	critical_area_enter();  //临界资源 SBUF
+	SBUF=c;
+	critical_area_exit();
+	return c;	
+}
+uint spin_write_uart(const char idata *buff,uint n){
+	uint i = 0;		
 	for(;i<n;i++){
-		sem_wait(uart_send);                                        //等待发送信号量
-		SBUF=*buff;
+		spin_write_byte(*buff);
 		buff++;
 	}
 	return i;
 }
-//阻塞方式
-uchar spin_read_byte(){
+//返回0代表结束
+static uchar spin_read_byte(){
 	 char ret;
-	 sem_wait(uart_recv);
+	 if(recv_buff.len<=0)return 0;
 	 critical_area_enter();
-	 ret = recv_buff[--recv_buff_ptr];
+	 ret = recv_buff.buff[--recv_buff.len];
 	 critical_area_exit();
 	 return ret;
 }
-//这个函数有问题
-uint spin_read_line(char *buff){
+
+uint spin_read_uart(char idata *buff){
+	char c = 0;
 	uint i = 0;
-	for(;i<recv_buff_ptr;i++){
-		sem_wait(uart_recv);
-		critical_area_enter();
-		buff[i] = recv_buff[--recv_buff_ptr];
-		critical_area_exit();
-		if(buff[i]==0x13)//回车键
-			break;
+	uint j = 0;
+	uint end = 0;
+	while( (c=spin_read_byte()) !=0){
+	  buff[i++] = c;
 	}
-	buff[i++]='\0';
-	recv_buff_ptr=0;//buff清空,这么处理有问题
+	if(i<2){buff[i]='\0';return i;} 
+//	//reverse array
+	end = i-1;
+	for(j=0;j<i/2;j++){
+		c = buff[j];
+		buff[j] = buff[end-j];
+		buff[end-j] = c;
+	}
+	buff[i]='\0';
 	return i;//读到的长度
-}
-//读出所有的数据 非阻塞方式
-uint spin_read_uart(char *buff){
-	uint i = 0;
-	critical_area_enter();
-	for(;i<recv_buff_ptr;i++)
-		buff[i] = recv_buff[i];
-	recv_buff_ptr=0;   //buff清空
-	sem_init(uart_recv,0);//信号量清空
-	critical_area_exit();
-	return i;//读到的长度	
 }

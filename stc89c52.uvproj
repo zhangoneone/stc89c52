@@ -168,7 +168,7 @@
         </Utilities>
         <Target51>
           <Target51Misc>
-            <MemoryModel>0</MemoryModel>
+            <MemoryModel>2</MemoryModel>
             <RTOS>0</RTOS>
             <RomSize>2</RomSize>
             <DataHold>0</DataHold>
@@ -279,13 +279,13 @@
           </Target51Misc>
           <C51>
             <RegisterColoring>0</RegisterColoring>
-            <VariablesInOrder>0</VariablesInOrder>
+            <VariablesInOrder>1</VariablesInOrder>
             <IntegerPromotion>1</IntegerPromotion>
             <uAregs>0</uAregs>
             <UseInterruptVector>1</UseInterruptVector>
             <Fuzzy>3</Fuzzy>
             <Optimize>8</Optimize>
-            <WarningLevel>2</WarningLevel>
+            <WarningLevel>0</WarningLevel>
             <SizeSpeed>1</SizeSpeed>
             <ObjectExtend>1</ObjectExtend>
             <ACallAJmp>0</ACallAJmp>
@@ -352,6 +352,11 @@
               <FilePath>.\STARTUP.A51</FilePath>
             </File>
             <File>
+              <FileName>spin_gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\spin_gpio.c</FilePath>
+            </File>
+            <File>
               <FileName>spin_userstart.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\spin_userstart.c</FilePath>
@@ -370,11 +375,6 @@
               <FileName>spin_exinterupt.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\spin_exinterupt.c</FilePath>
-            </File>
-            <File>
-              <FileName>spin_gpio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\spin_gpio.c</FilePath>
             </File>
             <File>
               <FileName>spin_interupt.c</FileName>

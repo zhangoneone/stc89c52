@@ -45,11 +45,11 @@ void hardware_init(){
    spin_interupt_enable();
    spin_uart_init();
    spin_watchdog_enable();
-   spin_watchdog_overtime(32,FSOC); //返回溢出时间ms 现在大约是1000
+   spin_watchdog_overtime(64,FSOC); //返回溢出时间ms
    spin_exint0_start(down_eage);
    spin_exint1_start(low_vol);
    //串口测试
-   spin_write_uart("51 start",strlen("51 start"));//接收到的数据回写
+   spin_write_uart("ok\r\n",4);//接收到的数据回写
    //定时器相关测试
    //spin_counter_time(50);//计数50次，达到就中断。和串口共用timer1
    //spin_timer_sec(1);  //定时1s

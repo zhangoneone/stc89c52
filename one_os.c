@@ -10,34 +10,35 @@
 #include"spin_pwrmgr.h"
 #include<string.h>
 #include<stdio.h>
-//定时喂狗任务
+
+#define  TASK_MAX(task)   (sizeof(task)/sizeof(task[0]))
+//定时喂狗闪灯任务
 void task1(){
-	 spin_watchdog_clear();
-}
-//交替闪灯任务
-void task2(){
 	static uint recv_fre=0;
 	recv_fre=~recv_fre;
 	spin_set_gpio_bit_value(GPIO2,5,recv_fre);
+	spin_watchdog_clear();
+}
+
+void task2(){
+     static uchar idata recv[BUFF_MAX_SIZE];
+	 uint ret = 0;
+ 	 ret = spin_read_uart(recv);
+	 if(ret != 0)
+	 	spin_write_uart(recv,ret);
 }
 //定时发送数据到串口
 void task3(){
-	 spin_write_uart("os running!\n",strlen("os running!\n"));
+	 static uchar idata send[BUFF_MAX_SIZE/2];
+	 static unsigned long sec=0;
+	 sprintf(send,"time:%llu\r\n",sec++);
+	 spin_write_uart(send,strlen(send));
 }
-//查询是否有串口数据
-//void task4(){
-//     static uchar idata recv[15];
-//	 uchar ret = 0;
-// 	 ret = spin_read_byte();
-//	 if(ret != 0)
-//	 	spin_write_uart(&ret,strlen(ret));
-//}
-static idata Tasks task[]=   
+static Tasks idata task[]=   
 {   
-    {0,0,400,400,task1}, //喂狗		100ms
-    {1,0,2000,2000,task2}, //闪灯	500ms
-	{2,0,4000,4000,task3},//发串口，1s
-//	{3,0,2000,2000,task4},//读串口，500ms
+    {0,1,4000,4000,task1}, //喂狗闪灯	500ms
+	{1,1,400,400,task2},//读串口		50ms
+//    {2,1,8000,8000,task3},//写串口		1000ms
 };
 
 void TaskHangup(unsigned char Task_Num)//任务挂起函数，参数就是你的任务编号
@@ -53,7 +54,7 @@ void TaskRecovery(unsigned char Task_Num)//任务恢复函数，参数就是你的任务编号
 void TaskRemarks(void) //放在定时器中断里面
 {
 	unsigned char i;
-	for (i=0; i<TASK_MAX; i++)          
+	for (i=0; i<TASK_MAX(task); i++)          
 	{
 		if (task[i].Timer)          
 		{
@@ -70,7 +71,7 @@ void TaskRemarks(void) //放在定时器中断里面
 void TaskProcess(void)//放在你的while(1)循环里面
 {
     unsigned char  i;
-	for (i=0; i<TASK_MAX; i++)          
+	for (i=0; i<TASK_MAX(task); i++)          
     {         
 		if (task[i].Run)     
         {

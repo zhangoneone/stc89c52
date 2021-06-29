@@ -58,23 +58,18 @@ void intersvr3(void) interrupt 3{
 		if(inter_vector_function[3]!=NULL)
 	   		((interupt_callback)inter_vector_function[3])();
 }
-extern sem_t uart_recv;
-extern sem_t uart_send;		//发送信号量
-extern uchar recv_buff[10];//接收buff
-extern uchar recv_buff_ptr;
-static uchar local_data=0;
+
+extern volatile sem_t uart_send;		//发送信号量
+extern volatile buff_t idata recv_buff; 	//接收buff
 void intersvr4(void) interrupt 4{
 		if(RI==1){ //接收中断
-			local_data = SBUF;
-			recv_buff[recv_buff_ptr++] = local_data;
+			critical_area_enter();
+			recv_buff.buff[recv_buff.len++] = SBUF;
+			critical_area_exit();
 			RI=0;
-			if(inter_vector_function[4]!=NULL)
-	   		((interupt_callback)inter_vector_function[4])();
-			sem_post(uart_recv);
 		}
 		if(TI==1){//发送中断
 			TI=0;
 			sem_post(uart_send);
-			//todo
 		}	
 }
