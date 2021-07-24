@@ -1,10 +1,10 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        06/27/2021  20:21:52  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    07/24/2021  19:34:29  PAGE 1
 
 
-BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
-C:\KEIL\C51\BIN\BL51.EXE STARTUP.obj, spin_gpio.obj, spin_userstart.obj, spin_exinterupt.obj, spin_interupt.obj, spin_ma
->> in.obj, spin_pwrmgr.obj, spin_timer.obj, spin_uart.obj, spin_watchdog.obj, one_os.obj TO stc89c52 RAMSIZE (256) CODE 
->> (0X0000-0X1FFF) XDATA (0X0000-0X00FF)
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_C51_960A\C51\BIN\BL51.EXE STARTUP.obj, spin_gpio.obj, spin_userstart.obj, spin_exinterupt.obj, spin_interupt.obj
+>> , spin_main.obj, spin_pwrmgr.obj, spin_timer.obj, spin_uart.obj, spin_watchdog.obj, one_os.obj TO stc89c52 RAMSIZE (2
+>> 56)
 
 
 MEMORY MODEL: LARGE
@@ -22,23 +22,23 @@ INPUT MODULES INCLUDED:
   spin_uart.obj (SPIN_UART)
   spin_watchdog.obj (SPIN_WATCHDOG)
   one_os.obj (ONE_OS)
-  C:\KEIL\C51\LIB\C51L.LIB (?C_INIT)
-  C:\KEIL\C51\LIB\C51L.LIB (?C?IMUL)
-  C:\KEIL\C51\LIB\C51L.LIB (?C?UIDIV)
-  C:\KEIL\C51\LIB\C51L.LIB (?C?ILDIX)
-  C:\KEIL\C51\LIB\C51L.LIB (?C?LLDIXDATA)
-  C:\KEIL\C51\LIB\C51L.LIB (?C?LSTXDATA)
-  C:\KEIL\C51\LIB\C51L.LIB (?C?OFFXADD)
-  C:\KEIL\C51\LIB\C51L.LIB (?C?ICALL)
-  C:\KEIL\C51\LIB\C51L.LIB (PRINTF)
-  C:\KEIL\C51\LIB\C51L.LIB (STRLEN)
-  C:\KEIL\C51\LIB\C51L.LIB (?C?CLDPTR)
-  C:\KEIL\C51\LIB\C51L.LIB (?C?CLDOPTR)
-  C:\KEIL\C51\LIB\C51L.LIB (?C?CSTPTR)
-  C:\KEIL\C51\LIB\C51L.LIB (?C?PLDIXDATA)
-  C:\KEIL\C51\LIB\C51L.LIB (?C?PSTXDATA)
-  C:\KEIL\C51\LIB\C51L.LIB (?C?CCASE)
-  C:\KEIL\C51\LIB\C51L.LIB (PUTCHAR)
+  C:\KEIL_C51_960A\C51\LIB\C51L.LIB (?C_INIT)
+  C:\KEIL_C51_960A\C51\LIB\C51L.LIB (?C?IMUL)
+  C:\KEIL_C51_960A\C51\LIB\C51L.LIB (?C?UIDIV)
+  C:\KEIL_C51_960A\C51\LIB\C51L.LIB (?C?ILDIX)
+  C:\KEIL_C51_960A\C51\LIB\C51L.LIB (?C?LLDIXDATA)
+  C:\KEIL_C51_960A\C51\LIB\C51L.LIB (?C?LSTXDATA)
+  C:\KEIL_C51_960A\C51\LIB\C51L.LIB (?C?OFFXADD)
+  C:\KEIL_C51_960A\C51\LIB\C51L.LIB (?C?ICALL)
+  C:\KEIL_C51_960A\C51\LIB\C51L.LIB (PRINTF)
+  C:\KEIL_C51_960A\C51\LIB\C51L.LIB (STRLEN)
+  C:\KEIL_C51_960A\C51\LIB\C51L.LIB (?C?CLDPTR)
+  C:\KEIL_C51_960A\C51\LIB\C51L.LIB (?C?CLDOPTR)
+  C:\KEIL_C51_960A\C51\LIB\C51L.LIB (?C?CSTPTR)
+  C:\KEIL_C51_960A\C51\LIB\C51L.LIB (?C?PLDIXDATA)
+  C:\KEIL_C51_960A\C51\LIB\C51L.LIB (?C?PSTXDATA)
+  C:\KEIL_C51_960A\C51\LIB\C51L.LIB (?C?CCASE)
+  C:\KEIL_C51_960A\C51\LIB\C51L.LIB (PUTCHAR)
 
 
 LINK MAP OF MODULE:  stc89c52 (?C_STARTUP)
@@ -59,7 +59,7 @@ LINK MAP OF MODULE:  stc89c52 (?C_STARTUP)
             IDATA   0085H     0001H     UNIT         ?STACK
 
             * * * * * * *  X D A T A   M E M O R Y  * * * * * * *
-BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2021  20:21:52  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/24/2021  19:34:29  PAGE 2
 
 
             XDATA   0000H     002DH     UNIT         ?XD?SPIN_INTERUPT
@@ -90,96 +90,96 @@ LINK MAP OF MODULE:  stc89c52 (?C_STARTUP)
             CODE    0026H     0365H     UNIT         ?PR?PRINTF?PRINTF
             CODE    038BH     016EH     UNIT         ?C?LIB_CODE
             CODE    04F9H     00CAH     UNIT         ?PR?SPIN_TIMER_LOCAL_CALLBACK?SPIN_TIMER
-            CODE    05C3H     00BAH     UNIT         ?PR?_SPIN_READ_UART?SPIN_UART
-            CODE    067DH     0095H     UNIT         ?PR?_SPIN_WATCHDOG_OVERTIME?SPIN_WATCHDOG
-            CODE    0712H     008CH     UNIT         ?C_C51STARTUP
-            CODE    079EH     007EH     UNIT         ?PR?_SPIN_COUNTER_TIME?SPIN_TIMER
-            CODE    081CH     0078H     UNIT         ?PR?_SPIN_TIMER_US?SPIN_TIMER
-            CODE    0894H     0077H     UNIT         ?PR?_SPIN_SYSTICK?SPIN_TIMER
-            CODE    090BH     0072H     UNIT         ?PR?HARDWARE_INIT?SPIN_MAIN
-            CODE    097DH     005DH     UNIT         ?PR?SPIN_INTERUPT_INIT?SPIN_INTERUPT
-            CODE    09DAH     0055H     UNIT         ?PR?INTERSVR0?SPIN_INTERUPT
-            CODE    0A2FH     0055H     UNIT         ?PR?INTERSVR1?SPIN_INTERUPT
-            CODE    0A84H     0055H     UNIT         ?PR?INTERSVR2?SPIN_INTERUPT
-            CODE    0AD9H     0055H     UNIT         ?PR?INTERSVR3?SPIN_INTERUPT
-            CODE    0B2EH     0055H     UNIT         ?PR?TASKREMARKS?ONE_OS
-            CODE    0B83H     0054H     UNIT         ?C_INITSEG
-            CODE    0BD7H     0053H     UNIT         ?PR?INTERSVR4?SPIN_INTERUPT
-            CODE    0C2AH     004EH     UNIT         ?PR?SPIN_COUNTER_LOCAL_CALLBACK?SPIN_TIMER
-            CODE    0C78H     004EH     UNIT         ?PR?_SPIN_WRITE_UART?SPIN_UART
-            CODE    0CC6H     004BH     UNIT         ?PR?_SPIN_TIMER_MS?SPIN_TIMER
-            CODE    0D11H     0048H     UNIT         ?PR?_SPIN_SET_GPIO_BIT_VALUE?SPIN_GPIO
-            CODE    0D59H     0047H     UNIT         ?PR?_SPIN_COUNTER_SET?SPIN_TIMER
-            CODE    0DA0H     0042H     UNIT         ?PR?_SPIN_TIMER_SET?SPIN_TIMER
-            CODE    0DE2H     003EH     UNIT         ?PR?_SPIN_GET_GPIO_BIT_VALUE?SPIN_GPIO
-            CODE    0E20H     0038H     UNIT         ?PR?TASKPROCESS?ONE_OS
-            CODE    0E58H     0036H     UNIT         ?PR?_SPIN_TIMER_FOR_UART?SPIN_TIMER
-            CODE    0E8EH     0035H     UNIT         ?PR?_SPIN_EXINT0_START?SPIN_EXINTERUPT
-            CODE    0EC3H     0035H     UNIT         ?PR?_SPIN_EXINT1_START?SPIN_EXINTERUPT
-            CODE    0EF8H     0035H     UNIT         ?PR?_SPIN_WRITE_BYTE?SPIN_UART
-            CODE    0F2DH     0035H     UNIT         ?PR?TASK3?ONE_OS
-            CODE    0F62H     002EH     UNIT         ?PR?SPIN_UART_INIT?SPIN_UART
-BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2021  20:21:52  PAGE 3
+            CODE    05C3H     00BEH     UNIT         ?PR?_SPIN_READ_UART?SPIN_UART
+            CODE    0681H     0095H     UNIT         ?PR?_SPIN_WATCHDOG_OVERTIME?SPIN_WATCHDOG
+            CODE    0716H     008CH     UNIT         ?C_C51STARTUP
+            CODE    07A2H     007EH     UNIT         ?PR?_SPIN_COUNTER_TIME?SPIN_TIMER
+            CODE    0820H     0078H     UNIT         ?PR?_SPIN_TIMER_US?SPIN_TIMER
+            CODE    0898H     0077H     UNIT         ?PR?_SPIN_SYSTICK?SPIN_TIMER
+            CODE    090FH     0072H     UNIT         ?PR?HARDWARE_INIT?SPIN_MAIN
+            CODE    0981H     005DH     UNIT         ?PR?SPIN_INTERUPT_INIT?SPIN_INTERUPT
+            CODE    09DEH     005DH     UNIT         ?PR?TASKREMARKS?ONE_OS
+            CODE    0A3BH     005AH     UNIT         ?PR?_SPIN_COUNTER_SET?SPIN_TIMER
+            CODE    0A95H     0054H     UNIT         ?C_INITSEG
+            CODE    0AE9H     004EH     UNIT         ?PR?SPIN_COUNTER_LOCAL_CALLBACK?SPIN_TIMER
+            CODE    0B37H     004EH     UNIT         ?PR?_SPIN_WRITE_UART?SPIN_UART
+            CODE    0B85H     004BH     UNIT         ?PR?_SPIN_TIMER_MS?SPIN_TIMER
+            CODE    0BD0H     0048H     UNIT         ?PR?_SPIN_SET_GPIO_BIT_VALUE?SPIN_GPIO
+            CODE    0C18H     0047H     UNIT         ?PR?INTERSVR0?SPIN_INTERUPT
+            CODE    0C5FH     0047H     UNIT         ?PR?INTERSVR1?SPIN_INTERUPT
+            CODE    0CA6H     0047H     UNIT         ?PR?INTERSVR2?SPIN_INTERUPT
+            CODE    0CEDH     0047H     UNIT         ?PR?INTERSVR3?SPIN_INTERUPT
+            CODE    0D34H     0045H     UNIT         ?PR?INTERSVR4?SPIN_INTERUPT
+            CODE    0D79H     0044H     UNIT         ?PR?_SPIN_TIMER_SET?SPIN_TIMER
+            CODE    0DBDH     003DH     UNIT         ?PR?_SPIN_GET_GPIO_BIT_VALUE?SPIN_GPIO
+            CODE    0DFAH     003CH     UNIT         ?PR?TASKPROCESS?ONE_OS
+            CODE    0E36H     0036H     UNIT         ?PR?_SPIN_TIMER_FOR_UART?SPIN_TIMER
+            CODE    0E6CH     0035H     UNIT         ?PR?_SPIN_EXINT0_START?SPIN_EXINTERUPT
+            CODE    0EA1H     0035H     UNIT         ?PR?_SPIN_EXINT1_START?SPIN_EXINTERUPT
+            CODE    0ED6H     0035H     UNIT         ?PR?_SPIN_WRITE_BYTE?SPIN_UART
+            CODE    0F0BH     0035H     UNIT         ?PR?TASK3?ONE_OS
+            CODE    0F40H     002FH     UNIT         ?PR?DELAY1S?SPIN_TIMER
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/24/2021  19:34:29  PAGE 3
 
 
-            CODE    0F90H     0027H     UNIT         ?PR?PUTCHAR?PUTCHAR
-            CODE    0FB7H     0023H     UNIT         ?PR?SPIN_READ_BYTE?SPIN_UART
-            CODE    0FDAH     0021H     UNIT         ?PR?_SPIN_GET_GPIO_VALUE?SPIN_GPIO
-            CODE    0FFBH     001DH     UNIT         ?PR?SPIN_EXINT0_LOCAL_CALLBACK?SPIN_EXINTERUPT
-            CODE    1018H     001DH     UNIT         ?PR?SPIN_EXINT1_LOCAL_CALLBACK?SPIN_EXINTERUPT
-            CODE    1035H     001DH     UNIT         ?PR?TASK1?ONE_OS
-            CODE    1052H     001CH     UNIT         ?PR?_SPIN_SET_GPIO_VALUE?SPIN_GPIO
-            CODE    106EH     001AH     UNIT         ?PR?TIMER0_USER?SPIN_MAIN
-            CODE    1088H     001AH     UNIT         ?PR?UART_USER?SPIN_MAIN
-            CODE    10A2H     0017H     UNIT         ?PR?SPIN_TIMER_CLOSE?SPIN_TIMER
-            CODE    10B9H     0017H     UNIT         ?PR?SPIN_COUNTER_CLOSE?SPIN_TIMER
-            CODE    10D0H     0016H     UNIT         ?PR?TASK2?ONE_OS
-            CODE    10E6H     0015H     UNIT         ?PR?_STRLEN?STRLEN
-            CODE    10FBH     0014H     UNIT         ?PR?_SPIN_SET_WORK_REGISTER_GROUP?SPIN_USERSTART
-            CODE    110FH     0013H     UNIT         ?PR?_SPIN_INTERUPT_OPEN?SPIN_INTERUPT
-            CODE    1122H     0010H     UNIT         ?PR?_SPIN_SET_F0?SPIN_USERSTART
-            CODE    1132H     0010H     UNIT         ?PR?_SPIN_SET_RS1?SPIN_USERSTART
-            CODE    1142H     0010H     UNIT         ?PR?_SPIN_SET_RS0?SPIN_USERSTART
-            CODE    1152H     000FH     UNIT         ?PR?_SPIN_INTERUPT_CLOSE?SPIN_INTERUPT
-            CODE    1161H     000EH     UNIT         ?PR?_SEM_TRY_WAIT?SPIN_GPIO
-            CODE    116FH     000EH     UNIT         ?PR?_SEM_TRY_WAIT?SPIN_EXINTERUPT
-            CODE    117DH     000EH     UNIT         ?PR?_SEM_TRY_WAIT?SPIN_INTERUPT
-            CODE    118BH     000EH     UNIT         ?PR?_SEM_TRY_WAIT?SPIN_MAIN
-            CODE    1199H     000EH     UNIT         ?PR?_SEM_TRY_WAIT?SPIN_PWRMGR
-            CODE    11A7H     000EH     UNIT         ?PR?_SEM_TRY_WAIT?SPIN_TIMER
-            CODE    11B5H     000EH     UNIT         ?PR?DELAY1S?SPIN_TIMER
-            CODE    11C3H     000EH     UNIT         ?PR?_SEM_TRY_WAIT?SPIN_UART
-            CODE    11D1H     000EH     UNIT         ?PR?_SEM_TRY_WAIT?SPIN_WATCHDOG
-            CODE    11DFH     000EH     UNIT         ?PR?_SEM_TRY_WAIT?ONE_OS
-            CODE    11EDH     000DH     UNIT         ?PR?_SPIN_TIMER_START?SPIN_TIMER
-            CODE    11FAH     000DH     UNIT         ?PR?_SPIN_TIMER_STOP?SPIN_TIMER
-            CODE    1207H     000DH     UNIT         ?PR?_PRIMARY_VALUE?SPIN_TIMER
-            CODE    1214H     000CH     UNIT         ?CO?ONE_OS
-            CODE    1220H     000BH     UNIT         ?PR?_SPIN_TIMER_SEC?SPIN_TIMER
-            CODE    122BH     000BH     UNIT         ?PR?_TASKHANGUP?ONE_OS
-            CODE    1236H     000BH     UNIT         ?PR?_TASKRECOVERY?ONE_OS
-            CODE    1241H     0009H     UNIT         ?PR?_SPIN_INTERUPT_SET_PARAMS?SPIN_INTERUPT
-            CODE    124AH     0009H     UNIT         ?PR?EINT1_USER?SPIN_MAIN
-            CODE    1253H     0009H     UNIT         ?PR?TIMER1_USER?SPIN_MAIN
-            CODE    125CH     0009H     UNIT         ?PR?DELAY1MS?SPIN_TIMER
-            CODE    1265H     0008H     UNIT         ?PR?EINT0_USER?SPIN_MAIN
-            CODE    126DH     0008H     UNIT         ?PR?MAIN?SPIN_MAIN
-            CODE    1275H     0006H     UNIT         ?PR?SPIN_GET_F0?SPIN_USERSTART
-            CODE    127BH     0006H     UNIT         ?PR?SPIN_GET_RS1?SPIN_USERSTART
-            CODE    1281H     0006H     UNIT         ?PR?SPIN_GET_RS0?SPIN_USERSTART
-            CODE    1287H     0006H     UNIT         ?PR?SPIN_GET_OV?SPIN_USERSTART
-            CODE    128DH     0004H     UNIT         ?PR?IDLE_MODE?SPIN_PWRMGR
-            CODE    1291H     0004H     UNIT         ?PR?POWER_DOWN?SPIN_PWRMGR
-            CODE    1295H     0004H     UNIT         ?PR?SPIN_WATCHDOG_ENABLE?SPIN_WATCHDOG
-            CODE    1299H     0004H     UNIT         ?PR?SPIN_WATCHDOG_DISABLE?SPIN_WATCHDOG
-            CODE    129DH     0004H     UNIT         ?PR?SPIN_WATCHDOG_IDLEWORK?SPIN_WATCHDOG
-            CODE    12A1H     0004H     UNIT         ?PR?SPIN_WATCHDOG_CLEAR?SPIN_WATCHDOG
-            CODE    12A5H     0003H     UNIT         ?PR?SPIN_INTERUPT_ENABLE?SPIN_INTERUPT
-            CODE    12A8H     0003H     UNIT         ?PR?SPIN_INTERUPT_DISABLE?SPIN_INTERUPT
-            CODE    12ABH     0002H     UNIT         ?PR?DELAY3US?SPIN_TIMER
+            CODE    0F6FH     002EH     UNIT         ?PR?SPIN_UART_INIT?SPIN_UART
+            CODE    0F9DH     0027H     UNIT         ?PR?SPIN_READ_BYTE?SPIN_UART
+            CODE    0FC4H     0027H     UNIT         ?PR?PUTCHAR?PUTCHAR
+            CODE    0FEBH     0021H     UNIT         ?PR?_SPIN_GET_GPIO_VALUE?SPIN_GPIO
+            CODE    100CH     001FH     UNIT         ?PR?DELAY1MS?SPIN_TIMER
+            CODE    102BH     001DH     UNIT         ?PR?SPIN_EXINT0_LOCAL_CALLBACK?SPIN_EXINTERUPT
+            CODE    1048H     001DH     UNIT         ?PR?SPIN_EXINT1_LOCAL_CALLBACK?SPIN_EXINTERUPT
+            CODE    1065H     001DH     UNIT         ?PR?TASK1?ONE_OS
+            CODE    1082H     001CH     UNIT         ?PR?_SPIN_SET_GPIO_VALUE?SPIN_GPIO
+            CODE    109EH     001AH     UNIT         ?PR?TIMER0_USER?SPIN_MAIN
+            CODE    10B8H     001AH     UNIT         ?PR?UART_USER?SPIN_MAIN
+            CODE    10D2H     0017H     UNIT         ?PR?SPIN_TIMER_CLOSE?SPIN_TIMER
+            CODE    10E9H     0017H     UNIT         ?PR?SPIN_COUNTER_CLOSE?SPIN_TIMER
+            CODE    1100H     0016H     UNIT         ?PR?TASK2?ONE_OS
+            CODE    1116H     0015H     UNIT         ?PR?_STRLEN?STRLEN
+            CODE    112BH     0014H     UNIT         ?PR?_SPIN_SET_WORK_REGISTER_GROUP?SPIN_USERSTART
+            CODE    113FH     0013H     UNIT         ?PR?_SPIN_INTERUPT_OPEN?SPIN_INTERUPT
+            CODE    1152H     0013H     UNIT         ?PR?_SPIN_TIMER_START?SPIN_TIMER
+            CODE    1165H     0013H     UNIT         ?PR?_SPIN_TIMER_STOP?SPIN_TIMER
+            CODE    1178H     0010H     UNIT         ?PR?_SPIN_SET_F0?SPIN_USERSTART
+            CODE    1188H     0010H     UNIT         ?PR?_SPIN_SET_RS1?SPIN_USERSTART
+            CODE    1198H     0010H     UNIT         ?PR?_SPIN_SET_RS0?SPIN_USERSTART
+            CODE    11A8H     000FH     UNIT         ?PR?_SPIN_INTERUPT_CLOSE?SPIN_INTERUPT
+            CODE    11B7H     000EH     UNIT         ?PR?_SEM_TRY_WAIT?SPIN_GPIO
+            CODE    11C5H     000EH     UNIT         ?PR?_SEM_TRY_WAIT?SPIN_EXINTERUPT
+            CODE    11D3H     000EH     UNIT         ?PR?_SEM_TRY_WAIT?SPIN_INTERUPT
+            CODE    11E1H     000EH     UNIT         ?PR?_SEM_TRY_WAIT?SPIN_MAIN
+            CODE    11EFH     000EH     UNIT         ?PR?_SEM_TRY_WAIT?SPIN_PWRMGR
+            CODE    11FDH     000EH     UNIT         ?PR?_SEM_TRY_WAIT?SPIN_TIMER
+            CODE    120BH     000EH     UNIT         ?PR?_SEM_TRY_WAIT?SPIN_UART
+            CODE    1219H     000EH     UNIT         ?PR?_SEM_TRY_WAIT?SPIN_WATCHDOG
+            CODE    1227H     000EH     UNIT         ?PR?_SEM_TRY_WAIT?ONE_OS
+            CODE    1235H     000DH     UNIT         ?PR?_PRIMARY_VALUE?SPIN_TIMER
+            CODE    1242H     000CH     UNIT         ?CO?ONE_OS
+            CODE    124EH     000BH     UNIT         ?PR?_TASKHANGUP?ONE_OS
+            CODE    1259H     000BH     UNIT         ?PR?_TASKRECOVERY?ONE_OS
+            CODE    1264H     000AH     UNIT         ?PR?_SPIN_TIMER_SEC?SPIN_TIMER
+            CODE    126EH     0009H     UNIT         ?PR?_SPIN_INTERUPT_SET_PARAMS?SPIN_INTERUPT
+            CODE    1277H     0009H     UNIT         ?PR?EINT1_USER?SPIN_MAIN
+            CODE    1280H     0009H     UNIT         ?PR?TIMER1_USER?SPIN_MAIN
+            CODE    1289H     0008H     UNIT         ?PR?EINT0_USER?SPIN_MAIN
+            CODE    1291H     0008H     UNIT         ?PR?MAIN?SPIN_MAIN
+            CODE    1299H     0006H     UNIT         ?PR?SPIN_GET_F0?SPIN_USERSTART
+            CODE    129FH     0006H     UNIT         ?PR?SPIN_GET_RS1?SPIN_USERSTART
+            CODE    12A5H     0006H     UNIT         ?PR?SPIN_GET_RS0?SPIN_USERSTART
+            CODE    12ABH     0006H     UNIT         ?PR?SPIN_GET_OV?SPIN_USERSTART
+            CODE    12B1H     0004H     UNIT         ?PR?IDLE_MODE?SPIN_PWRMGR
+            CODE    12B5H     0004H     UNIT         ?PR?POWER_DOWN?SPIN_PWRMGR
+            CODE    12B9H     0004H     UNIT         ?PR?SPIN_WATCHDOG_ENABLE?SPIN_WATCHDOG
+            CODE    12BDH     0004H     UNIT         ?PR?SPIN_WATCHDOG_DISABLE?SPIN_WATCHDOG
+            CODE    12C1H     0004H     UNIT         ?PR?SPIN_WATCHDOG_IDLEWORK?SPIN_WATCHDOG
+            CODE    12C5H     0004H     UNIT         ?PR?SPIN_WATCHDOG_CLEAR?SPIN_WATCHDOG
+            CODE    12C9H     0003H     UNIT         ?PR?SPIN_INTERUPT_ENABLE?SPIN_INTERUPT
+            CODE    12CCH     0003H     UNIT         ?PR?SPIN_INTERUPT_DISABLE?SPIN_INTERUPT
+            CODE    12CFH     0002H     UNIT         ?PR?DELAY3US?SPIN_TIMER
 
 
-BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2021  20:21:52  PAGE 4
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/24/2021  19:34:29  PAGE 4
 
 
 
@@ -239,7 +239,7 @@ SEGMENT                                            XDATA_GROUP
   +--> ?PR?_SPIN_SET_RS1?SPIN_USERSTART
 
 ?PR?SPIN_UART_INIT?SPIN_UART                     -----    -----
-BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2021  20:21:52  PAGE 5
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/24/2021  19:34:29  PAGE 5
 
 
   +--> ?PR?_SPIN_TIMER_FOR_UART?SPIN_TIMER
@@ -299,7 +299,7 @@ SEGMENT                                            XDATA_GROUP
   +--> ?PR?_SPIN_WRITE_UART?SPIN_UART
 
 ?PR?_SPIN_READ_UART?SPIN_UART                    005FH    0007H
-BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2021  20:21:52  PAGE 6
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/24/2021  19:34:29  PAGE 6
 
 
   +--> ?PR?SPIN_READ_BYTE?SPIN_UART
@@ -322,7 +322,7 @@ SYMBOL TABLE OF MODULE:  stc89c52 (?C_STARTUP)
   ----------------------------------
 
   -------         MODULE        ?C_STARTUP
-  C:0712H         SEGMENT       ?C_C51STARTUP
+  C:0716H         SEGMENT       ?C_C51STARTUP
   I:0085H         SEGMENT       ?STACK
   C:0000H         PUBLIC        ?C_STARTUP
   D:00E0H         SYMBOL        ACC
@@ -332,7 +332,7 @@ SYMBOL TABLE OF MODULE:  stc89c52 (?C_STARTUP)
   N:0000H         SYMBOL        IBPSTACK
   N:0100H         SYMBOL        IBPSTACKTOP
   N:0080H         SYMBOL        IDATALEN
-  C:0715H         SYMBOL        IDATALOOP
+  C:0719H         SYMBOL        IDATALOOP
   N:0000H         SYMBOL        PBPSTACK
   N:0100H         SYMBOL        PBPSTACKTOP
   N:0000H         SYMBOL        PDATALEN
@@ -341,25 +341,25 @@ SYMBOL TABLE OF MODULE:  stc89c52 (?C_STARTUP)
   N:0000H         SYMBOL        PPAGEENABLE
   D:00A0H         SYMBOL        PPAGE_SFR
   D:0081H         SYMBOL        SP
-  C:0712H         SYMBOL        STARTUP1
+  C:0716H         SYMBOL        STARTUP1
   N:0000H         SYMBOL        XBPSTACK
   N:0000H         SYMBOL        XBPSTACKTOP
   N:0000H         SYMBOL        XDATALEN
   N:0000H         SYMBOL        XDATASTART
   C:0000H         LINE#         126
-  C:0712H         LINE#         133
-  C:0714H         LINE#         134
-  C:0715H         LINE#         135
-  C:0716H         LINE#         136
-  C:0718H         LINE#         185
-  C:071BH         LINE#         196
+  C:0716H         LINE#         133
+  C:0718H         LINE#         134
+  C:0719H         LINE#         135
+  C:071AH         LINE#         136
+  C:071CH         LINE#         185
+  C:071FH         LINE#         196
   -------         ENDMOD        ?C_STARTUP
 
   -------         MODULE        SPIN_GPIO
   C:0000H         SYMBOL        _ICE_DUMMY_
   D:0080H         PUBLIC        P0
   D:0090H         PUBLIC        P1
-BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2021  20:21:52  PAGE 7
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/24/2021  19:34:29  PAGE 7
 
 
   D:00A0H         PUBLIC        P2
@@ -369,76 +369,75 @@ SYMBOL TABLE OF MODULE:  stc89c52 (?C_STARTUP)
   D:00A8H         PUBLIC        IE
   D:00B8H         PUBLIC        IP
   D:0098H         PUBLIC        SCON
-  D:00C0H         PUBLIC        XICON
   D:00C8H         PUBLIC        T2CON
-  C:1161H         SYMBOL        _sem_try_wait
-  C:1052H         PUBLIC        _spin_set_gpio_value
-  C:0FDAH         PUBLIC        _spin_get_gpio_value
-  C:0D11H         PUBLIC        _spin_set_gpio_bit_value
-  C:0DE2H         PUBLIC        _spin_get_gpio_bit_value
+  C:11B7H         SYMBOL        _sem_try_wait
+  C:1082H         PUBLIC        _spin_set_gpio_value
+  C:0FEBH         PUBLIC        _spin_get_gpio_value
+  C:0BD0H         PUBLIC        _spin_set_gpio_bit_value
+  C:0DBDH         PUBLIC        _spin_get_gpio_bit_value
   -------         PROC          _SEM_TRY_WAIT
   D:0006H         SYMBOL        sem_name
-  C:1161H         LINE#         75
-  C:1161H         LINE#         76
-  C:1165H         LINE#         77
-  C:1166H         LINE#         78
-  C:116AH         LINE#         79
-  C:116AH         LINE#         81
-  C:116EH         LINE#         82
+  C:11B7H         LINE#         75
+  C:11B7H         LINE#         76
+  C:11BBH         LINE#         77
+  C:11BCH         LINE#         78
+  C:11C0H         LINE#         79
+  C:11C0H         LINE#         81
+  C:11C4H         LINE#         82
   -------         ENDPROC       _SEM_TRY_WAIT
   -------         PROC          _SPIN_SET_GPIO_VALUE
   D:0007H         SYMBOL        gpio
   D:0005H         SYMBOL        value
-  C:1052H         LINE#         7
-  C:1052H         LINE#         8
-  C:1060H         LINE#         9
-  C:1063H         LINE#         10
-  C:1066H         LINE#         11
-  C:1069H         LINE#         12
-  C:106DH         LINE#         13
-  C:106DH         LINE#         14
-  C:106DH         LINE#         15
+  C:1082H         LINE#         7
+  C:1082H         LINE#         8
+  C:1090H         LINE#         9
+  C:1093H         LINE#         10
+  C:1096H         LINE#         11
+  C:1099H         LINE#         12
+  C:109DH         LINE#         13
+  C:109DH         LINE#         14
+  C:109DH         LINE#         15
   -------         ENDPROC       _SPIN_SET_GPIO_VALUE
   -------         PROC          _SPIN_GET_GPIO_VALUE
   D:0007H         SYMBOL        gpio
   -------         DO            
   D:0006H         SYMBOL        temp
   -------         ENDDO         
-  C:0FDAH         LINE#         16
-  C:0FDAH         LINE#         17
-  C:0FDCH         LINE#         18
-  C:0FEAH         LINE#         19
-  C:0FEEH         LINE#         20
-  C:0FF2H         LINE#         21
-  C:0FF6H         LINE#         22
-  C:0FF8H         LINE#         23
-  C:0FF8H         LINE#         24
-  C:0FF8H         LINE#         25
-  C:0FFAH         LINE#         26
+  C:0FEBH         LINE#         16
+  C:0FEBH         LINE#         17
+  C:0FEDH         LINE#         18
+  C:0FFBH         LINE#         19
+  C:0FFFH         LINE#         20
+  C:1003H         LINE#         21
+  C:1007H         LINE#         22
+  C:1009H         LINE#         23
+  C:1009H         LINE#         24
+  C:1009H         LINE#         25
+  C:100BH         LINE#         26
   -------         ENDPROC       _SPIN_GET_GPIO_VALUE
   -------         PROC          _SPIN_SET_GPIO_BIT_VALUE
   D:0004H         SYMBOL        gpio
   D:0005H         SYMBOL        index
-BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2021  20:21:52  PAGE 8
-
-
   D:0003H         SYMBOL        value
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/24/2021  19:34:29  PAGE 8
+
+
   -------         DO            
   D:0007H         SYMBOL        temp
   -------         ENDDO         
-  C:0D11H         LINE#         28
-  C:0D13H         LINE#         29
-  C:0D13H         LINE#         30
-  C:0D16H         LINE#         31
-  C:0D2AH         LINE#         33
-  C:0D3FH         LINE#         34
-  C:0D4DH         LINE#         35
-  C:0D50H         LINE#         36
-  C:0D53H         LINE#         37
-  C:0D56H         LINE#         38
-  C:0D58H         LINE#         39
-  C:0D58H         LINE#         40
-  C:0D58H         LINE#         41
+  C:0BD0H         LINE#         28
+  C:0BD2H         LINE#         29
+  C:0BD2H         LINE#         30
+  C:0BD5H         LINE#         31
+  C:0BE9H         LINE#         33
+  C:0BFEH         LINE#         34
+  C:0C0CH         LINE#         35
+  C:0C0FH         LINE#         36
+  C:0C12H         LINE#         37
+  C:0C15H         LINE#         38
+  C:0C17H         LINE#         39
+  C:0C17H         LINE#         40
+  C:0C17H         LINE#         41
   -------         ENDPROC       _SPIN_SET_GPIO_BIT_VALUE
   -------         PROC          _SPIN_GET_GPIO_BIT_VALUE
   D:0007H         SYMBOL        gpio
@@ -446,17 +445,17 @@ SYMBOL TABLE OF MODULE:  stc89c52 (?C_STARTUP)
   -------         DO            
   D:0004H         SYMBOL        temp
   -------         ENDDO         
-  C:0DE2H         LINE#         42
-  C:0DE2H         LINE#         43
-  C:0DE4H         LINE#         44
-  C:0DF2H         LINE#         45
-  C:0DF6H         LINE#         46
-  C:0DFAH         LINE#         47
-  C:0DFEH         LINE#         48
-  C:0E00H         LINE#         49
-  C:0E00H         LINE#         50
-  C:0E00H         LINE#         51
-  C:0E1FH         LINE#         52
+  C:0DBDH         LINE#         42
+  C:0DBDH         LINE#         43
+  C:0DBFH         LINE#         44
+  C:0DCDH         LINE#         45
+  C:0DD1H         LINE#         46
+  C:0DD5H         LINE#         47
+  C:0DD9H         LINE#         48
+  C:0DDBH         LINE#         49
+  C:0DDBH         LINE#         50
+  C:0DDBH         LINE#         51
+  C:0DF9H         LINE#         52
   -------         ENDPROC       _SPIN_GET_GPIO_BIT_VALUE
   -------         ENDMOD        SPIN_GPIO
 
@@ -469,48 +468,47 @@ SYMBOL TABLE OF MODULE:  stc89c52 (?C_STARTUP)
   D:00A8H         PUBLIC        IE
   D:00B8H         PUBLIC        IP
   D:0098H         PUBLIC        SCON
-  D:00C0H         PUBLIC        XICON
   D:00C8H         PUBLIC        T2CON
   B:00D0H.7       PUBLIC        CY
   B:00D0H.5       PUBLIC        F0
   B:00D0H.4       PUBLIC        RS1
   B:00D0H.3       PUBLIC        RS0
   B:00D0H.2       PUBLIC        OV
-  C:1122H         PUBLIC        _spin_set_F0
-  C:1132H         PUBLIC        _spin_set_RS1
-  C:1142H         PUBLIC        _spin_set_RS0
-BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2021  20:21:52  PAGE 9
-
-
-  C:10FBH         PUBLIC        _spin_set_work_register_group
+  C:1178H         PUBLIC        _spin_set_F0
+  C:1188H         PUBLIC        _spin_set_RS1
+  C:1198H         PUBLIC        _spin_set_RS0
+  C:112BH         PUBLIC        _spin_set_work_register_group
   C:001EH         PUBLIC        spin_get_CY
-  C:1275H         PUBLIC        spin_get_F0
-  C:127BH         PUBLIC        spin_get_RS1
-  C:1281H         PUBLIC        spin_get_RS0
-  C:1287H         PUBLIC        spin_get_OV
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/24/2021  19:34:29  PAGE 9
+
+
+  C:1299H         PUBLIC        spin_get_F0
+  C:129FH         PUBLIC        spin_get_RS1
+  C:12A5H         PUBLIC        spin_get_RS0
+  C:12ABH         PUBLIC        spin_get_OV
   -------         PROC          _SPIN_SET_F0
   D:0007H         SYMBOL        value
-  C:1122H         LINE#         4
-  C:1122H         LINE#         5
-  C:1131H         LINE#         6
+  C:1178H         LINE#         4
+  C:1178H         LINE#         5
+  C:1187H         LINE#         6
   -------         ENDPROC       _SPIN_SET_F0
   -------         PROC          _SPIN_SET_RS1
   D:0007H         SYMBOL        value
-  C:1132H         LINE#         8
-  C:1132H         LINE#         9
-  C:1141H         LINE#         10
+  C:1188H         LINE#         8
+  C:1188H         LINE#         9
+  C:1197H         LINE#         10
   -------         ENDPROC       _SPIN_SET_RS1
   -------         PROC          _SPIN_SET_RS0
   D:0007H         SYMBOL        value
-  C:1142H         LINE#         11
-  C:1142H         LINE#         12
-  C:1151H         LINE#         13
+  C:1198H         LINE#         11
+  C:1198H         LINE#         12
+  C:11A7H         LINE#         13
   -------         ENDPROC       _SPIN_SET_RS0
   -------         PROC          _SPIN_SET_WORK_REGISTER_GROUP
   D:0006H         SYMBOL        index
-  C:10FBH         LINE#         15
-  C:10FDH         LINE#         16
-  C:1104H         LINE#         17
+  C:112BH         LINE#         15
+  C:112DH         LINE#         16
+  C:1134H         LINE#         17
   -------         ENDPROC       _SPIN_SET_WORK_REGISTER_GROUP
   -------         PROC          SPIN_GET_CY
   C:001EH         LINE#         20
@@ -518,32 +516,32 @@ SYMBOL TABLE OF MODULE:  stc89c52 (?C_STARTUP)
   C:0021H         LINE#         22
   -------         ENDPROC       SPIN_GET_CY
   -------         PROC          SPIN_GET_F0
-  C:1275H         LINE#         23
-  C:1275H         LINE#         24
-  C:127AH         LINE#         25
+  C:1299H         LINE#         23
+  C:1299H         LINE#         24
+  C:129EH         LINE#         25
   -------         ENDPROC       SPIN_GET_F0
   -------         PROC          SPIN_GET_RS1
-  C:127BH         LINE#         26
-  C:127BH         LINE#         27
-  C:1280H         LINE#         28
+  C:129FH         LINE#         26
+  C:129FH         LINE#         27
+  C:12A4H         LINE#         28
   -------         ENDPROC       SPIN_GET_RS1
   -------         PROC          SPIN_GET_RS0
-  C:1281H         LINE#         29
-  C:1281H         LINE#         30
-  C:1286H         LINE#         31
+  C:12A5H         LINE#         29
+  C:12A5H         LINE#         30
+  C:12AAH         LINE#         31
   -------         ENDPROC       SPIN_GET_RS0
   -------         PROC          SPIN_GET_OV
-  C:1287H         LINE#         33
-  C:1287H         LINE#         34
-  C:128CH         LINE#         35
+  C:12ABH         LINE#         33
+  C:12ABH         LINE#         34
+  C:12B0H         LINE#         35
   -------         ENDPROC       SPIN_GET_OV
   -------         ENDMOD        SPIN_USERSTART
 
-BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2021  20:21:52  PAGE 10
-
-
   -------         MODULE        SPIN_EXINTERUPT
   C:0000H         SYMBOL        _ICE_DUMMY_
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/24/2021  19:34:29  PAGE 10
+
+
   D:0090H         PUBLIC        P1
   D:00B0H         PUBLIC        P3
   D:00D0H         PUBLIC        PSW
@@ -551,65 +549,64 @@ SYMBOL TABLE OF MODULE:  stc89c52 (?C_STARTUP)
   D:00A8H         PUBLIC        IE
   D:00B8H         PUBLIC        IP
   D:0098H         PUBLIC        SCON
-  D:00C0H         PUBLIC        XICON
   D:00C8H         PUBLIC        T2CON
   B:0088H.2       PUBLIC        IT1
   B:0088H.0       PUBLIC        IT0
-  C:116FH         SYMBOL        _sem_try_wait
-  C:0E8EH         PUBLIC        _spin_exint0_start
-  C:0EC3H         PUBLIC        _spin_exint1_start
+  C:11C5H         SYMBOL        _sem_try_wait
+  C:0E6CH         PUBLIC        _spin_exint0_start
+  C:0EA1H         PUBLIC        _spin_exint1_start
   C:0006H         PUBLIC        spin_exint0_stop
   C:000EH         PUBLIC        spin_exint1_stop
   X:0067H         SYMBOL        local_exint_dev0_callback
   X:006AH         SYMBOL        local_exint_dev1_callback
-  C:0FFBH         SYMBOL        spin_exint0_local_callback
-  C:1018H         SYMBOL        spin_exint1_local_callback
+  C:102BH         SYMBOL        spin_exint0_local_callback
+  C:1048H         SYMBOL        spin_exint1_local_callback
   -------         PROC          _SEM_TRY_WAIT
   D:0006H         SYMBOL        sem_name
-  C:116FH         LINE#         75
-  C:116FH         LINE#         76
-  C:1173H         LINE#         77
-  C:1174H         LINE#         78
-  C:1178H         LINE#         79
-  C:1178H         LINE#         81
-  C:117CH         LINE#         82
+  C:11C5H         LINE#         75
+  C:11C5H         LINE#         76
+  C:11C9H         LINE#         77
+  C:11CAH         LINE#         78
+  C:11CEH         LINE#         79
+  C:11CEH         LINE#         81
+  C:11D2H         LINE#         82
   -------         ENDPROC       _SEM_TRY_WAIT
   -------         PROC          SPIN_EXINT0_LOCAL_CALLBACK
-  C:0FFBH         LINE#         6
-  C:0FFBH         LINE#         8
-  C:1011H         LINE#         9
-  C:1014H         LINE#         10
-  C:1017H         LINE#         11
+  C:102BH         LINE#         6
+  C:102BH         LINE#         8
+  C:1041H         LINE#         9
+  C:1044H         LINE#         10
+  C:1047H         LINE#         11
   -------         ENDPROC       SPIN_EXINT0_LOCAL_CALLBACK
   -------         PROC          SPIN_EXINT1_LOCAL_CALLBACK
-  C:1018H         LINE#         13
-  C:1018H         LINE#         15
-  C:102EH         LINE#         16
-  C:1031H         LINE#         17
-  C:1034H         LINE#         18
+  C:1048H         LINE#         13
+  C:1048H         LINE#         15
+  C:105EH         LINE#         16
+  C:1061H         LINE#         17
+  C:1064H         LINE#         18
   -------         ENDPROC       SPIN_EXINT1_LOCAL_CALLBACK
   -------         PROC          _SPIN_EXINT0_START
   D:0007H         SYMBOL        type
-  C:0E8EH         LINE#         20
-  C:0E8EH         LINE#         22
-  C:0EA3H         LINE#         23
-  C:0EB1H         LINE#         24
-  C:0EB6H         LINE#         25
-  C:0EB9H         LINE#         26
-  C:0EBCH         LINE#         27
+  C:0E6CH         LINE#         20
+  C:0E6CH         LINE#         22
+  C:0E81H         LINE#         23
+  C:0E8FH         LINE#         24
+  C:0E94H         LINE#         25
+  C:0E97H         LINE#         26
+  C:0E9AH         LINE#         27
   -------         ENDPROC       _SPIN_EXINT0_START
   -------         PROC          _SPIN_EXINT1_START
-BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2021  20:21:52  PAGE 11
-
-
   D:0007H         SYMBOL        type
-  C:0EC3H         LINE#         29
-  C:0EC3H         LINE#         30
-  C:0ED8H         LINE#         31
-  C:0EE6H         LINE#         32
-  C:0EEBH         LINE#         33
-  C:0EEEH         LINE#         34
-  C:0EF1H         LINE#         35
+  C:0EA1H         LINE#         29
+  C:0EA1H         LINE#         30
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/24/2021  19:34:29  PAGE 11
+
+
+  C:0EB6H         LINE#         31
+  C:0EC4H         LINE#         32
+  C:0EC9H         LINE#         33
+  C:0ECCH         LINE#         34
+  C:0ECFH         LINE#         35
   -------         ENDPROC       _SPIN_EXINT1_START
   -------         PROC          SPIN_EXINT0_STOP
   C:0006H         LINE#         38
@@ -631,122 +628,121 @@ SYMBOL TABLE OF MODULE:  stc89c52 (?C_STARTUP)
   D:00B8H         PUBLIC        IP
   D:0098H         PUBLIC        SCON
   D:0099H         PUBLIC        SBUF
-  D:00C0H         PUBLIC        XICON
   D:00C8H         PUBLIC        T2CON
   B:00A8H.7       PUBLIC        EA
   B:0098H.1       PUBLIC        TI
   B:0098H.0       PUBLIC        RI
-  C:117DH         SYMBOL        _sem_try_wait
+  C:11D3H         SYMBOL        _sem_try_wait
   X:0000H         PUBLIC        inter_vector_function
-  C:097DH         PUBLIC        spin_interupt_init
-  C:12A5H         PUBLIC        spin_interupt_enable
-  C:12A8H         PUBLIC        spin_interupt_disable
-  C:110FH         PUBLIC        _spin_interupt_open
-  C:1152H         PUBLIC        _spin_interupt_close
-  C:1241H         PUBLIC        _spin_interupt_set_params
+  C:0981H         PUBLIC        spin_interupt_init
+  C:12C9H         PUBLIC        spin_interupt_enable
+  C:12CCH         PUBLIC        spin_interupt_disable
+  C:113FH         PUBLIC        _spin_interupt_open
+  C:11A8H         PUBLIC        _spin_interupt_close
+  C:126EH         PUBLIC        _spin_interupt_set_params
   X:000FH         SYMBOL        inter_src_list
   X:001EH         SYMBOL        inter_prority
-  C:09DAH         PUBLIC        intersvr0
-  C:0A2FH         PUBLIC        intersvr1
-  C:0A84H         PUBLIC        intersvr2
-  C:0AD9H         PUBLIC        intersvr3
-  C:0BD7H         PUBLIC        intersvr4
+  C:0C18H         PUBLIC        intersvr0
+  C:0C5FH         PUBLIC        intersvr1
+  C:0CA6H         PUBLIC        intersvr2
+  C:0CEDH         PUBLIC        intersvr3
+  C:0D34H         PUBLIC        intersvr4
   -------         PROC          _SEM_TRY_WAIT
   D:0006H         SYMBOL        sem_name
-  C:117DH         LINE#         75
-  C:117DH         LINE#         76
-  C:1181H         LINE#         77
-  C:1182H         LINE#         78
-  C:1186H         LINE#         79
-  C:1186H         LINE#         81
-BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2021  20:21:52  PAGE 12
-
-
-  C:118AH         LINE#         82
+  C:11D3H         LINE#         75
+  C:11D3H         LINE#         76
+  C:11D7H         LINE#         77
+  C:11D8H         LINE#         78
+  C:11DCH         LINE#         79
+  C:11DCH         LINE#         81
+  C:11E0H         LINE#         82
   -------         ENDPROC       _SEM_TRY_WAIT
   -------         PROC          SPIN_INTERUPT_INIT
-  C:097DH         LINE#         9
-  C:097DH         LINE#         11
-  C:0988H         LINE#         12
-  C:0991H         LINE#         13
-  C:099AH         LINE#         14
-  C:09A3H         LINE#         15
-  C:09ACH         LINE#         17
-  C:09B5H         LINE#         18
-  C:09BEH         LINE#         19
-  C:09C7H         LINE#         20
-  C:09D0H         LINE#         21
-  C:09D9H         LINE#         22
+  C:0981H         LINE#         9
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/24/2021  19:34:29  PAGE 12
+
+
+  C:0981H         LINE#         11
+  C:098CH         LINE#         12
+  C:0995H         LINE#         13
+  C:099EH         LINE#         14
+  C:09A7H         LINE#         15
+  C:09B0H         LINE#         17
+  C:09B9H         LINE#         18
+  C:09C2H         LINE#         19
+  C:09CBH         LINE#         20
+  C:09D4H         LINE#         21
+  C:09DDH         LINE#         22
   -------         ENDPROC       SPIN_INTERUPT_INIT
   -------         PROC          SPIN_INTERUPT_ENABLE
-  C:12A5H         LINE#         24
-  C:12A5H         LINE#         25
-  C:12A7H         LINE#         26
+  C:12C9H         LINE#         24
+  C:12C9H         LINE#         25
+  C:12CBH         LINE#         26
   -------         ENDPROC       SPIN_INTERUPT_ENABLE
   -------         PROC          SPIN_INTERUPT_DISABLE
-  C:12A8H         LINE#         27
-  C:12A8H         LINE#         28
-  C:12AAH         LINE#         29
+  C:12CCH         LINE#         27
+  C:12CCH         LINE#         28
+  C:12CEH         LINE#         29
   -------         ENDPROC       SPIN_INTERUPT_DISABLE
   -------         PROC          _SPIN_INTERUPT_OPEN
   D:0007H         SYMBOL        num
   X:0064H         SYMBOL        prority
-  C:110FH         LINE#         30
-  C:1114H         LINE#         31
-  C:1121H         LINE#         34
+  C:113FH         LINE#         30
+  C:1144H         LINE#         31
+  C:1151H         LINE#         34
   -------         ENDPROC       _SPIN_INTERUPT_OPEN
   -------         PROC          _SPIN_INTERUPT_CLOSE
   D:0007H         SYMBOL        num
-  C:1152H         LINE#         35
-  C:1152H         LINE#         36
-  C:1160H         LINE#         38
+  C:11A8H         LINE#         35
+  C:11A8H         LINE#         36
+  C:11B6H         LINE#         38
   -------         ENDPROC       _SPIN_INTERUPT_CLOSE
   -------         PROC          _SPIN_INTERUPT_SET_PARAMS
   X:0081H         SYMBOL        num
   X:0082H         SYMBOL        params
-  C:1241H         LINE#         39
-  C:1249H         LINE#         41
+  C:126EH         LINE#         39
+  C:1276H         LINE#         41
   -------         ENDPROC       _SPIN_INTERUPT_SET_PARAMS
   -------         PROC          INTERSVR0
-  C:09DAH         LINE#         43
-  C:09FEH         LINE#         44
-  C:0A0AH         LINE#         45
-  C:0A0DH         LINE#         46
+  C:0C18H         LINE#         43
+  C:0C35H         LINE#         44
+  C:0C41H         LINE#         45
+  C:0C44H         LINE#         46
   -------         ENDPROC       INTERSVR0
   -------         PROC          INTERSVR1
-  C:0A2FH         LINE#         48
-  C:0A53H         LINE#         49
-  C:0A5FH         LINE#         50
-  C:0A62H         LINE#         51
+  C:0C5FH         LINE#         48
+  C:0C7CH         LINE#         49
+  C:0C88H         LINE#         50
+  C:0C8BH         LINE#         51
   -------         ENDPROC       INTERSVR1
-BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2021  20:21:52  PAGE 13
-
-
   -------         PROC          INTERSVR2
-  C:0A84H         LINE#         53
-  C:0AA8H         LINE#         54
-  C:0AB4H         LINE#         55
-  C:0AB7H         LINE#         56
+  C:0CA6H         LINE#         53
+  C:0CC3H         LINE#         54
+  C:0CCFH         LINE#         55
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/24/2021  19:34:29  PAGE 13
+
+
+  C:0CD2H         LINE#         56
   -------         ENDPROC       INTERSVR2
   -------         PROC          INTERSVR3
-  C:0AD9H         LINE#         57
-  C:0AFDH         LINE#         58
-  C:0B09H         LINE#         59
-  C:0B0CH         LINE#         60
+  C:0CEDH         LINE#         57
+  C:0D0AH         LINE#         58
+  C:0D16H         LINE#         59
+  C:0D19H         LINE#         60
   -------         ENDPROC       INTERSVR3
   -------         PROC          INTERSVR4
-  C:0BD7H         LINE#         64
-  C:0BEBH         LINE#         65
-  C:0BEEH         LINE#         66
-  C:0BF1H         LINE#         67
-  C:0BFAH         LINE#         68
-  C:0BFDH         LINE#         69
-  C:0BFFH         LINE#         70
-  C:0BFFH         LINE#         71
-  C:0C02H         LINE#         72
-  C:0C04H         LINE#         73
-  C:0C18H         LINE#         74
-  C:0C18H         LINE#         75
+  C:0D34H         LINE#         64
+  C:0D41H         LINE#         65
+  C:0D44H         LINE#         66
+  C:0D47H         LINE#         67
+  C:0D50H         LINE#         68
+  C:0D53H         LINE#         69
+  C:0D55H         LINE#         70
+  C:0D55H         LINE#         71
+  C:0D58H         LINE#         72
+  C:0D5AH         LINE#         73
+  C:0D6EH         LINE#         74
+  C:0D6EH         LINE#         75
   -------         ENDPROC       INTERSVR4
   -------         ENDMOD        SPIN_INTERUPT
 
@@ -759,121 +755,119 @@ SYMBOL TABLE OF MODULE:  stc89c52 (?C_STARTUP)
   D:00A8H         PUBLIC        IE
   D:00B8H         PUBLIC        IP
   D:0098H         PUBLIC        SCON
-  D:00C0H         PUBLIC        XICON
   D:00C8H         PUBLIC        T2CON
-  C:118BH         SYMBOL        _sem_try_wait
-  C:1265H         PUBLIC        eint0_user
-  C:106EH         PUBLIC        timer0_user
-  C:124AH         PUBLIC        eint1_user
-  C:1253H         PUBLIC        timer1_user
-  C:1088H         PUBLIC        uart_user
-  C:090BH         PUBLIC        hardware_init
-  C:126DH         PUBLIC        main
+  C:11E1H         SYMBOL        _sem_try_wait
+  C:1289H         PUBLIC        eint0_user
+  C:109EH         PUBLIC        timer0_user
+  C:1277H         PUBLIC        eint1_user
+  C:1280H         PUBLIC        timer1_user
+  C:10B8H         PUBLIC        uart_user
+  C:090FH         PUBLIC        hardware_init
+  C:1291H         PUBLIC        main
   -------         PROC          _SEM_TRY_WAIT
   D:0006H         SYMBOL        sem_name
-  C:118BH         LINE#         75
-  C:118BH         LINE#         76
-  C:118FH         LINE#         77
-  C:1190H         LINE#         78
-  C:1194H         LINE#         79
-  C:1194H         LINE#         81
-  C:1198H         LINE#         82
+  C:11E1H         LINE#         75
+  C:11E1H         LINE#         76
+  C:11E5H         LINE#         77
+  C:11E6H         LINE#         78
+  C:11EAH         LINE#         79
+  C:11EAH         LINE#         81
+  C:11EEH         LINE#         82
   -------         ENDPROC       _SEM_TRY_WAIT
-BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2021  20:21:52  PAGE 14
-
-
   -------         PROC          EINT0_USER
-  C:1265H         LINE#         15
-  C:1265H         LINE#         16
+  C:1289H         LINE#         15
+  C:1289H         LINE#         16
   -------         ENDPROC       EINT0_USER
   -------         PROC          TIMER0_USER
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/24/2021  19:34:29  PAGE 14
+
+
   -------         DO            
   X:0079H         SYMBOL        islive
   -------         ENDDO         
-  C:106EH         LINE#         18
-  C:106EH         LINE#         20
-  C:1080H         LINE#         21
+  C:109EH         LINE#         18
+  C:109EH         LINE#         20
+  C:10B0H         LINE#         21
   -------         ENDPROC       TIMER0_USER
   -------         PROC          EINT1_USER
-  C:124AH         LINE#         23
-  C:124AH         LINE#         24
+  C:1277H         LINE#         23
+  C:1277H         LINE#         24
   -------         ENDPROC       EINT1_USER
   -------         PROC          TIMER1_USER
-  C:1253H         LINE#         26
-  C:1253H         LINE#         27
+  C:1280H         LINE#         26
+  C:1280H         LINE#         27
   -------         ENDPROC       TIMER1_USER
   -------         PROC          UART_USER
   -------         DO            
   X:007BH         SYMBOL        recv_fre
   -------         ENDDO         
-  C:1088H         LINE#         29
-  C:1088H         LINE#         31
-  C:109AH         LINE#         32
+  C:10B8H         LINE#         29
+  C:10B8H         LINE#         31
+  C:10CAH         LINE#         32
   -------         ENDPROC       UART_USER
   -------         PROC          HARDWARE_INIT
-  C:090BH         LINE#         35
-  C:090BH         LINE#         37
-  C:0919H         LINE#         38
-  C:0925H         LINE#         39
-  C:0931H         LINE#         40
-  C:093DH         LINE#         41
-  C:0949H         LINE#         43
-  C:094EH         LINE#         44
-  C:0951H         LINE#         45
-  C:0954H         LINE#         46
-  C:0957H         LINE#         47
-  C:095AH         LINE#         48
-  C:0961H         LINE#         49
-  C:0966H         LINE#         50
-  C:096BH         LINE#         52
-  C:0974H         LINE#         56
+  C:090FH         LINE#         35
+  C:090FH         LINE#         37
+  C:091DH         LINE#         38
+  C:0929H         LINE#         39
+  C:0935H         LINE#         40
+  C:0941H         LINE#         41
+  C:094DH         LINE#         43
+  C:0952H         LINE#         44
+  C:0955H         LINE#         45
+  C:0958H         LINE#         46
+  C:095BH         LINE#         47
+  C:095EH         LINE#         48
+  C:0965H         LINE#         49
+  C:096AH         LINE#         50
+  C:096FH         LINE#         52
+  C:0978H         LINE#         56
   -------         ENDPROC       HARDWARE_INIT
   -------         PROC          MAIN
-  C:126DH         LINE#         58
-  C:126DH         LINE#         59
-  C:1270H         LINE#         60
-  C:1270H         LINE#         61
-  C:1273H         LINE#         62
+  C:1291H         LINE#         58
+  C:1291H         LINE#         59
+  C:1294H         LINE#         60
+  C:1294H         LINE#         61
+  C:1297H         LINE#         62
   -------         ENDPROC       MAIN
   -------         ENDMOD        SPIN_MAIN
 
   -------         MODULE        SPIN_PWRMGR
   C:0000H         SYMBOL        _ICE_DUMMY_
-BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2021  20:21:52  PAGE 15
-
-
   D:0090H         PUBLIC        P1
   D:00B0H         PUBLIC        P3
   D:00D0H         PUBLIC        PSW
   D:0087H         PUBLIC        PCON
   D:0088H         PUBLIC        TCON
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/24/2021  19:34:29  PAGE 15
+
+
   D:00A8H         PUBLIC        IE
   D:00B8H         PUBLIC        IP
   D:0098H         PUBLIC        SCON
-  D:00C0H         PUBLIC        XICON
   D:00C8H         PUBLIC        T2CON
-  C:1199H         SYMBOL        _sem_try_wait
-  C:128DH         PUBLIC        idle_mode
-  C:1291H         PUBLIC        power_down
+  C:11EFH         SYMBOL        _sem_try_wait
+  C:12B1H         PUBLIC        idle_mode
+  C:12B5H         PUBLIC        power_down
   -------         PROC          _SEM_TRY_WAIT
   D:0006H         SYMBOL        sem_name
-  C:1199H         LINE#         75
-  C:1199H         LINE#         76
-  C:119DH         LINE#         77
-  C:119EH         LINE#         78
-  C:11A2H         LINE#         79
-  C:11A2H         LINE#         81
-  C:11A6H         LINE#         82
+  C:11EFH         LINE#         75
+  C:11EFH         LINE#         76
+  C:11F3H         LINE#         77
+  C:11F4H         LINE#         78
+  C:11F8H         LINE#         79
+  C:11F8H         LINE#         81
+  C:11FCH         LINE#         82
   -------         ENDPROC       _SEM_TRY_WAIT
   -------         PROC          IDLE_MODE
-  C:128DH         LINE#         2
-  C:128DH         LINE#         3
-  C:1290H         LINE#         4
+  C:12B1H         LINE#         2
+  C:12B1H         LINE#         3
+  C:12B4H         LINE#         4
   -------         ENDPROC       IDLE_MODE
   -------         PROC          POWER_DOWN
-  C:1291H         LINE#         5
-  C:1291H         LINE#         6
-  C:1294H         LINE#         7
+  C:12B5H         LINE#         5
+  C:12B5H         LINE#         6
+  C:12B8H         LINE#         7
   -------         ENDPROC       POWER_DOWN
   -------         ENDMOD        SPIN_PWRMGR
 
@@ -891,90 +885,89 @@ SYMBOL TABLE OF MODULE:  stc89c52 (?C_STARTUP)
   D:00A8H         PUBLIC        IE
   D:00B8H         PUBLIC        IP
   D:0098H         PUBLIC        SCON
-  D:00C0H         PUBLIC        XICON
   D:00C8H         PUBLIC        T2CON
   B:0088H.6       PUBLIC        TR1
   B:0088H.4       PUBLIC        TR0
-  C:11A7H         SYMBOL        _sem_try_wait
-  C:081CH         PUBLIC        _spin_timer_us
-  C:0CC6H         PUBLIC        _spin_timer_ms
-  C:1220H         PUBLIC        _spin_timer_sec
-BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2021  20:21:52  PAGE 16
-
-
-  C:079EH         PUBLIC        _spin_counter_time
-  C:120CH         PUBLIC        _primary_value
-  C:0DA5H         PUBLIC        _spin_timer_set
-  C:11EDH         PUBLIC        _spin_timer_start
-  C:11FAH         PUBLIC        _spin_timer_stop
-  C:0E58H         PUBLIC        _spin_timer_for_uart
+  C:11FDH         SYMBOL        _sem_try_wait
+  C:0820H         PUBLIC        _spin_timer_us
+  C:0B85H         PUBLIC        _spin_timer_ms
+  C:1264H         PUBLIC        _spin_timer_sec
+  C:07A2H         PUBLIC        _spin_counter_time
+  C:123AH         PUBLIC        _primary_value
+  C:0D7EH         PUBLIC        _spin_timer_set
+  C:1152H         PUBLIC        _spin_timer_start
+  C:1165H         PUBLIC        _spin_timer_stop
+  C:0E36H         PUBLIC        _spin_timer_for_uart
   C:0022H         PUBLIC        delay2us
-  C:12ABH         PUBLIC        delay3us
-  C:125CH         PUBLIC        delay1ms
-  C:11B5H         PUBLIC        delay1s
-  C:0894H         PUBLIC        _spin_sysTick
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/24/2021  19:34:29  PAGE 16
+
+
+  C:12CFH         PUBLIC        delay3us
+  C:100CH         PUBLIC        delay1ms
+  C:0F40H         PUBLIC        delay1s
+  C:0898H         PUBLIC        _spin_sysTick
   X:0055H         PUBLIC        local_timer_current_used
   X:0056H         PUBLIC        local_counter_current_used
   X:0057H         SYMBOL        local_timer_current_callback
   X:005AH         SYMBOL        local_counter_current_callback
-  C:10A2H         SYMBOL        spin_timer_close
-  C:10B9H         SYMBOL        spin_counter_close
-  C:0D59H         SYMBOL        _spin_counter_set
+  C:10D2H         SYMBOL        spin_timer_close
+  C:10E9H         SYMBOL        spin_counter_close
+  C:0A3BH         SYMBOL        _spin_counter_set
   X:005DH         SYMBOL        local_remain_ms
   C:04F9H         SYMBOL        spin_timer_local_callback
-  C:0C2AH         SYMBOL        spin_counter_local_callback
+  C:0AE9H         SYMBOL        spin_counter_local_callback
   -------         PROC          _SEM_TRY_WAIT
   D:0006H         SYMBOL        sem_name
-  C:11A7H         LINE#         75
-  C:11A7H         LINE#         76
-  C:11ABH         LINE#         77
-  C:11ACH         LINE#         78
-  C:11B0H         LINE#         79
-  C:11B0H         LINE#         81
-  C:11B4H         LINE#         82
+  C:11FDH         LINE#         75
+  C:11FDH         LINE#         76
+  C:1201H         LINE#         77
+  C:1202H         LINE#         78
+  C:1206H         LINE#         79
+  C:1206H         LINE#         81
+  C:120AH         LINE#         82
   -------         ENDPROC       _SEM_TRY_WAIT
   -------         PROC          SPIN_TIMER_CLOSE
-  C:10A2H         LINE#         10
-  C:10A2H         LINE#         11
-  C:10AAH         LINE#         12
-  C:10B2H         LINE#         13
-  C:10B8H         LINE#         14
+  C:10D2H         LINE#         10
+  C:10D2H         LINE#         11
+  C:10DAH         LINE#         12
+  C:10E2H         LINE#         13
+  C:10E8H         LINE#         14
   -------         ENDPROC       SPIN_TIMER_CLOSE
   -------         PROC          SPIN_COUNTER_CLOSE
-  C:10B9H         LINE#         15
-  C:10B9H         LINE#         16
-  C:10C1H         LINE#         17
-  C:10C9H         LINE#         18
-  C:10CFH         LINE#         19
+  C:10E9H         LINE#         15
+  C:10E9H         LINE#         16
+  C:10F1H         LINE#         17
+  C:10F9H         LINE#         18
+  C:10FFH         LINE#         19
   -------         ENDPROC       SPIN_COUNTER_CLOSE
   -------         PROC          _SPIN_COUNTER_SET
   D:0007H         SYMBOL        mode
   D:0004H         SYMBOL        time
-  C:0D59H         LINE#         22
-  C:0D59H         LINE#         23
-  C:0D62H         LINE#         24
-  C:0D65H         LINE#         25
-  C:0D68H         LINE#         26
-  C:0D6BH         LINE#         27
-  C:0D6FH         LINE#         28
-  C:0D76H         LINE#         30
-  C:0D76H         LINE#         31
-BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2021  20:21:52  PAGE 17
+  C:0A3BH         LINE#         22
+  C:0A3BH         LINE#         23
+  C:0A4FH         LINE#         24
+  C:0A52H         LINE#         25
+  C:0A55H         LINE#         26
+  C:0A58H         LINE#         27
+  C:0A5DH         LINE#         28
+  C:0A64H         LINE#         30
+  C:0A64H         LINE#         31
+  C:0A67H         LINE#         32
+  C:0A6AH         LINE#         33
+  C:0A6BH         LINE#         34
+  C:0A76H         LINE#         35
+  C:0A79H         LINE#         36
+  C:0A7CH         LINE#         37
+  C:0A82H         LINE#         38
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/24/2021  19:34:29  PAGE 17
 
 
-  C:0D79H         LINE#         32
-  C:0D7CH         LINE#         33
-  C:0D7DH         LINE#         34
-  C:0D82H         LINE#         35
-  C:0D85H         LINE#         36
-  C:0D88H         LINE#         37
-  C:0D8EH         LINE#         38
-  C:0D92H         LINE#         39
-  C:0D99H         LINE#         41
-  C:0D99H         LINE#         42
-  C:0D9CH         LINE#         43
-  C:0D9FH         LINE#         44
-  C:0D9FH         LINE#         45
+  C:0A87H         LINE#         39
+  C:0A8EH         LINE#         41
+  C:0A8EH         LINE#         42
+  C:0A91H         LINE#         43
+  C:0A94H         LINE#         44
+  C:0A94H         LINE#         45
   -------         ENDPROC       _SPIN_COUNTER_SET
   -------         PROC          SPIN_TIMER_LOCAL_CALLBACK
   -------         DO            
@@ -1005,30 +998,30 @@ SYMBOL TABLE OF MODULE:  stc89c52 (?C_STARTUP)
   -------         ENDPROC       SPIN_TIMER_LOCAL_CALLBACK
   -------         PROC          _SPIN_TIMER_START
   D:0007H         SYMBOL        dev
-  C:11EDH         LINE#         75
-  C:11EDH         LINE#         76
-  C:11F3H         LINE#         77
-  C:11F9H         LINE#         78
+  C:1152H         LINE#         75
+  C:1152H         LINE#         76
+  C:115CH         LINE#         77
+  C:1164H         LINE#         78
   -------         ENDPROC       _SPIN_TIMER_START
   -------         PROC          _SPIN_TIMER_STOP
   D:0007H         SYMBOL        dev
-  C:11FAH         LINE#         80
-  C:11FAH         LINE#         81
-  C:1200H         LINE#         82
-  C:1206H         LINE#         83
+  C:1165H         LINE#         80
+  C:1165H         LINE#         81
+  C:116FH         LINE#         82
+  C:1177H         LINE#         83
   -------         ENDPROC       _SPIN_TIMER_STOP
-  C:1207H         SYMBOL        L?0061
+  C:1235H         SYMBOL        L?0061
   -------         PROC          L?0060
-BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2021  20:21:52  PAGE 18
-
-
   -------         ENDPROC       L?0060
-  C:1207H         SYMBOL        L?0061
+  C:1235H         SYMBOL        L?0061
   -------         PROC          _PRIMARY_VALUE
   D:0006H         SYMBOL        overflow_time_us
-  C:120CH         LINE#         85
-  C:120CH         LINE#         86
-  C:1213H         LINE#         87
+  C:123AH         LINE#         85
+  C:123AH         LINE#         86
+  C:1241H         LINE#         87
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/24/2021  19:34:29  PAGE 18
+
+
   -------         ENDPROC       _PRIMARY_VALUE
   -------         PROC          L?0062
   -------         ENDPROC       L?0062
@@ -1036,101 +1029,99 @@ SYMBOL TABLE OF MODULE:  stc89c52 (?C_STARTUP)
   D:0007H         SYMBOL        dev
   D:0005H         SYMBOL        mode
   D:0002H         SYMBOL        time
-  C:0DA5H         LINE#         90
-  C:0DA5H         LINE#         91
-  C:0DAAH         LINE#         92
-  C:0DADH         LINE#         93
-  C:0DB0H         LINE#         94
-  C:0DB4H         LINE#         95
-  C:0DBBH         LINE#         97
-  C:0DBBH         LINE#         98
-  C:0DBEH         LINE#         99
-  C:0DC1H         LINE#         100
-  C:0DC2H         LINE#         101
-  C:0DC7H         LINE#         102
-  C:0DCAH         LINE#         103
-  C:0DD0H         LINE#         104
-  C:0DD4H         LINE#         105
-  C:0DDBH         LINE#         107
-  C:0DDBH         LINE#         108
-  C:0DDEH         LINE#         109
-  C:0DE1H         LINE#         110
-  C:0DE1H         LINE#         111
+  C:0D7EH         LINE#         90
+  C:0D7EH         LINE#         91
+  C:0D83H         LINE#         92
+  C:0D86H         LINE#         93
+  C:0D89H         LINE#         94
+  C:0D8EH         LINE#         95
+  C:0D95H         LINE#         97
+  C:0D95H         LINE#         98
+  C:0D98H         LINE#         99
+  C:0D9BH         LINE#         100
+  C:0D9CH         LINE#         101
+  C:0DA1H         LINE#         102
+  C:0DA4H         LINE#         103
+  C:0DAAH         LINE#         104
+  C:0DAFH         LINE#         105
+  C:0DB6H         LINE#         107
+  C:0DB6H         LINE#         108
+  C:0DB9H         LINE#         109
+  C:0DBCH         LINE#         110
+  C:0DBCH         LINE#         111
   -------         ENDPROC       _SPIN_TIMER_SET
   -------         PROC          _SPIN_TIMER_US
   X:0083H         SYMBOL        us
   -------         DO            
   D:0004H         SYMBOL        primary_values
   -------         ENDDO         
-  C:081CH         LINE#         114
-  C:0824H         LINE#         117
-  C:0852H         LINE#         118
-  C:0870H         LINE#         120
-  C:0873H         LINE#         121
-  C:0876H         LINE#         123
-  C:0880H         LINE#         124
-  C:0889H         LINE#         125
-  C:088EH         LINE#         127
-  C:0891H         LINE#         128
-  C:0893H         LINE#         129
+  C:0820H         LINE#         114
+  C:0828H         LINE#         117
+  C:0856H         LINE#         118
+  C:0874H         LINE#         120
+  C:0877H         LINE#         121
+  C:087AH         LINE#         123
+  C:0884H         LINE#         124
+  C:088DH         LINE#         125
+  C:0892H         LINE#         127
+  C:0895H         LINE#         128
+  C:0897H         LINE#         129
   -------         ENDPROC       _SPIN_TIMER_US
   -------         PROC          _SPIN_TIMER_MS
   D:0006H         SYMBOL        ms
   -------         DO            
   D:0005H         SYMBOL        ret
   -------         ENDDO         
-BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2021  20:21:52  PAGE 19
+  C:0B85H         LINE#         131
+  C:0B85H         LINE#         132
+  C:0B87H         LINE#         133
+  C:0B8FH         LINE#         134
+  C:0B97H         LINE#         135
+  C:0BA0H         LINE#         136
+  C:0BAEH         LINE#         137
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/24/2021  19:34:29  PAGE 19
 
 
-  C:0CC6H         LINE#         131
-  C:0CC6H         LINE#         132
-  C:0CC8H         LINE#         133
-  C:0CD0H         LINE#         134
-  C:0CD8H         LINE#         135
-  C:0CE1H         LINE#         136
-  C:0CEFH         LINE#         137
-  C:0CF1H         LINE#         138
-  C:0CF1H         LINE#         139
-  C:0D05H         LINE#         140
-  C:0D0EH         LINE#         141
-  C:0D0EH         LINE#         142
-  C:0D10H         LINE#         143
+  C:0BB0H         LINE#         138
+  C:0BB0H         LINE#         139
+  C:0BC4H         LINE#         140
+  C:0BCDH         LINE#         141
+  C:0BCDH         LINE#         142
+  C:0BCFH         LINE#         143
   -------         ENDPROC       _SPIN_TIMER_MS
   -------         PROC          _SPIN_TIMER_SEC
   D:0006H         SYMBOL        sec
   -------         DO            
   D:0005H         SYMBOL        ret
   -------         ENDDO         
-  C:1220H         LINE#         145
-  C:1220H         LINE#         146
-  C:1220H         LINE#         147
-  C:122AH         LINE#         148
-  C:122AH         LINE#         149
+  C:1264H         LINE#         145
+  C:1264H         LINE#         146
+  C:1264H         LINE#         147
   -------         ENDPROC       _SPIN_TIMER_SEC
   -------         PROC          SPIN_COUNTER_LOCAL_CALLBACK
-  C:0C2AH         LINE#         151
-  C:0C2AH         LINE#         152
-  C:0C2DH         LINE#         153
-  C:0C5DH         LINE#         154
-  C:0C74H         LINE#         155
-  C:0C77H         LINE#         156
+  C:0AE9H         LINE#         151
+  C:0AE9H         LINE#         152
+  C:0AECH         LINE#         153
+  C:0B1CH         LINE#         154
+  C:0B33H         LINE#         155
+  C:0B36H         LINE#         156
   -------         ENDPROC       SPIN_COUNTER_LOCAL_CALLBACK
   -------         PROC          _SPIN_COUNTER_TIME
   X:0085H         SYMBOL        time
   -------         DO            
   D:0006H         SYMBOL        primary_values
   -------         ENDDO         
-  C:079EH         LINE#         158
-  C:07A6H         LINE#         160
-  C:07A9H         LINE#         161
-  C:07ACH         LINE#         163
-  C:07B2H         LINE#         165
-  C:07E0H         LINE#         166
-  C:07FEH         LINE#         167
-  C:0807H         LINE#         168
-  C:0811H         LINE#         170
-  C:0819H         LINE#         171
-  C:081BH         LINE#         172
+  C:07A2H         LINE#         158
+  C:07AAH         LINE#         160
+  C:07ADH         LINE#         161
+  C:07B0H         LINE#         163
+  C:07B6H         LINE#         165
+  C:07E4H         LINE#         166
+  C:0802H         LINE#         167
+  C:080BH         LINE#         168
+  C:0815H         LINE#         170
+  C:081DH         LINE#         171
+  C:081FH         LINE#         172
   -------         ENDPROC       _SPIN_COUNTER_TIME
   -------         PROC          DELAY2US
   C:0022H         LINE#         173
@@ -1138,24 +1129,24 @@ SYMBOL TABLE OF MODULE:  stc89c52 (?C_STARTUP)
   C:0022H         LINE#         175
   -------         ENDPROC       DELAY2US
   -------         PROC          DELAY3US
-  C:12ABH         LINE#         176
-BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2021  20:21:52  PAGE 20
-
-
-  C:12ABH         LINE#         177
-  C:12ABH         LINE#         178
-  C:12ACH         LINE#         179
+  C:12CFH         LINE#         176
+  C:12CFH         LINE#         177
+  C:12CFH         LINE#         178
+  C:12D0H         LINE#         179
   -------         ENDPROC       DELAY3US
   -------         PROC          DELAY1MS
   -------         DO            
   D:0006H         SYMBOL        a
   D:0007H         SYMBOL        b
   -------         ENDDO         
-  C:125CH         LINE#         181
-  C:125CH         LINE#         182
-  C:125CH         LINE#         184
-  C:125EH         LINE#         185
-  C:1264H         LINE#         186
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/24/2021  19:34:29  PAGE 20
+
+
+  C:100CH         LINE#         181
+  C:100CH         LINE#         182
+  C:100CH         LINE#         184
+  C:1018H         LINE#         185
+  C:102AH         LINE#         186
   -------         ENDPROC       DELAY1MS
   -------         PROC          DELAY1S
   -------         DO            
@@ -1163,13 +1154,13 @@ SYMBOL TABLE OF MODULE:  stc89c52 (?C_STARTUP)
   D:0006H         SYMBOL        b
   D:0007H         SYMBOL        c
   -------         ENDDO         
-  C:11B5H         LINE#         188
-  C:11B5H         LINE#         189
-  C:11B5H         LINE#         191
-  C:11B7H         LINE#         192
-  C:11B9H         LINE#         193
-  C:11C1H         LINE#         194
-  C:11C2H         LINE#         195
+  C:0F40H         LINE#         188
+  C:0F40H         LINE#         189
+  C:0F40H         LINE#         191
+  C:0F4CH         LINE#         192
+  C:0F58H         LINE#         193
+  C:0F6DH         LINE#         194
+  C:0F6EH         LINE#         195
   -------         ENDPROC       DELAY1S
   -------         PROC          _SPIN_TIMER_FOR_UART
   X:005FH         SYMBOL        dev
@@ -1177,31 +1168,28 @@ SYMBOL TABLE OF MODULE:  stc89c52 (?C_STARTUP)
   -------         DO            
   D:0004H         SYMBOL        time
   -------         ENDDO         
-  C:0E58H         LINE#         196
-  C:0E63H         LINE#         199
-  C:0E66H         LINE#         200
-  C:0E69H         LINE#         201
-  C:0E73H         LINE#         203
-  C:0E81H         LINE#         205
-  C:0E86H         LINE#         206
+  C:0E36H         LINE#         196
+  C:0E41H         LINE#         199
+  C:0E44H         LINE#         200
+  C:0E47H         LINE#         201
+  C:0E51H         LINE#         203
+  C:0E5FH         LINE#         205
+  C:0E64H         LINE#         206
   -------         ENDPROC       _SPIN_TIMER_FOR_UART
   -------         PROC          _SPIN_SYSTICK
   X:005FH         SYMBOL        callback
   -------         DO            
   X:0062H         SYMBOL        primary_values
   -------         ENDDO         
-  C:0894H         LINE#         210
-  C:089FH         LINE#         213
-  C:08CDH         LINE#         214
-  C:08F3H         LINE#         216
-  C:08F6H         LINE#         217
-  C:08F9H         LINE#         219
-  C:0902H         LINE#         220
-  C:0908H         LINE#         222
+  C:0898H         LINE#         210
+  C:08A3H         LINE#         213
+  C:08D1H         LINE#         214
+  C:08F7H         LINE#         216
+  C:08FAH         LINE#         217
+  C:08FDH         LINE#         219
+  C:0906H         LINE#         220
+  C:090CH         LINE#         222
   -------         ENDPROC       _SPIN_SYSTICK
-BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2021  20:21:52  PAGE 21
-
-
   -------         ENDMOD        SPIN_TIMER
 
   -------         MODULE        SPIN_UART
@@ -1211,81 +1199,83 @@ SYMBOL TABLE OF MODULE:  stc89c52 (?C_STARTUP)
   D:00D0H         PUBLIC        PSW
   D:0087H         PUBLIC        PCON
   D:0088H         PUBLIC        TCON
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/24/2021  19:34:29  PAGE 21
+
+
   D:00A8H         PUBLIC        IE
   D:00B8H         PUBLIC        IP
   D:0098H         PUBLIC        SCON
   D:0099H         PUBLIC        SBUF
-  D:00C0H         PUBLIC        XICON
   D:00C8H         PUBLIC        T2CON
-  C:11C3H         SYMBOL        _sem_try_wait
-  C:0F62H         PUBLIC        spin_uart_init
-  C:0C78H         PUBLIC        _spin_write_uart
+  C:120BH         SYMBOL        _sem_try_wait
+  C:0F6FH         PUBLIC        spin_uart_init
+  C:0B37H         PUBLIC        _spin_write_uart
   C:05C3H         PUBLIC        _spin_read_uart
   X:006DH         PUBLIC        uart_send
   I:0064H         PUBLIC        recv_buff
   X:006FH         SYMBOL        boaud_rate
   X:0071H         SYMBOL        over_time_us
-  C:0EF8H         SYMBOL        _spin_write_byte
-  C:0FB7H         SYMBOL        spin_read_byte
+  C:0ED6H         SYMBOL        _spin_write_byte
+  C:0F9DH         SYMBOL        spin_read_byte
   -------         PROC          _SEM_TRY_WAIT
   D:0006H         SYMBOL        sem_name
-  C:11C3H         LINE#         75
-  C:11C3H         LINE#         76
-  C:11C7H         LINE#         77
-  C:11C8H         LINE#         78
-  C:11CCH         LINE#         79
-  C:11CCH         LINE#         81
-  C:11D0H         LINE#         82
+  C:120BH         LINE#         75
+  C:120BH         LINE#         76
+  C:120FH         LINE#         77
+  C:1210H         LINE#         78
+  C:1214H         LINE#         79
+  C:1214H         LINE#         81
+  C:1218H         LINE#         82
   -------         ENDPROC       _SEM_TRY_WAIT
   -------         PROC          SPIN_UART_INIT
-  C:0F62H         LINE#         12
-  C:0F62H         LINE#         13
-  C:0F6AH         LINE#         14
-  C:0F77H         LINE#         18
-  C:0F7AH         LINE#         19
-  C:0F7DH         LINE#         20
-  C:0F82H         LINE#         21
-  C:0F8FH         LINE#         22
+  C:0F6FH         LINE#         12
+  C:0F6FH         LINE#         13
+  C:0F77H         LINE#         14
+  C:0F84H         LINE#         18
+  C:0F87H         LINE#         19
+  C:0F8AH         LINE#         20
+  C:0F8FH         LINE#         21
+  C:0F9CH         LINE#         22
   -------         ENDPROC       SPIN_UART_INIT
   -------         PROC          _SPIN_WRITE_BYTE
   X:0064H         SYMBOL        c
-  C:0EF8H         LINE#         23
-  C:0EFDH         LINE#         24
-  C:0F1BH         LINE#         25
-  C:0F1EH         LINE#         26
-  C:0F24H         LINE#         27
-  C:0F27H         LINE#         28
-  C:0F2CH         LINE#         29
+  C:0ED6H         LINE#         23
+  C:0EDBH         LINE#         24
+  C:0EF9H         LINE#         25
+  C:0EFCH         LINE#         26
+  C:0F02H         LINE#         27
+  C:0F05H         LINE#         28
+  C:0F0AH         LINE#         29
   -------         ENDPROC       _SPIN_WRITE_BYTE
   -------         PROC          _SPIN_WRITE_UART
   X:005FH         SYMBOL        buff
-BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2021  20:21:52  PAGE 22
-
-
   X:0060H         SYMBOL        n
   -------         DO            
   X:0062H         SYMBOL        i
   -------         ENDDO         
-  C:0C78H         LINE#         30
-  C:0C83H         LINE#         31
-  C:0C88H         LINE#         32
-  C:0C9DH         LINE#         33
-  C:0CA7H         LINE#         34
-  C:0CADH         LINE#         35
-  C:0CBDH         LINE#         36
-  C:0CC5H         LINE#         37
+  C:0B37H         LINE#         30
+  C:0B42H         LINE#         31
+  C:0B47H         LINE#         32
+  C:0B5CH         LINE#         33
+  C:0B66H         LINE#         34
+  C:0B6CH         LINE#         35
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/24/2021  19:34:29  PAGE 22
+
+
+  C:0B7CH         LINE#         36
+  C:0B84H         LINE#         37
   -------         ENDPROC       _SPIN_WRITE_UART
   -------         PROC          SPIN_READ_BYTE
   -------         DO            
   X:0066H         SYMBOL        ret
   -------         ENDDO         
-  C:0FB7H         LINE#         39
-  C:0FB7H         LINE#         41
-  C:0FC2H         LINE#         42
-  C:0FC5H         LINE#         43
-  C:0FD1H         LINE#         44
-  C:0FD4H         LINE#         45
-  C:0FD9H         LINE#         46
+  C:0F9DH         LINE#         39
+  C:0F9DH         LINE#         41
+  C:0FACH         LINE#         42
+  C:0FAFH         LINE#         43
+  C:0FBBH         LINE#         44
+  C:0FBEH         LINE#         45
+  C:0FC3H         LINE#         46
   -------         ENDPROC       SPIN_READ_BYTE
   -------         PROC          _SPIN_READ_UART
   X:005FH         SYMBOL        buff
@@ -1301,72 +1291,71 @@ SYMBOL TABLE OF MODULE:  stc89c52 (?C_STARTUP)
   C:05CEH         LINE#         51
   C:05D2H         LINE#         52
   C:05D6H         LINE#         53
-  C:05DEH         LINE#         54
-  C:05F1H         LINE#         55
-  C:05F3H         LINE#         56
-  C:0604H         LINE#         58
-  C:0618H         LINE#         59
-  C:0636H         LINE#         60
-  C:0641H         LINE#         61
-  C:0659H         LINE#         62
-  C:065EH         LINE#         63
-  C:066BH         LINE#         64
-  C:067CH         LINE#         65
-  C:067CH         LINE#         66
+  C:05E2H         LINE#         54
+  C:05F5H         LINE#         55
+  C:05F7H         LINE#         56
+  C:0608H         LINE#         58
+  C:061CH         LINE#         59
+  C:063AH         LINE#         60
+  C:0645H         LINE#         61
+  C:065DH         LINE#         62
+  C:0662H         LINE#         63
+  C:066FH         LINE#         64
+  C:0680H         LINE#         65
+  C:0680H         LINE#         66
   -------         ENDPROC       _SPIN_READ_UART
   -------         ENDMOD        SPIN_UART
 
   -------         MODULE        SPIN_WATCHDOG
   C:0000H         SYMBOL        _ICE_DUMMY_
   D:0090H         PUBLIC        P1
-BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2021  20:21:52  PAGE 23
-
-
   D:00B0H         PUBLIC        P3
   D:00D0H         PUBLIC        PSW
   D:0088H         PUBLIC        TCON
   D:00A8H         PUBLIC        IE
   D:00B8H         PUBLIC        IP
   D:0098H         PUBLIC        SCON
-  D:00C0H         PUBLIC        XICON
   D:00C8H         PUBLIC        T2CON
   D:00E1H         PUBLIC        WDT_CONTR
-  C:11D1H         SYMBOL        _sem_try_wait
-  C:1295H         PUBLIC        spin_watchdog_enable
-  C:1299H         PUBLIC        spin_watchdog_disable
-  C:129DH         PUBLIC        spin_watchdog_idlework
-  C:12A1H         PUBLIC        spin_watchdog_clear
-  C:067DH         PUBLIC        _spin_watchdog_overtime
+  C:1219H         SYMBOL        _sem_try_wait
+  C:12B9H         PUBLIC        spin_watchdog_enable
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/24/2021  19:34:29  PAGE 23
+
+
+  C:12BDH         PUBLIC        spin_watchdog_disable
+  C:12C1H         PUBLIC        spin_watchdog_idlework
+  C:12C5H         PUBLIC        spin_watchdog_clear
+  C:0681H         PUBLIC        _spin_watchdog_overtime
   -------         PROC          _SEM_TRY_WAIT
   D:0006H         SYMBOL        sem_name
-  C:11D1H         LINE#         75
-  C:11D1H         LINE#         76
-  C:11D5H         LINE#         77
-  C:11D6H         LINE#         78
-  C:11DAH         LINE#         79
-  C:11DAH         LINE#         81
-  C:11DEH         LINE#         82
+  C:1219H         LINE#         75
+  C:1219H         LINE#         76
+  C:121DH         LINE#         77
+  C:121EH         LINE#         78
+  C:1222H         LINE#         79
+  C:1222H         LINE#         81
+  C:1226H         LINE#         82
   -------         ENDPROC       _SEM_TRY_WAIT
   -------         PROC          SPIN_WATCHDOG_ENABLE
-  C:1295H         LINE#         3
-  C:1295H         LINE#         4
-  C:1298H         LINE#         5
+  C:12B9H         LINE#         3
+  C:12B9H         LINE#         4
+  C:12BCH         LINE#         5
   -------         ENDPROC       SPIN_WATCHDOG_ENABLE
   -------         PROC          SPIN_WATCHDOG_DISABLE
-  C:1299H         LINE#         6
-  C:1299H         LINE#         7
-  C:129CH         LINE#         8
+  C:12BDH         LINE#         6
+  C:12BDH         LINE#         7
+  C:12C0H         LINE#         8
   -------         ENDPROC       SPIN_WATCHDOG_DISABLE
   -------         PROC          SPIN_WATCHDOG_IDLEWORK
   B:0021H.1       SYMBOL        torf
-  C:129DH         LINE#         9
-  C:129DH         LINE#         10
-  C:12A0H         LINE#         11
+  C:12C1H         LINE#         9
+  C:12C1H         LINE#         10
+  C:12C4H         LINE#         11
   -------         ENDPROC       SPIN_WATCHDOG_IDLEWORK
   -------         PROC          SPIN_WATCHDOG_CLEAR
-  C:12A1H         LINE#         13
-  C:12A1H         LINE#         14
-  C:12A4H         LINE#         15
+  C:12C5H         LINE#         13
+  C:12C5H         LINE#         14
+  C:12C8H         LINE#         15
   -------         ENDPROC       SPIN_WATCHDOG_CLEAR
   -------         PROC          _SPIN_WATCHDOG_OVERTIME
   X:005FH         SYMBOL        pre_scale
@@ -1375,38 +1364,38 @@ SYMBOL TABLE OF MODULE:  stc89c52 (?C_STARTUP)
   X:0061H         SYMBOL        pre_scale_value
   X:0062H         SYMBOL        overtime
   -------         ENDDO         
-  C:067DH         LINE#         18
-  C:0685H         LINE#         19
-  C:0688H         LINE#         20
-  C:068CH         LINE#         21
-BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2021  20:21:52  PAGE 24
+  C:0681H         LINE#         18
+  C:0689H         LINE#         19
+  C:068CH         LINE#         20
+  C:0690H         LINE#         21
+  C:0693H         LINE#         22
+  C:06B5H         LINE#         23
+  C:06BCH         LINE#         24
+  C:06C4H         LINE#         25
+  C:06CCH         LINE#         26
+  C:06D4H         LINE#         27
+  C:06DCH         LINE#         28
+  C:06E4H         LINE#         29
+  C:06ECH         LINE#         30
+  C:06F2H         LINE#         31
+  C:06F2H         LINE#         32
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/24/2021  19:34:29  PAGE 24
 
 
-  C:068FH         LINE#         22
-  C:06B1H         LINE#         23
-  C:06B8H         LINE#         24
-  C:06C0H         LINE#         25
-  C:06C8H         LINE#         26
-  C:06D0H         LINE#         27
-  C:06D8H         LINE#         28
-  C:06E0H         LINE#         29
-  C:06E8H         LINE#         30
-  C:06EEH         LINE#         31
-  C:06EEH         LINE#         32
-  C:06EEH         LINE#         33
-  C:06F4H         LINE#         34
-  C:0711H         LINE#         35
-  C:0711H         LINE#         36
+  C:06F2H         LINE#         33
+  C:06F8H         LINE#         34
+  C:0715H         LINE#         35
+  C:0715H         LINE#         36
   -------         ENDPROC       _SPIN_WATCHDOG_OVERTIME
   -------         ENDMOD        SPIN_WATCHDOG
 
   -------         MODULE        ONE_OS
   C:0000H         SYMBOL        _ICE_DUMMY_
-  C:122BH         PUBLIC        _TaskHangup
-  C:1236H         PUBLIC        _TaskRecovery
-  C:0E20H         PUBLIC        TaskProcess
-  C:0B2EH         PUBLIC        TaskRemarks
-  C:11DFH         SYMBOL        _sem_try_wait
+  C:124EH         PUBLIC        _TaskHangup
+  C:1259H         PUBLIC        _TaskRecovery
+  C:0DFAH         PUBLIC        TaskProcess
+  C:09DEH         PUBLIC        TaskRemarks
+  C:1227H         SYMBOL        _sem_try_wait
   D:0090H         PUBLIC        P1
   D:00B0H         PUBLIC        P3
   D:00D0H         PUBLIC        PSW
@@ -1414,107 +1403,106 @@ SYMBOL TABLE OF MODULE:  stc89c52 (?C_STARTUP)
   D:00A8H         PUBLIC        IE
   D:00B8H         PUBLIC        IP
   D:0098H         PUBLIC        SCON
-  D:00C0H         PUBLIC        XICON
   D:00C8H         PUBLIC        T2CON
-  C:1035H         PUBLIC        task1
-  C:10D0H         PUBLIC        task2
-  C:0F2DH         PUBLIC        task3
+  C:1065H         PUBLIC        task1
+  C:1100H         PUBLIC        task2
+  C:0F0BH         PUBLIC        task3
   I:0052H         SYMBOL        task
   -------         PROC          _SEM_TRY_WAIT
   D:0006H         SYMBOL        sem_name
-  C:11DFH         LINE#         75
-  C:11DFH         LINE#         76
-  C:11E3H         LINE#         77
-  C:11E4H         LINE#         78
-  C:11E8H         LINE#         79
-  C:11E8H         LINE#         81
-  C:11ECH         LINE#         82
+  C:1227H         LINE#         75
+  C:1227H         LINE#         76
+  C:122BH         LINE#         77
+  C:122CH         LINE#         78
+  C:1230H         LINE#         79
+  C:1230H         LINE#         81
+  C:1234H         LINE#         82
   -------         ENDPROC       _SEM_TRY_WAIT
   -------         PROC          TASK1
   -------         DO            
   X:0073H         SYMBOL        recv_fre
   -------         ENDDO         
-  C:1035H         LINE#         16
-  C:1035H         LINE#         18
-  C:1047H         LINE#         19
-  C:104FH         LINE#         20
+  C:1065H         LINE#         16
+  C:1065H         LINE#         18
+  C:1077H         LINE#         19
+  C:107FH         LINE#         20
   -------         ENDPROC       TASK1
-BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2021  20:21:52  PAGE 25
-
-
   -------         PROC          TASK2
   -------         DO            
   I:0022H         SYMBOL        recv
   D:0004H         SYMBOL        ret
   -------         ENDDO         
-  C:10D0H         LINE#         23
-  C:10D0H         LINE#         25
-  C:10D3H         LINE#         26
-  C:10DCH         LINE#         27
-  C:10E0H         LINE#         28
-  C:10E5H         LINE#         29
+  C:1100H         LINE#         23
+  C:1100H         LINE#         25
+  C:1103H         LINE#         26
+  C:110CH         LINE#         27
+  C:1110H         LINE#         28
+  C:1115H         LINE#         29
   -------         ENDPROC       TASK2
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/24/2021  19:34:29  PAGE 25
+
+
   -------         PROC          TASK3
   -------         DO            
   I:0042H         SYMBOL        send
   X:0075H         SYMBOL        sec
   -------         ENDDO         
-  C:0F2DH         LINE#         31
-  C:0F2DH         LINE#         34
-  C:0F50H         LINE#         35
+  C:0F0BH         LINE#         31
+  C:0F0BH         LINE#         34
+  C:0F2EH         LINE#         35
   -------         ENDPROC       TASK3
   -------         PROC          _TASKHANGUP
   D:0007H         SYMBOL        Task_Num
-  C:122BH         LINE#         44
-  C:122BH         LINE#         45
-  C:122BH         LINE#         46
-  C:1235H         LINE#         47
+  C:124EH         LINE#         44
+  C:124EH         LINE#         45
+  C:124EH         LINE#         46
+  C:1258H         LINE#         47
   -------         ENDPROC       _TASKHANGUP
   -------         PROC          _TASKRECOVERY
   D:0007H         SYMBOL        Task_Num
-  C:1236H         LINE#         49
-  C:1236H         LINE#         50
-  C:1236H         LINE#         51
-  C:1240H         LINE#         52
+  C:1259H         LINE#         49
+  C:1259H         LINE#         50
+  C:1259H         LINE#         51
+  C:1263H         LINE#         52
   -------         ENDPROC       _TASKRECOVERY
   -------         PROC          TASKREMARKS
   -------         DO            
   D:0007H         SYMBOL        i
   -------         ENDDO         
-  C:0B2EH         LINE#         54
-  C:0B2EH         LINE#         55
-  C:0B2EH         LINE#         57
-  C:0B30H         LINE#         58
-  C:0B30H         LINE#         59
-  C:0B3DH         LINE#         60
-  C:0B3DH         LINE#         61
-  C:0B4CH         LINE#         62
-  C:0B59H         LINE#         63
-  C:0B59H         LINE#         64
-  C:0B73H         LINE#         65
-  C:0B7DH         LINE#         66
-  C:0B7DH         LINE#         67
-  C:0B7DH         LINE#         68
-  C:0B82H         LINE#         69
+  C:09DEH         LINE#         54
+  C:09DEH         LINE#         55
+  C:09DEH         LINE#         57
+  C:09EAH         LINE#         58
+  C:09EAH         LINE#         59
+  C:09F7H         LINE#         60
+  C:09F7H         LINE#         61
+  C:0A06H         LINE#         62
+  C:0A13H         LINE#         63
+  C:0A13H         LINE#         64
+  C:0A2DH         LINE#         65
+  C:0A37H         LINE#         66
+  C:0A37H         LINE#         67
+  C:0A37H         LINE#         68
+  C:0A3AH         LINE#         69
   -------         ENDPROC       TASKREMARKS
   -------         PROC          TASKPROCESS
   -------         DO            
-BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2021  20:21:52  PAGE 26
-
-
   X:005FH         SYMBOL        i
   -------         ENDDO         
-  C:0E20H         LINE#         71
-  C:0E20H         LINE#         72
-  C:0E20H         LINE#         74
-  C:0E2FH         LINE#         75
-  C:0E2FH         LINE#         76
-  C:0E3AH         LINE#         77
-  C:0E3AH         LINE#         78
-  C:0E3CH         LINE#         79
-  C:0E4DH         LINE#         80
-  C:0E4DH         LINE#         81
-  C:0E55H         LINE#         82
+  C:0DFAH         LINE#         71
+  C:0DFAH         LINE#         72
+  C:0DFAH         LINE#         74
+  C:0E0DH         LINE#         75
+  C:0E0DH         LINE#         76
+  C:0E18H         LINE#         77
+  C:0E18H         LINE#         78
+  C:0E1AH         LINE#         79
+  C:0E2BH         LINE#         80
+  C:0E2BH         LINE#         81
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/24/2021  19:34:29  PAGE 26
+
+
+  C:0E33H         LINE#         82
   -------         ENDPROC       TASKPROCESS
   -------         ENDMOD        ONE_OS
 
@@ -1559,12 +1547,9 @@ SYMBOL TABLE OF MODULE:  stc89c52 (?C_STARTUP)
   C:008BH         PUBLIC        _SPRINTF
   C:008BH         PUBLIC        _SPRINTF517
   -------         ENDMOD        PRINTF
-BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2021  20:21:52  PAGE 27
-
-
 
   -------         MODULE        STRLEN
-  C:10E6H         PUBLIC        _STRLEN
+  C:1116H         PUBLIC        _STRLEN
   -------         ENDMOD        STRLEN
 
   -------         MODULE        ?C?CLDPTR
@@ -1574,6 +1559,9 @@ SYMBOL TABLE OF MODULE:  stc89c52 (?C_STARTUP)
   -------         MODULE        ?C?CLDOPTR
   C:0474H         PUBLIC        ?C?CLDOPTR
   -------         ENDMOD        ?C?CLDOPTR
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/24/2021  19:34:29  PAGE 27
+
+
 
   -------         MODULE        ?C?CSTPTR
   C:04A1H         PUBLIC        ?C?CSTPTR
@@ -1592,7 +1580,7 @@ SYMBOL TABLE OF MODULE:  stc89c52 (?C_STARTUP)
   -------         ENDMOD        ?C?CCASE
 
   -------         MODULE        PUTCHAR
-  C:0F90H         PUBLIC        _PUTCHAR
+  C:0FC4H         PUBLIC        _PUTCHAR
   -------         ENDMOD        PUTCHAR
 
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
@@ -1619,9 +1607,6 @@ SYMBOL TABLE OF MODULE:  stc89c52 (?C_STARTUP)
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?SPIN_GET_RS0?SPIN_USERSTART
 
-BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2021  20:21:52  PAGE 28
-
-
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?SPIN_GET_OV?SPIN_USERSTART
 
@@ -1633,6 +1618,9 @@ SYMBOL TABLE OF MODULE:  stc89c52 (?C_STARTUP)
 
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?SPIN_EXINT1_STOP?SPIN_EXINTERUPT
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/24/2021  19:34:29  PAGE 28
+
 
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_SEM_TRY_WAIT?SPIN_INTERUPT
@@ -1679,9 +1667,6 @@ SYMBOL TABLE OF MODULE:  stc89c52 (?C_STARTUP)
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?SPIN_WATCHDOG_DISABLE?SPIN_WATCHDOG
 
-BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2021  20:21:52  PAGE 29
-
-
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?SPIN_WATCHDOG_IDLEWORK?SPIN_WATCHDOG
 
@@ -1694,8 +1679,11 @@ SYMBOL TABLE OF MODULE:  stc89c52 (?C_STARTUP)
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_TASKHANGUP?ONE_OS
 
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/24/2021  19:34:29  PAGE 29
+
+
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_TASKRECOVERY?ONE_OS
 
-Program Size: data=114.2 xdata=135 code=4781
+Program Size: data=114.2 xdata=135 code=4817
 LINK/LOCATE RUN COMPLETE.  32 WARNING(S),  0 ERROR(S)
